@@ -58,4 +58,6 @@ Optional information may include End date and time, Location guidance, etc.
 ## Roadmap
 
 - [Scrumwise Link](https://www.scrumwise.com/scrum/#/overview/project/billetmester_cs2023-dk/id-36893-38727-1)
+
+## Project Images
 ![image](https://github.com/Zorehan/BilletMester/assets/143797601/7256fc66-76a4-4cf5-8069-e32caa51ea44)
