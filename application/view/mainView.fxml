@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <StackPane prefHeight="198.0" prefWidth="1204.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="228.0" fitWidth="1204.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../data/images/boat_mountains_lake_135258_1920x1080.jpg" />
+               </image>
+            </ImageView>
+            <Pane prefHeight="160.0" prefWidth="1204.0">
+               <children>
+                  <StackPane layoutY="130.0" prefHeight="79.0" prefWidth="245.0">
+                     <children>
+                        <HBox prefHeight="64.0" prefWidth="247.0" style="-fx-background-color: black; -fx-opacity: 35%;" />
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label text="Concert" textFill="WHITE">
+                                 <font>
+                                    <Font size="28.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Event Title" textFill="WHITE">
+                                 <font>
+                                    <Font size="40.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </StackPane>
+                  <Button layoutX="1059.0" layoutY="169.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="108.0" text="See More" />
+                  <HBox layoutX="712.0" prefHeight="59.0" prefWidth="492.0">
+                     <children>
+                        <TextField promptText="Search" />
+                        <Button mnemonicParsing="false" text="Cart" />
+                        <Button mnemonicParsing="false" text="User" />
+                     </children>
+                  </HBox>
+               </children>
+            </Pane>
+         </children>
+      </StackPane>
+   </top>
+   <left>
+      <Pane prefHeight="548.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox layoutX="-1.0" prefHeight="41.0" prefWidth="1200.0" spacing="100.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="152.0" text="Button" />
+                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="152.0" text="Button" />
+                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="152.0" text="Button" />
+                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="152.0" text="Button" />
+                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="152.0" text="Button" />
+                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="152.0" text="Button" />
+               </children>
+            </HBox>
+            <Pane layoutX="72.0" layoutY="81.0" prefHeight="233.0" prefWidth="289.0">
+               <children>
+                  <ImageView fitHeight="233.0" fitWidth="291.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../data/images/gun2.jpg" />
+                     </image>
+                  </ImageView>
+                  <StackPane layoutY="111.0" prefHeight="34.0" prefWidth="130.0">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: Black; -fx-opacity: 35%;" />
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Event Title" textFill="WHITE">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </StackPane>
+                  <StackPane layoutY="144.0" prefHeight="92.0" prefWidth="292.0">
+                     <children>
+                        <HBox prefHeight="80.0" prefWidth="292.0" style="-fx-background-color: blue;" />
+                     </children>
+                  </StackPane>
+               </children>
+            </Pane>
+            <Pane layoutX="455.0" layoutY="81.0" prefHeight="233.0" prefWidth="289.0">
+               <children>
+                  <ImageView fitHeight="233.0" fitWidth="291.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../data/images/gun2.jpg" />
+                     </image>
+                  </ImageView>
+                  <StackPane layoutY="111.0" prefHeight="34.0" prefWidth="130.0">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: Black; -fx-opacity: 35%;" />
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Event Title" textFill="WHITE">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </StackPane>
+                  <StackPane layoutY="144.0" prefHeight="92.0" prefWidth="292.0">
+                     <children>
+                        <HBox prefHeight="80.0" prefWidth="292.0" style="-fx-background-color: blue;" />
+                     </children>
+                  </StackPane>
+               </children>
+            </Pane>
+            <Pane layoutX="816.0" layoutY="81.0" prefHeight="233.0" prefWidth="289.0">
+               <children>
+                  <ImageView fitHeight="233.0" fitWidth="291.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../data/images/gun2.jpg" />
+                     </image>
+                  </ImageView>
+                  <StackPane layoutY="111.0" prefHeight="34.0" prefWidth="130.0">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: Black; -fx-opacity: 35%;" />
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Event Title" textFill="WHITE">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </StackPane>
+                  <StackPane layoutY="144.0" prefHeight="92.0" prefWidth="292.0">
+                     <children>
+                        <HBox prefHeight="80.0" prefWidth="292.0" style="-fx-background-color: blue;" />
+                     </children>
+                  </StackPane>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+   </left>
+   <center>
+      <Pane prefHeight="54.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+   </center>
+   <bottom>
+      <Pane prefHeight="112.0" prefWidth="1200.0" style="-fx-background-color: blue;" BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>
