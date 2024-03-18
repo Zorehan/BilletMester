@@ -40,8 +40,9 @@ public class TicketManager {
         ticketDAO.deleteTicket(ticket);
     }
 
-    public void getTicketsByEventId(int eventId)
+    public List<Tickets> getTicketsByEventId(int eventId)
     {
-        ticketDAO.getTicketsByEventId(eventId);
+
+        return ticketDAO.getTicketsByEventId(eventId);
     }
 }
