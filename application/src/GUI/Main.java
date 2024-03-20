@@ -6,12 +6,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.util.Objects;
-
 public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/View/eventCreatorView.fxml")));
+        Parent root = FXMLLoader.load(getClass().getResource("View/eventCreatorView.fxml"));
         primaryStage.setTitle("Event Creator View");
         primaryStage.setScene(new Scene(root));
         primaryStage.setResizable(false);
