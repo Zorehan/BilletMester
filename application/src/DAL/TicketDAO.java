@@ -99,7 +99,7 @@ public class TicketDAO {
 
 
     public UserTickets createUserTicket(UserTickets userTicket) throws SQLException {
-        
+
         String sql = "INSERT INTO dbo.UserTickets (ticketID, userID) VALUES(?,?);";
         try(Connection conn = databaseConnector.getConnection();
             PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS))
