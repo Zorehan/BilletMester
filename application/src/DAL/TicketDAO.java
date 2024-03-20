@@ -1,6 +1,7 @@
 package DAL;
 
 import BE.Tickets;
+import BE.UserTickets;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -94,6 +95,25 @@ public class TicketDAO {
             throw new RuntimeException(e);
         }
         return tickets;
+    }
+
+
+    public UserTickets createUserTicket(UserTickets userTicket) throws SQLException {
+
+        String sql = "INSERT INTO dbo.UserTickets (ticketID, userID) VALUES(?,?);";
+        try(Connection conn = databaseConnector.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS))
+        {
+            stmt.setInt(1, userTicket.getTicketID());
+            stmt.setInt(2, userTicket.getUserID());
+
+            stmt.executeUpdate();
+
+
+            UserTickets newUserTicket = new UserTickets(userTicket.getTicketID(), userTicket.getUserID());
+
+            return  newUserTicket;
+        }
     }
 
     public void updateTicket(Tickets ticket)

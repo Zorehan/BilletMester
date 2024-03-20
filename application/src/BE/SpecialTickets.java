@@ -16,4 +16,24 @@ public class SpecialTickets {
         this.ticketQR = ticketQR;
         this.ticketInformation =ticketInformation;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getTicketTitle() {
+        return ticketTitle;
+    }
+
+    public String getTicketType() {
+        return ticketType;
+    }
+
+    public String getTicketQR() {
+        return ticketQR;
+    }
+
+    public String getTicketInformation() {
+        return ticketInformation;
+    }
 }
