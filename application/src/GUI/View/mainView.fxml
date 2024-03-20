@@ -18,7 +18,7 @@
          <children>
             <ImageView fitHeight="228.0" fitWidth="1204.0" pickOnBounds="true">
                <image>
-                  <Image url="@../data/images/boat_mountains_lake_135258_1920x1080.jpg" />
+                  <Image url="@../../../data/images/boat_mountains_lake_135258_1920x1080.jpg" />
                </image>
             </ImageView>
             <Pane prefHeight="160.0" prefWidth="1204.0">
@@ -72,7 +72,7 @@
                <children>
                   <ImageView fitHeight="233.0" fitWidth="291.0" pickOnBounds="true">
                      <image>
-                        <Image url="@../data/images/gun2.jpg" />
+                        <Image url="@../../../data/images/gun2.jpg" />
                      </image>
                   </ImageView>
                   <StackPane layoutY="111.0" prefHeight="34.0" prefWidth="130.0">
@@ -100,7 +100,7 @@
                <children>
                   <ImageView fitHeight="233.0" fitWidth="291.0" pickOnBounds="true">
                      <image>
-                        <Image url="@../data/images/gun2.jpg" />
+                        <Image url="@../../../data/images/gun2.jpg" />
                      </image>
                   </ImageView>
                   <StackPane layoutY="111.0" prefHeight="34.0" prefWidth="130.0">
@@ -128,7 +128,7 @@
                <children>
                   <ImageView fitHeight="233.0" fitWidth="291.0" pickOnBounds="true">
                      <image>
-                        <Image url="@../data/images/gun2.jpg" />
+                        <Image url="@../../../data/images/gun2.jpg" />
                      </image>
                   </ImageView>
                   <StackPane layoutY="111.0" prefHeight="34.0" prefWidth="130.0">
