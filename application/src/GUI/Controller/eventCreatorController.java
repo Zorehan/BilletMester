@@ -9,9 +9,14 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import javafx.util.converter.IntegerStringConverter;
 
 import java.io.File;
@@ -23,6 +28,7 @@ import java.nio.file.StandardCopyOption;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Objects;
 
 public class eventCreatorController {
     @FXML
@@ -134,21 +140,22 @@ public class eventCreatorController {
     // -----------------------------------------------------------------------------------
     //---------------------------------------BUTTONS--------------------------------------
     //------------------------------------------------------------------------------------
-    public void clickCancel(ActionEvent actionEvent) {
-        Platform.exit();
+    public void clickCancel() throws IOException {
+        switchToMainView();
     }
 
-    public void clickSubmit(ActionEvent actionEvent) {
+    public void clickSubmit() throws IOException {
         if (validateInput()) {
             createNewEvent();
+            switchToMainView();
         }
     }
 
-    public void clickPreviewBtn(ActionEvent actionEvent) {
+    public void clickPreviewBtn() {
         previewImageField.setText(btnChoose());
     }
 
-    public void clickBannerBtn(javafx.event.ActionEvent actionEvent) {
+    public void clickBannerBtn() {
         bannerImageField.setText(btnChoose());
     }
 
@@ -207,5 +214,19 @@ public class eventCreatorController {
             }
         });
     }
+
+    public void switchToMainView() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/mainView.fxml"));
+        Parent mainViewParent = loader.load();
+        Scene mainViewScene = new Scene(mainViewParent);
+
+        // Get the Stage from any UI element within the current scene
+        Stage stage = (Stage) mainViewParent.getScene().getWindow();
+
+        // Set the mainView scene on the stage
+        stage.setScene(mainViewScene);
+        stage.show();
+    }
+
 
 }

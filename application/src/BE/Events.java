@@ -17,11 +17,14 @@ private String eventPreview;
     {
         this.id = id;
         this.eventName = eventName;
+        this.eventHost = eventHost;
         this.eventStart = eventStart;
         this.eventEnd = eventEnd;
         this.eventLocation = eventLocation;
         this.eventNotes = eventNotes;
         this.eventGuidance = eventGuidance;
+        this.eventBanner = eventBanner;
+        this.eventPreview = eventPreview;
     }
 
     public int getId() {

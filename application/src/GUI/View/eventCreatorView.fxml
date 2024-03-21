@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="548.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.eventCreatorController">
+<Pane fx:id="rootPane" prefHeight="460.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.eventCreatorController">
    <children>
       <Label layoutX="421.0" text="Event Creator">
          <font>
@@ -44,12 +44,12 @@
             <Font size="17.0" />
          </font>
       </TextField>
-      <Button fx:id="cancelButton" layoutX="464.0" layoutY="473.0" mnemonicParsing="false" onAction="#clickCancel" text="Cancel">
+      <Button fx:id="cancelButton" layoutX="890.0" layoutY="392.0" mnemonicParsing="false" onAction="#clickCancel" text="Cancel">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button fx:id="submitButton" layoutX="644.0" layoutY="473.0" mnemonicParsing="false" onAction="#clickSubmit" text="Submit">
+      <Button fx:id="submitButton" layoutX="778.0" layoutY="392.0" mnemonicParsing="false" onAction="#clickSubmit" text="Submit">
          <font>
             <Font size="18.0" />
          </font>
@@ -159,12 +159,12 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Label layoutX="121.0" layoutY="445.0" text="Event Host Name *">
+      <Label layoutX="15.0" layoutY="28.0" text="Event Host Name *:">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="eventHostField" layoutX="122.0" layoutY="477.0" prefHeight="38.0" prefWidth="195.0" promptText="Enter name">
+      <TextField fx:id="eventHostField" layoutX="210.0" layoutY="25.0" prefHeight="38.0" prefWidth="195.0" promptText="Enter name">
          <font>
             <Font size="17.0" />
          </font>

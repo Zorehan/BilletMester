@@ -40,9 +40,9 @@ public class EventDAO {
                 String eventNotes = rs.getString("eventNotes");
                 String eventGuidance = rs.getString("eventGuidance");
                 String eventBanner = rs.getString("eventBanner");
-                String previewBanner = rs.getString("previewBanner");
+                String eventPreview = rs.getString("eventPreview");
 
-                Events event = new Events(id,eventName,eventHost,eventStart,eventEnd,eventLocation,eventNotes,eventGuidance,eventBanner,previewBanner);
+                Events event = new Events(id,eventName,eventHost,eventStart,eventEnd,eventLocation,eventNotes,eventGuidance,eventBanner,eventPreview);
                 allEvents.add(event);
             }
             return allEvents;

@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.mainViewController">
    <top>
       <StackPane prefHeight="198.0" prefWidth="1204.0" BorderPane.alignment="CENTER">
          <children>
@@ -152,6 +152,7 @@
                   </StackPane>
                </children>
             </Pane>
+            <Button layoutX="536.0" layoutY="368.0" mnemonicParsing="false" onAction="#clickEventCreator" text="SEE EVENT CREATOR" />
          </children>
       </Pane>
    </left>
