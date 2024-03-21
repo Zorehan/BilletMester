@@ -1,0 +1,41 @@
+#eventWidget{
+    -fx-background-color: black;
+}
+
+
+#titleBox {
+    -fx-background-color: rgba(0, 0, 0, 0.8);
+    -fx-alignment: center_left;
+    -fx-background-radius: 10;
+}
+
+#smallTitle {
+    -fx-text-fill: white;
+    -fx-font-size: 20;
+    -fx-padding: 0 0 0 5;
+}
+
+#infoBox {
+    -fx-background-color: #212758;
+}
+
+#location {
+    -fx-text-fill: white;
+    -fx-padding: 0 0 0 -5;
+}
+
+
+#notes {
+    -fx-text-fill: white;
+    -fx-padding: 0 0 0 5;
+}
+
+#button {
+    -fx-background-color: #212758;
+    -fx-background-radius: 10;
+    -fx-text-fill: white;
+}
+
+#button:hover {
+    -fx-background-color: #582130;
+}
