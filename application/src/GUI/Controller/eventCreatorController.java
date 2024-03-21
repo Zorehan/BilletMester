@@ -130,7 +130,6 @@ public class eventCreatorController {
             // Create the event in the database
             eventModel.createEvent(event);
             ticketModel.createTicket(ticket);
-            Platform.exit();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -140,14 +139,14 @@ public class eventCreatorController {
     // -----------------------------------------------------------------------------------
     //---------------------------------------BUTTONS--------------------------------------
     //------------------------------------------------------------------------------------
-    public void clickCancel() throws IOException {
-        switchToMainView();
+    public void clickCancel(ActionEvent actionEvent) throws IOException {
+        switchToMainView(actionEvent);
     }
 
-    public void clickSubmit() throws IOException {
+    public void clickSubmit(ActionEvent actionEvent) throws IOException {
         if (validateInput()) {
             createNewEvent();
-            switchToMainView();
+            switchToMainView(actionEvent);
         }
     }
 
@@ -215,13 +214,13 @@ public class eventCreatorController {
         });
     }
 
-    public void switchToMainView() throws IOException {
+    private void switchToMainView(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/mainView.fxml"));
         Parent mainViewParent = loader.load();
         Scene mainViewScene = new Scene(mainViewParent);
 
-        // Get the Stage from any UI element within the current scene
-        Stage stage = (Stage) mainViewParent.getScene().getWindow();
+        // Get the Stage from the ActionEvent
+        Stage stage = (Stage) ((javafx.scene.Node) actionEvent.getSource()).getScene().getWindow();
 
         // Set the mainView scene on the stage
         stage.setScene(mainViewScene);
