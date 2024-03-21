@@ -10,7 +10,7 @@ import java.sql.Connection;
 import java.util.Properties;
 
 public class DatabaseConnector {
-    private static final String configSettings = "config/config.settings";
+    private static final String configSettings = "application/config/config.settings";
     private SQLServerDataSource dataSource;
 
     public DatabaseConnector()

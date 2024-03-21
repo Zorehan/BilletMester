@@ -10,8 +10,10 @@ private LocalDateTime eventEnd;
 private String eventLocation;
 private String eventNotes;
 private String eventGuidance;
+private String eventBanner;
+private String eventPreview;
 
-    public Events(int id, String eventName, String eventHost, LocalDateTime eventStart, LocalDateTime eventEnd, String eventLocation, String eventNotes, String eventGuidance)
+    public Events(int id, String eventName, String eventHost, LocalDateTime eventStart, LocalDateTime eventEnd, String eventLocation, String eventNotes, String eventGuidance, String eventBanner, String eventPreview)
     {
         this.id = id;
         this.eventName = eventName;
@@ -84,5 +86,21 @@ private String eventGuidance;
 
     public void setEventGuidance(String eventGuidance) {
         this.eventGuidance = eventGuidance;
+    }
+
+    public String getEventBanner() {
+        return eventBanner;
+    }
+
+    public void setEventBanner(String eventBanner) {
+        this.eventBanner = eventBanner;
+    }
+
+    public String getEventPreview() {
+        return eventPreview;
+    }
+
+    public void setEventPreview(String eventPreview) {
+        this.eventPreview = eventPreview;
     }
 }

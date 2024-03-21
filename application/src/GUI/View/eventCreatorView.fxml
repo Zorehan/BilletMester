@@ -1,6 +1,174 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" />
+<Pane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="548.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.eventCreatorController">
+   <children>
+      <Label layoutX="421.0" text="Event Creator">
+         <font>
+            <Font size="60.0" />
+         </font>
+      </Label>
+      <Label layoutX="463.0" layoutY="79.0" text="Banner Image">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="bannerImageField" layoutX="465.0" layoutY="111.0" prefHeight="38.0" prefWidth="195.0" promptText="Choose File">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
+      <Label layoutX="463.0" layoutY="153.0" text="Preview Image ">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="previewImageField" layoutX="464.0" layoutY="185.0" prefHeight="38.0" prefWidth="195.0" promptText="Choose File">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
+      <Label layoutX="464.0" layoutY="232.0" text="Description">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="descriptionField" alignment="TOP_LEFT" layoutX="464.0" layoutY="264.0" prefHeight="181.0" prefWidth="258.0" promptText="Add text here">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
+      <Button fx:id="cancelButton" layoutX="464.0" layoutY="473.0" mnemonicParsing="false" onAction="#clickCancel" text="Cancel">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="submitButton" layoutX="644.0" layoutY="473.0" mnemonicParsing="false" onAction="#clickSubmit" text="Submit">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Label layoutX="791.0" layoutY="79.0" text="Add Tickets *">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="ticketsField" alignment="CENTER" layoutX="793.0" layoutY="111.0" prefHeight="36.0" prefWidth="176.0" promptText="Amount">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
+      <Label layoutX="792.0" layoutY="151.0" text="Add Food Tickets">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="ticketsFoodField" alignment="CENTER" layoutX="794.0" layoutY="183.0" prefHeight="36.0" prefWidth="176.0" promptText="Amount">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
+      <Label layoutX="792.0" layoutY="230.0" text="Add Drink Ticket">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="ticketDrinkField" alignment="CENTER" layoutX="794.0" layoutY="262.0" prefHeight="36.0" prefWidth="176.0" promptText="Amount">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
+      <Label layoutX="793.0" layoutY="309.0" text="Add Discount Ticket">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="ticketDiscountField" alignment="CENTER" layoutX="795.0" layoutY="341.0" prefHeight="36.0" prefWidth="176.0" promptText="Amount">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
+      <Label layoutX="120.0" layoutY="77.0" text="Title *">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="titleField" layoutX="122.0" layoutY="109.0" prefHeight="36.0" prefWidth="258.0" promptText="Add Title">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
+      <Label layoutX="121.0" layoutY="151.0" text="Location *">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="locationField" layoutX="123.0" layoutY="183.0" prefHeight="36.0" prefWidth="258.0" promptText="Enter Location">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
+      <Label layoutX="121.0" layoutY="230.0" text="Date and Time *">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="120.0" layoutY="307.0" text="Notes *">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="notesField" alignment="TOP_LEFT" layoutX="122.0" layoutY="339.0" prefHeight="106.0" prefWidth="258.0" promptText="Add text here">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="ticketsAmountField" alignment="CENTER" layoutX="978.0" layoutY="111.0" prefHeight="36.0" prefWidth="43.0" promptText="($)">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="ticketsFoodAmountField" alignment="CENTER" layoutX="978.0" layoutY="183.0" prefHeight="36.0" prefWidth="43.0" promptText="($)">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="ticketsDrinkAmountField" alignment="CENTER" layoutX="978.0" layoutY="262.0" prefHeight="36.0" prefWidth="43.0" promptText="($)">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="ticketsDiscountsAmountField" alignment="CENTER" layoutX="978.0" layoutY="341.0" prefHeight="36.0" prefWidth="43.0" promptText="($)">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
+      <Button fx:id="choosePreviewBtn" layoutX="671.0" layoutY="185.0" mnemonicParsing="false" onAction="#clickPreviewBtn" prefHeight="39.0" prefWidth="89.0" text="Choose">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="chooseBannerBtn" layoutX="671.0" layoutY="110.0" mnemonicParsing="false" onAction="#clickBannerBtn" prefHeight="39.0" prefWidth="89.0" text="Choose">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Label layoutX="121.0" layoutY="445.0" text="Event Host Name *">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="eventHostField" layoutX="122.0" layoutY="477.0" prefHeight="38.0" prefWidth="195.0" promptText="Enter name">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
+      <DatePicker fx:id="datePicker" layoutX="120.0" layoutY="269.0" prefHeight="36.0" prefWidth="258.0" promptText="Pick Date and Time" />
+   </children>
+</Pane>
