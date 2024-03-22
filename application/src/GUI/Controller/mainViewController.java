@@ -1,5 +1,7 @@
 package GUI.Controller;
 
+import BE.Events;
+import GUI.Model.EventModel;
 import GUI.Widgets.EventWidget;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,6 +16,7 @@ import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -22,13 +25,16 @@ public class mainViewController implements Initializable {
     private BorderPane borderPane;
     @FXML
     private VBox centerVBox;
+    EventModel eventModel  = new EventModel();
+    List<Events> eventsList = eventModel.getObservableEvents();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         HBox hBox = new HBox(40);
         hBox.setPadding(new Insets(10));
-        for (int i = 0; i < 3; i++) {
-            EventWidget widget = new EventWidget("Name", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis ante faucibus, feugiat neque sed, finibus eros. Suspendisse sit amet. ", "Denmark");
+        for(Events event : eventsList) {
+            EventWidget widget = new EventWidget(event);
             hBox.getChildren().add(widget);
         }
 

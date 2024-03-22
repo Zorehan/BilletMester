@@ -1,5 +1,6 @@
 package GUI.Widgets;
 
+import BE.Events;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -10,22 +11,35 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class EventWidget extends Region {
 
     private String IMG_URL = "/images/gun2.jpg";
     private String eventName;
     private String eventNotes;
     private String eventLocation;
+    private LocalDateTime eventStart;
     private final int HEIGHT = 230;
     private final int WIDTH = 290;
-    private final int INFO_HEIGHT = 100;
+    private final int INFO_HEIGHT = 80;
 
-    public EventWidget(String name, String notes, String location) {
+    /*
+        Ærligt, ikke tænk for meget over denne klasse,
+        den er relativt kompliceret sat sammen, da
+        det med at lave dynamisk ui godt kan være ret
+        kringlet, med at pakke vBoxe ind i andre vBoxe osv.
+        Spørg hvis i er i tvivl - Nicklas
+     */
+
+    public EventWidget(Events event) {
         this.getStylesheets().add("GUI/Styling/EventWidget.css");
 
-        eventName = name;
-        eventNotes = notes;
-        eventLocation = location;
+        eventName = event.getEventName();
+        eventNotes = event.getEventNotes();
+        eventLocation = event.getEventLocation();
+        eventStart = event.getEventStart();
 
         this.setPrefSize(WIDTH, HEIGHT);
         this.setId("eventWidget");
@@ -49,9 +63,13 @@ public class EventWidget extends Region {
 
     private Button constructButton() {
         Button button = new Button();
+
+        //Hard coded hvor langt over Info felt den skal være
+        int differential = INFO_HEIGHT + 30;
+
         button.setText("See more");
         button.setPrefWidth(80);
-        button.setLayoutY(INFO_HEIGHT);
+        button.setLayoutY(HEIGHT - differential);
         button.setLayoutX(WIDTH - 90);
         button.setId("button");
 
@@ -60,9 +78,11 @@ public class EventWidget extends Region {
 
     private StackPane constructTitlePane() {
         StackPane titlePane = new StackPane();
+        int differential = INFO_HEIGHT + 30;
+
         titlePane.setPrefHeight(35);
         titlePane.setPrefWidth(130);
-        titlePane.setLayoutY(INFO_HEIGHT);
+        titlePane.setLayoutY(HEIGHT - differential);
 
         titlePane.setId("titleBox");
         Label titleLbl = new Label(eventName);
@@ -75,10 +95,11 @@ public class EventWidget extends Region {
     private StackPane constructInfoPane() {
         StackPane stackPane = new StackPane();
         VBox backgroundBox = new VBox();
+        HBox topInfoBox = new HBox();
         Label notesLbl = new Label(eventNotes);
 
-
-        backgroundBox.getChildren().addAll(constructLocation(), notesLbl);
+        topInfoBox.getChildren().addAll(constructLocation(), constuctDateAndTime());
+        backgroundBox.getChildren().addAll(topInfoBox, notesLbl);
         backgroundBox.setId("infoBox");
 
 
@@ -107,5 +128,19 @@ public class EventWidget extends Region {
 
         hBox.getChildren().addAll(img, locationLbl);
         return hBox;
+    }
+
+    private VBox constuctDateAndTime() {
+        VBox box = new VBox();
+        HBox dateBox = new HBox();
+        HBox timeBox = new HBox();
+        Label dateLbl = new Label(eventStart.format(DateTimeFormatter.ISO_DATE));
+        Label timeLbl = new Label();
+
+        dateBox.getChildren().add(dateLbl);
+
+        box.getChildren().addAll(dateBox);
+
+        return box;
     }
 }
