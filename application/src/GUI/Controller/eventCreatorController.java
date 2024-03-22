@@ -78,6 +78,8 @@ public class eventCreatorController {
     private TicketModel ticketModel;
     private SpecialTickets specialTickets;
 
+    private FXMLLoader mainViewLoader;
+
     public void initialize() {
         eventModel = new EventModel();
         ticketModel = new TicketModel();
@@ -203,18 +205,15 @@ public class eventCreatorController {
         });
     }
 
-    private void switchToMainView(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/mainView.fxml"));
-        Parent mainViewParent = loader.load();
+    private void switchToMainView() throws IOException {
+        Parent mainViewParent = mainViewLoader.getRoot();
         Scene mainViewScene = new Scene(mainViewParent);
 
-        // Get the Stage from the ActionEvent
-        Stage stage = (Stage) ((javafx.scene.Node) actionEvent.getSource()).getScene().getWindow();
+        // Get the Stage
+        Stage stage = (Stage) mainViewParent.getScene().getWindow();
 
         // Set the mainView scene on the stage
         stage.setScene(mainViewScene);
         stage.show();
     }
-
-
 }
