@@ -76,6 +76,14 @@ public class TicketModel {
 
     public Tickets createTicket(Tickets newTicket)
     {
+        for(Tickets tickets : allTickets)
+        {
+            if(newTicket.getTicketQR().equals(tickets.getTicketQR()))
+            {
+                System.out.println("Sorry boss barcode/qr already exists");
+                return null;
+            }
+        }
         Tickets ticket = ticketManager.createTicket(newTicket);
         allTickets.add(ticket);
         return ticket;
