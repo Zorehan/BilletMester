@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class mainViewController {
+public class mainViewController implements Initializable {
     @FXML
     private BorderPane borderPane;
     @FXML
@@ -61,7 +61,7 @@ public class mainViewController {
             Pair<Parent, eventCreatorController> result = task.getValue();
             Parent p = result.getKey();
             eventCreatorController eventCreatorController = result.getValue();
-            borderPane.setLeft(p); // Set the loaded Parent (scene) to the BorderPane
+            borderPane.setCenter(p); // Set the loaded Parent (scene) to the BorderPane
         });
 
         // Define actions to be performed when the task fails
