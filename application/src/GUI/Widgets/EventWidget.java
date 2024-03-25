@@ -1,6 +1,8 @@
 package GUI.Widgets;
 
 import BE.Events;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -21,9 +23,10 @@ public class EventWidget extends Region {
     private String eventNotes;
     private String eventLocation;
     private LocalDateTime eventStart;
-    private final int HEIGHT = 230;
-    private final int WIDTH = 290;
-    private final int INFO_HEIGHT = 80;
+    private final double HEIGHT = 230;
+    private final double WIDTH = 290;
+    private final double INFO_HEIGHT = 80;
+    private double LOCATION_WIDTH;
 
     /*
         Ærligt, ikke tænk for meget over denne klasse,
@@ -65,7 +68,7 @@ public class EventWidget extends Region {
         Button button = new Button();
 
         //Hard coded hvor langt over Info felt den skal være
-        int differential = INFO_HEIGHT + 30;
+        double differential = INFO_HEIGHT + 30;
 
         button.setText("See more");
         button.setPrefWidth(80);
@@ -78,17 +81,17 @@ public class EventWidget extends Region {
 
     private StackPane constructTitlePane() {
         StackPane titlePane = new StackPane();
-        int differential = INFO_HEIGHT + 30;
+        Label titleLbl = new Label(eventName);
+        double differential = INFO_HEIGHT + 30;
+        titlePane.getChildren().addAll(titleLbl);
 
         titlePane.setPrefHeight(35);
-        titlePane.setPrefWidth(130);
+        titlePane.setPadding(new Insets(0, 5, 0, 0)); //Gør baggrunden til label lidt bredere end label.
+        titlePane.setMaxWidth(180);
         titlePane.setLayoutY(HEIGHT - differential);
-
         titlePane.setId("titleBox");
-        Label titleLbl = new Label(eventName);
-        titleLbl.setId("smallTitle");
 
-        titlePane.getChildren().addAll(titleLbl);
+        titleLbl.setId("smallTitle");
         return titlePane;
     }
 
@@ -119,14 +122,15 @@ public class EventWidget extends Region {
         HBox hBox = new HBox(10);
         ImageView img = new ImageView(new Image(getClass().getResourceAsStream("/icons/location.png")));
         Label locationLbl = new Label(eventLocation);
-
-        img.setId("locationPin");
         img.setPreserveRatio(true);
-        img.setFitWidth(15);
+        img.setFitWidth(10);
 
         locationLbl.setId("location");
+        hBox.setId("locationBox");
 
         hBox.getChildren().addAll(img, locationLbl);
+        hBox.setMinWidth(WIDTH / 2);
+        LOCATION_WIDTH = hBox.getWidth();
         return hBox;
     }
 
@@ -134,8 +138,14 @@ public class EventWidget extends Region {
         VBox box = new VBox();
         HBox dateBox = new HBox();
         HBox timeBox = new HBox();
-        Label dateLbl = new Label(eventStart.format(DateTimeFormatter.ISO_DATE));
+        Label dateLbl = new Label(eventStart.format(DateTimeFormatter.ofPattern("dd. MMMM")));
         Label timeLbl = new Label();
+
+        dateBox.setId("dateBox");
+        timeBox.setId("timeBox");
+
+        box.setPrefWidth(WIDTH - LOCATION_WIDTH);
+        dateBox.setAlignment(Pos.CENTER_RIGHT);
 
         dateBox.getChildren().add(dateLbl);
 
