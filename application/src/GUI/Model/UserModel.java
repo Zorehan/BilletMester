@@ -53,8 +53,8 @@ public class UserModel {
         allUsers.remove(user);
     }
 
-    public void updateUser(Users user)
+    public void updateUser(Users user, String newRole)
     {
-        userManager.updateUser(user);
+        userManager.updateUser(user, newRole);
     }
 }

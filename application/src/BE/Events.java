@@ -106,4 +106,9 @@ private String eventPreview;
     public void setEventPreview(String eventPreview) {
         this.eventPreview = eventPreview;
     }
+
+    @Override
+    public String toString() {
+        return eventName;
+    }
 }

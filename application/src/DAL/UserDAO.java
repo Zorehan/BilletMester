@@ -73,24 +73,24 @@ public class UserDAO {
         }
     }
 
-    public void updateUser(Users user)
-    {
+    public void updateUser(Users user, String newRole) {
         String sql = "UPDATE dbo.Users SET userType = ?, firstName = ?, lastName = ?, username = ?, password = ?, userEmail = ? WHERE id = ?;";
-        try(Connection conn = databaseConnector.getConnection();
-        PreparedStatement stmt = conn.prepareStatement(sql))
-        {
-            stmt.setString(1, user.getUserType());
+        try (Connection conn = databaseConnector.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, newRole); // Update userType with the new role
             stmt.setString(2, user.getFirstName());
             stmt.setString(3, user.getLastName());
             stmt.setString(4, user.getUserName());
             stmt.setString(5, user.getPassword());
             stmt.setString(6, user.getUserEmail());
+            stmt.setInt(7, user.getId());
 
             stmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
+
 
     public void deleteUser(Users user)
     {

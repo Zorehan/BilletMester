@@ -24,9 +24,9 @@ public class UserManager {
         return userDAO.createUser(user);
     }
 
-    public void updateUser(Users user)
+    public void updateUser(Users user, String newRole)
     {
-        userDAO.updateUser(user);
+        userDAO.updateUser(user, newRole);
     }
 
     public void deleteUsers(Users user)

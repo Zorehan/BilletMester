@@ -47,4 +47,9 @@ public class Users {
     public String getUserEmail() {
         return userEmail;
     }
+
+    @Override
+    public String toString() {
+        return getFirstName() + " " + getLastName();
+    }
 }

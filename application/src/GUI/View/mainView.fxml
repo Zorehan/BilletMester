@@ -73,6 +73,7 @@
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#clickEventCreator" text="SEE EVENT CREATOR" />
+                  <Button mnemonicParsing="false" onAction="#clickAdminView" text="SEE ADMIN VIEW" />
                </children>
             </HBox>
          </children>
