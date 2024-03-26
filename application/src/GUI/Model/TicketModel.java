@@ -7,7 +7,7 @@ import javafx.collections.ObservableList;
 
 public class TicketModel {
 
-    private TicketModel instance;
+    private static TicketModel instance;
 
     private TicketManager ticketManager;
 
@@ -33,7 +33,7 @@ public class TicketModel {
         eventSpecificTickets = FXCollections.observableArrayList();
     }
 
-    public TicketModel getInstance()
+    public static TicketModel getInstance()
     {
         if(instance == null)
         {

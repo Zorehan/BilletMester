@@ -7,7 +7,7 @@ import javafx.collections.ObservableList;
 
 public class EventModel {
 
-    private EventModel instance;
+    private static EventModel instance;
 
     private EventManager eventManager;
 
@@ -23,7 +23,7 @@ public class EventModel {
         allEvents.addAll(eventManager.getAllEvents());
     }
 
-    public EventModel getInstance()
+    public static EventModel getInstance()
     {
         if(instance == null)
         {

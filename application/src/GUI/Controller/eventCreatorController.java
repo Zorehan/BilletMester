@@ -17,60 +17,22 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDateTime;
 
 public class eventCreatorController {
     @FXML
     private DatePicker datePicker;
     @FXML
-    private TextField eventHostField;
-    @FXML
-    private TextField descriptionField;
-    @FXML
-    private TextField previewImageField;
-    @FXML
-    private TextField bannerImageField;
-    @FXML
-    private Button choosePreviewBtn;
-    @FXML
-    private Button chooseBannerBtn;
-    @FXML
-    private TextField ticketsAmountField;
-    @FXML
-    private TextField ticketsFoodAmountField;
-    @FXML
-    private TextField ticketsDrinkAmountField;
-    @FXML
-    private TextField ticketsDiscountsAmountField;
-    @FXML
-    private TextField ticketDrinkField;
-
-    @FXML
-    private TextField ticketDiscountField;
-
-    @FXML
-    private TextField ticketsFoodField;
-
-    @FXML
-    private TextField ticketsField;
-
+    private TextField ticketsAmountField, ticketsFoodAmountField, ticketsDrinkAmountField, ticketsDiscountsAmountField, ticketDrinkField, ticketDiscountField, ticketsFoodField, ticketsField;
     @FXML
     private Pane rootPane;
-
     @FXML
-    private TextField titleField;
-
+    private TextField titleField, locationField, notesField, eventHostField, descriptionField, previewImageField, bannerImageField;
     @FXML
-    private TextField locationField;
-
-    @FXML
-    private TextField notesField;
-
-    @FXML
-    private Button submitButton;
-
-    @FXML
-    private Button cancelButton;
+    private Button submitButton, cancelButton, chooseBannerBtn, choosePreviewBtn;
 
     private EventModel eventModel;
     private Events events;
@@ -79,8 +41,8 @@ public class eventCreatorController {
     private SpecialTickets specialTickets;
 
     public void initialize() {
-        eventModel = new EventModel();
-        ticketModel = new TicketModel();
+        eventModel = EventModel.getInstance();
+        ticketModel = TicketModel.getInstance();
 
         restrictToNumericInput(ticketsField, ticketsAmountField);
         restrictToNumericInput(ticketsFoodField, ticketsFoodAmountField);
@@ -156,6 +118,19 @@ public class eventCreatorController {
         File selectedFile = fileChooser.showOpenDialog(null);
 
         if (selectedFile != null) {
+            String originalPath = selectedFile.getAbsolutePath();
+            String fileName = selectedFile.getName();
+            String destination = "application/data/images";
+
+            try {
+                Path sourcePath = Paths.get(originalPath);
+                Path destinationPath = Paths.get(destination, fileName);
+                Files.copy(sourcePath, destinationPath);
+
+                return "/images/" + fileName;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             return selectedFile.getAbsolutePath();  // Get the selected file path and save it
         }
         return "";

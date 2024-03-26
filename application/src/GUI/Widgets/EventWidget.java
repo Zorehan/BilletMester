@@ -18,7 +18,7 @@ import java.time.format.DateTimeFormatter;
 
 public class EventWidget extends Region {
 
-    private String IMG_URL = "/images/gun2.jpg";
+    private String IMG_URL = "/images/gun2.jpg"; //DEFAULT IMAGE URL
     private String eventName;
     private String eventNotes;
     private String eventLocation;
@@ -43,6 +43,10 @@ public class EventWidget extends Region {
         eventNotes = event.getEventNotes();
         eventLocation = event.getEventLocation();
         eventStart = event.getEventStart();
+
+        if(!event.getEventPreview().isBlank()) {
+            IMG_URL = event.getEventPreview();
+        }
 
         this.setPrefSize(WIDTH, HEIGHT);
         this.setId("eventWidget");

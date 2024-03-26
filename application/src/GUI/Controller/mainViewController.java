@@ -18,6 +18,7 @@ import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
@@ -27,11 +28,13 @@ public class mainViewController implements Initializable {
     private BorderPane borderPane;
     @FXML
     private VBox centerVBox;
-    EventModel eventModel  = new EventModel();
-    List<Events> eventsList = eventModel.getObservableEvents();
+    EventModel eventModel;
+    List<Events> eventsList = new ArrayList<>();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        eventModel = EventModel.getInstance();
+        eventsList = eventModel.getObservableEvents();
 
         HBox hBox = new HBox(40);
         hBox.setPadding(new Insets(10));
