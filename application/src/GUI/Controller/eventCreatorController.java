@@ -5,15 +5,14 @@ import BE.SpecialTickets;
 import BE.Tickets;
 import GUI.Model.EventModel;
 import GUI.Model.TicketModel;
+import GUI.Model.ViewModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
-import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
@@ -38,11 +37,13 @@ public class eventCreatorController {
     private Events events;
     private Tickets tickets;
     private TicketModel ticketModel;
+    private ViewModel viewModel;
     private SpecialTickets specialTickets;
 
     public void initialize() {
         eventModel = EventModel.getInstance();
         ticketModel = TicketModel.getInstance();
+        viewModel = ViewModel.getInstance();
 
         restrictToNumericInput(ticketsField, ticketsAmountField);
         restrictToNumericInput(ticketsFoodField, ticketsFoodAmountField);
@@ -179,17 +180,15 @@ public class eventCreatorController {
     }
 
     private void switchToMainView(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/mainView.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/MainPage/mainView.fxml"));
         Parent mainViewParent = loader.load();
-        Scene mainViewScene = new Scene(mainViewParent);
+        viewModel.getBorderPane().setCenter(mainViewParent);
 
         // Get the Stage from the ActionEvent
-        Stage stage = (Stage) ((javafx.scene.Node) actionEvent.getSource()).getScene().getWindow();
+        //Stage stage = (Stage) ((javafx.scene.Node) actionEvent.getSource()).getScene().getWindow();
 
         // Set the mainView scene on the stage
-        stage.setScene(mainViewScene);
-        stage.show();
+        //stage.setScene(mainViewScene);
+        //stage.show();
     }
-
-
 }

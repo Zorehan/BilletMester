@@ -182,7 +182,7 @@ public class adminViewController implements Initializable {
     }
 
     private void switchToMainView(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/mainView.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/MainPage/mainView.fxml"));
         Parent mainViewParent = loader.load();
         Scene mainViewScene = new Scene(mainViewParent);
 

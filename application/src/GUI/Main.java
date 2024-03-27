@@ -9,8 +9,8 @@ import javafx.stage.Stage;
 public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("View/mainView.fxml"));
-        primaryStage.setTitle("Event Creator View");
+        Parent root = FXMLLoader.load(getClass().getResource("View/borderPaneView.fxml"));
+        primaryStage.setTitle("Victor Gay");
         primaryStage.setScene(new Scene(root));
         primaryStage.setResizable(false);
         primaryStage.show();

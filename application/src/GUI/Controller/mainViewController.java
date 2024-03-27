@@ -1,5 +1,6 @@
 package GUI.Controller;
 
+import GUI.Model.ViewModel;
 import javafx.concurrent.Task;
 import BE.Events;
 import GUI.Model.EventModel;
@@ -24,16 +25,20 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class mainViewController implements Initializable {
-    @FXML
     private BorderPane borderPane;
     @FXML
     private VBox centerVBox;
     EventModel eventModel;
+    ViewModel viewModel;
     List<Events> eventsList = new ArrayList<>();
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         eventModel = EventModel.getInstance();
+        viewModel = ViewModel.getInstance();
+        borderPane = viewModel.getBorderPane();
+
         eventsList = eventModel.getObservableEvents();
 
         HBox hBox = new HBox(40);
@@ -44,6 +49,8 @@ public class mainViewController implements Initializable {
         }
 
         centerVBox.getChildren().add(hBox);
+
+        viewModel.setBorderPane(borderPane);
     }
 
     public void clickEventCreator(ActionEvent actionEvent) {
@@ -111,7 +118,5 @@ public class mainViewController implements Initializable {
         Thread thread = new Thread(task);
         thread.setDaemon(true); // Set the thread as daemon to allow the application to exit if the task is not complete
         thread.start();
-
-
     }
 }

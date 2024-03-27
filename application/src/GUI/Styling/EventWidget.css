@@ -6,7 +6,8 @@
 #titleBox {
     -fx-background-color: rgba(0, 0, 0, 0.8);
     -fx-alignment: center_left;
-    -fx-background-radius: 10;
+    -fx-border-radius: 0 10 0 0;
+    -fx-background-radius: 0 10 0 0;
 }
 
 #smallTitle {
