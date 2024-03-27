@@ -4,8 +4,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox fx:id="centerVBox" prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.mainViewController">
+<VBox fx:id="centerVBox" prefHeight="600.0" prefWidth="1200.0" stylesheets="@../../Styling/mainView.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.mainViewController">
    <children>
       <HBox prefHeight="50.0" prefWidth="1200.0" spacing="100.0">
          <children>
