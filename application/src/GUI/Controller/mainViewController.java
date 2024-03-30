@@ -1,6 +1,7 @@
 package GUI.Controller;
 
 import GUI.Model.ViewModel;
+import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
 import BE.Events;
 import GUI.Model.EventModel;
@@ -10,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
 import javafx.util.Pair;
@@ -41,15 +43,18 @@ public class mainViewController implements Initializable {
 
         eventsList = eventModel.getObservableEvents();
 
-        HBox hBox = new HBox(40);
-        hBox.setPadding(new Insets(10));
+        centerVBox.getChildren().addAll(createEvents(), createEvents());
+        centerVBox.setSpacing(30);
+    }
+
+    public HBox createEvents() {
+        HBox hBox = new HBox(100);
+        hBox.setAlignment(Pos.CENTER);
         for(Events event : eventsList) {
             EventWidget widget = new EventWidget(event);
             hBox.getChildren().add(widget);
         }
-
-        centerVBox.getChildren().add(hBox);
-        viewModel.setBorderPane(borderPane);
+        return hBox;
     }
 
     public void clickEventCreator(ActionEvent actionEvent) {
