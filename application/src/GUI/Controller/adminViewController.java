@@ -4,9 +4,11 @@ import BE.Events;
 import BE.Users;
 import GUI.Model.EventModel;
 import GUI.Model.UserModel;
+import GUI.Model.ViewModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -35,8 +37,9 @@ public class adminViewController implements Initializable {
     @FXML
     private ListView<Events> eventListView;
 
-    UserModel userModel = new UserModel();
-    EventModel eventModel = new EventModel();
+    UserModel userModel = UserModel.getInstance();
+    EventModel eventModel = EventModel.getInstance();
+    ViewModel viewModel = ViewModel.getInstance();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -184,14 +187,8 @@ public class adminViewController implements Initializable {
     private void switchToMainView(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/MainPage/mainView.fxml"));
         Parent mainViewParent = loader.load();
-        Scene mainViewScene = new Scene(mainViewParent);
 
-        // Get the Stage from the ActionEvent
-        Stage stage = (Stage) ((javafx.scene.Node) actionEvent.getSource()).getScene().getWindow();
-
-        // Set the mainView scene on the stage
-        stage.setScene(mainViewScene);
-        stage.show();
+        viewModel.getBorderPane().setCenter(mainViewParent);
     }
 
     private boolean showConfirmationDialog(String message) {

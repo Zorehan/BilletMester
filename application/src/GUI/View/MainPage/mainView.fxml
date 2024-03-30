@@ -6,13 +6,13 @@
 
 <VBox fx:id="centerVBox" prefHeight="600.0" prefWidth="1200.0" stylesheets="@../../Styling/mainView.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.mainViewController">
    <children>
-      <HBox prefHeight="50.0" prefWidth="1200.0" spacing="100.0">
+      <HBox prefHeight="50.0" prefWidth="1200.0" spacing="10.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="178.0" text="Button" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="178.0" text="Button" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="178.0" text="Button" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="178.0" text="Button" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="178.0" text="Button" />
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="250.0" text="Fredagsbar" />
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="250.0" text="Fest" />
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="250.0" text="Temaaften" />
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="250.0" text="Musik" />
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="250.0" text="Sport" />
          </children>
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0">

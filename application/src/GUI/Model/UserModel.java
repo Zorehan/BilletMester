@@ -6,7 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class UserModel {
-    private UserModel instance;
+    private static UserModel instance;
 
     private UserManager userManager;
 
@@ -21,7 +21,7 @@ public class UserModel {
         allUsers.addAll(userManager.getAllUsers());
     }
 
-    public UserModel getInstance()
+    public static UserModel getInstance()
     {
         if(instance == null)
         {

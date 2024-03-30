@@ -49,7 +49,6 @@ public class mainViewController implements Initializable {
         }
 
         centerVBox.getChildren().add(hBox);
-
         viewModel.setBorderPane(borderPane);
     }
 
