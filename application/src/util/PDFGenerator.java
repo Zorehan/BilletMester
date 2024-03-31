@@ -14,6 +14,7 @@ public class PDFGenerator {
     {
         try{
             String realFileName = filename + ".png";
+            pdfFilename = pdfFilename + ".pdf";
             PDDocument doc = new PDDocument();
             PDPage page = new PDPage(PDRectangle.A4);
             doc.addPage(page);
