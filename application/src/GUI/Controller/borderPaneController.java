@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
 import util.HttpService;
+import util.PDFGenerator;
 
 import java.io.IOException;
 import java.net.URL;
