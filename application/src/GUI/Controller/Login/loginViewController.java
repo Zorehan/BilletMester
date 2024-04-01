@@ -1,4 +1,4 @@
-package GUI.Controller;
+package GUI.Controller.Login;
 
 import BE.Users.User;
 import GUI.Model.UserModel;
@@ -23,26 +23,29 @@ public class loginViewController {
     private Encryption encryption = new Encryption();
 
     @FXML
-    private TextField TxtUsername;
+    private TextField txtUsername;
 
     @FXML
-    private PasswordField PswPassword;
+    private PasswordField pswPassword;
+
+    private Stage stage;
 
     public void BtnPressLogin(ActionEvent actionEvent) {
         boolean loginSuccessful = false;
 
         for (User user : userModel.getObservableUsers()) {
-            if (TxtUsername.getText().equals(user.getUserName()) &&
-                    encryption.checkPassword(PswPassword.getText(), user.getPassword())) {
+            if (txtUsername.getText().equals(user.getUserName()) &&
+                    encryption.checkPassword(pswPassword.getText(), user.getPassword())) {
                 try {
                     userModel.setUser(user);
                     Parent root = FXMLLoader.load(getClass().getResource("/GUI/View/borderPaneView.fxml"));
                     Stage stage = new Stage();
-                    stage.setTitle("Victor Gay");
+                    stage.setTitle("Billet Mester");
                     stage.setScene(new Scene(root));
                     stage.setResizable(false);
                     stage.show();
-                    viewModel.getStage().close();
+                    this.stage.close();
+
                     viewModel.setStage(stage);
                     loginSuccessful = true;
                     break;
@@ -59,5 +62,27 @@ public class loginViewController {
             alert.setContentText("Login information incorrect.");
             alert.showAndWait();
         }
+    }
+
+    public void clickCreateAccount(ActionEvent actionEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/Login/createAccountView.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = new Stage();
+            stage.setTitle("Account Creation");
+            stage.setScene(new Scene(root));
+            stage.setResizable(false);
+            stage.show();
+
+            createAccountController controller = loader.getController();
+            controller.setStage(stage);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void setStage(Stage stage) {
+        this.stage = stage;
     }
 }
