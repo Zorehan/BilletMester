@@ -31,6 +31,14 @@ public class UserModel {
         return instance;
     }
 
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
     public ObservableList<User> getObservableUsers()
     {
         return allUsers;

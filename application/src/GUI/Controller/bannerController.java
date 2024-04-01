@@ -1,7 +1,9 @@
 package GUI.Controller;
 
 import BE.Events;
+import BE.Users.UserEnum;
 import GUI.Model.EventModel;
+import GUI.Model.UserModel;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -40,6 +42,7 @@ public class bannerController implements Initializable {
     @FXML
     private StackPane stackPane;
     private EventModel eventModel = EventModel.getInstance();
+    private UserModel userModel = UserModel.getInstance();
     private Events event;
     private final int HEIGHT = 200;
     private final int WIDTH = 1200;
@@ -51,8 +54,34 @@ public class bannerController implements Initializable {
         stackPane.setClip(clipRect);
 
         initTopPanel();
+        if(userModel.getUser().getUserType() == UserEnum.ADMIN) {
+            initAdmin();
+        }
+
+        if(userModel.getUser().getUserType() == UserEnum.EVENTCOORDINATOR)
+        {
+            initEventCo();
+        }
         event = eventModel.getObservableEvents().get(0);
         initEvent(event);
+    }
+
+    private void initEventCo() {
+        Button button = new Button("Event Manager");
+        button.setId("userButton");
+        topPanelBox.setPrefWidth(500);
+        topPanelBox.setLayoutX(WIDTH - 500);
+        topPanelBox.setAlignment(Pos.CENTER_RIGHT);
+        topPanelBox.getChildren().addFirst(button);
+    }
+
+    private void initAdmin() {
+        Button button = new Button("Admin Panel");
+        button.setId("userButton");
+        topPanelBox.setPrefWidth(500);
+        topPanelBox.setLayoutX(WIDTH - 500);
+        topPanelBox.setAlignment(Pos.CENTER_RIGHT);
+        topPanelBox.getChildren().addFirst(button);
     }
 
     public void initEvent(Events event) {

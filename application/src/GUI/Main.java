@@ -1,5 +1,6 @@
 package GUI;
 
+import GUI.Model.UserModel;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,6 +10,8 @@ import javafx.stage.Stage;
 public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
+        UserModel user = UserModel.getInstance();
+        user.setUser(user.getObservableUsers().getFirst());
         Parent root = FXMLLoader.load(getClass().getResource("View/borderPaneView.fxml"));
         primaryStage.setTitle("Victor Gay");
         primaryStage.setScene(new Scene(root));
