@@ -1,6 +1,6 @@
 package GUI;
 
-import GUI.Model.UserModel;
+import GUI.Model.ViewModel;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -8,15 +8,16 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Main extends Application {
+    private ViewModel viewModel = ViewModel.getInstance();
     @Override
     public void start(Stage primaryStage) throws Exception{
-        UserModel user = UserModel.getInstance();
-        user.setUser(user.getObservableUsers().getFirst());
-        Parent root = FXMLLoader.load(getClass().getResource("View/borderPaneView.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("View/loginView.fxml"));
         primaryStage.setTitle("Victor Gay");
         primaryStage.setScene(new Scene(root));
         primaryStage.setResizable(false);
         primaryStage.show();
+
+        viewModel.setStage(primaryStage);
     }
 
     public static void main(String[] args) {
