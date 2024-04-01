@@ -1,6 +1,6 @@
 package GUI.Controller;
 
-import BE.Users;
+import BE.Users.User;
 import GUI.Model.UserModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -23,7 +23,7 @@ public class loginViewController {
     public void BtnPressLogin(ActionEvent actionEvent) {
         boolean loginSuccessful = false;
 
-        for (Users user : userModel.getObservableUsers()) {
+        for (User user : userModel.getObservableUsers()) {
             if (TxtUsername.getText().equals(user.getUserName()) &&
                     encryption.checkPassword(PswPassword.getText(), user.getPassword())) {
                 // sæt kode ind her til at blvie sendt videre til mainpagen

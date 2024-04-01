@@ -1,6 +1,7 @@
 package BLL;
 
-import BE.Users;
+import BE.Users.User;
+import BE.Users.UserEnum;
 import DAL.UserDAO;
 
 import java.util.List;
@@ -14,22 +15,22 @@ public class UserManager {
         userDAO = new UserDAO();
     }
 
-    public List<Users> getAllUsers()
+    public List<User> getAllUsers()
     {
         return userDAO.getAllUsers();
     }
 
-    public Users createUser(Users user)
+    public User createUser(User user)
     {
         return userDAO.createUser(user);
     }
 
-    public void updateUser(Users user, String newRole)
+    public void updateUser(User user, UserEnum newRole)
     {
         userDAO.updateUser(user, newRole);
     }
 
-    public void deleteUsers(Users user)
+    public void deleteUsers(User user)
     {
         userDAO.deleteUser(user);
     }

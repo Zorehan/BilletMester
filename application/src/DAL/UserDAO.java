@@ -1,6 +1,7 @@
 package DAL;
 
-import BE.Users;
+import BE.Users.User;
+import BE.Users.UserEnum;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -15,9 +16,9 @@ public class UserDAO {
         databaseConnector = new DatabaseConnector();
     }
 
-    public List<Users> getAllUsers()
+    public List<User> getAllUsers()
     {
-        ArrayList<Users> allUsers = new ArrayList<>();
+        ArrayList<User> allUsers = new ArrayList<>();
         try(Connection conn = databaseConnector.getConnection();
             Statement stmt = conn.createStatement())
         {
@@ -27,14 +28,14 @@ public class UserDAO {
             while(rs.next())
             {
                 int id = rs.getInt("id");
-                String userType = rs.getString("userType");
+                UserEnum userType = UserEnum.valueOf(rs.getString("userType"));
                 String firstName = rs.getString("firstName");
                 String lastName = rs.getString("lastName");
                 String username = rs.getString("username");
                 String password = rs.getString("password");
                 String userEmail = rs.getString("userEmail");
 
-                Users user = new Users(id,userType,firstName,lastName,username,password,userEmail);
+                User user = new User(id,userType,firstName,lastName,username,password,userEmail);
                 allUsers.add(user);
             }
         } catch (SQLException e) {
@@ -43,13 +44,13 @@ public class UserDAO {
         return allUsers;
     }
 
-    public Users createUser(Users user)
+    public User createUser(User user)
     {
         String sql = "INSERT INTO dbo.Users (userType, firstName, lastName, username, password, userEmail) VALUES(?,?,?,?,?,?);";
         try(Connection conn = databaseConnector.getConnection();
             PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS))
         {
-            stmt.setString(1, user.getUserType());
+            stmt.setString(1, user.getUserType().name());
             stmt.setString(2, user.getFirstName());
             stmt.setString(3, user.getLastName());
             stmt.setString(4, user.getUserName());
@@ -66,18 +67,18 @@ public class UserDAO {
                 id = rs.getInt(1);
             }
 
-            Users createdUser = new Users(id, user.getUserType(), user.getFirstName(), user.getLastName(), user.getUserName(), user.getPassword(), user.getUserEmail());
+            User createdUser = new User(id, user.getUserType(), user.getFirstName(), user.getLastName(), user.getUserName(), user.getPassword(), user.getUserEmail());
             return createdUser;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public void updateUser(Users user, String newRole) {
+    public void updateUser(User user, UserEnum newRole) {
         String sql = "UPDATE dbo.Users SET userType = ?, firstName = ?, lastName = ?, username = ?, password = ?, userEmail = ? WHERE id = ?;";
         try (Connection conn = databaseConnector.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setString(1, newRole); // Update userType with the new role
+            stmt.setString(1, newRole.name()); // Update userType with the new role
             stmt.setString(2, user.getFirstName());
             stmt.setString(3, user.getLastName());
             stmt.setString(4, user.getUserName());
@@ -92,7 +93,7 @@ public class UserDAO {
     }
 
 
-    public void deleteUser(Users user)
+    public void deleteUser(User user)
     {
         String sql = "DELETE FROM dbo.Users WHERE id = ?;";
         try(Connection conn = databaseConnector.getConnection())

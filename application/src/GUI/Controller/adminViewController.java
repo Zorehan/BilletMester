@@ -1,23 +1,22 @@
 package GUI.Controller;
 
 import BE.Events;
-import BE.Users;
+import BE.Users.User;
+import BE.Users.UserEnum;
 import GUI.Model.EventModel;
 import GUI.Model.UserModel;
 import GUI.Model.ViewModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
-import javafx.stage.Stage;
+
 import java.util.Optional;
 
 import java.io.IOException;
@@ -32,7 +31,7 @@ public class adminViewController implements Initializable {
     @FXML
     private TextField eventSearchBar;
     @FXML
-    private ListView<Users> userListView;
+    private ListView<User> userListView;
 
     @FXML
     private ListView<Events> eventListView;
@@ -44,22 +43,22 @@ public class adminViewController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        List<Users> observableUsers = userModel.getObservableUsers();
+        List<User> observableUsers = userModel.getObservableUsers();
         List<Events> observableEvents = eventModel.getObservableEvents();
 
         userListView.getItems().addAll(observableUsers);
         eventListView.getItems().addAll(observableEvents);
 
-        userListView.setCellFactory(param -> new ListCell<Users>() {
-            private final ComboBox<String> comboBox = new ComboBox<>();
+        userListView.setCellFactory(param -> new ListCell<User>() {
+            private final ComboBox<UserEnum> comboBox = new ComboBox<>();
 
             {
-                comboBox.setItems(FXCollections.observableArrayList("User", "Admin", "Event Manager"));
+                comboBox.setItems(FXCollections.observableArrayList(UserEnum.USER, UserEnum.EVENTCOORDINATOR, UserEnum.ADMIN));
                 comboBox.getSelectionModel().selectFirst();
             }
 
             @Override
-            protected void updateItem(Users user, boolean empty) {
+            protected void updateItem(User user, boolean empty) {
                 super.updateItem(user, empty);
 
                 if (empty || user == null) {
@@ -77,14 +76,14 @@ public class adminViewController implements Initializable {
                     nameLabel.setMaxHeight(Double.MAX_VALUE); // Set maximum height to ensure vertical centering
 
                     // ComboBox for user role selection
-                    ComboBox<String> comboBox = new ComboBox<>();
-                    comboBox.setItems(FXCollections.observableArrayList("User", "Admin", "Event Manager"));
-                    comboBox.getSelectionModel().select(user.getUserType()); // Set initial selection based on user's role
+                    ComboBox<UserEnum> comboBox = new ComboBox<>();
+                    comboBox.setItems(FXCollections.observableArrayList(UserEnum.USER, UserEnum.EVENTCOORDINATOR, UserEnum.ADMIN));
+                    comboBox.getSelectionModel().select(UserEnum.valueOf(user.getUserType().name())); // Set initial selection based on user's role
                     comboBox.setPrefWidth(100); // Set preferred width for the ComboBox
                     comboBox.setMaxHeight(Double.MAX_VALUE); // Set maximum height to ensure vertical centering
                     comboBox.setOnAction(event -> {
                         // Update the user's role based on the selected value in the ComboBox
-                        String selectedRole = comboBox.getSelectionModel().getSelectedItem();
+                        UserEnum selectedRole = comboBox.getSelectionModel().getSelectedItem();
                         // Update the user's role in the model
                         userModel.updateUser(user, selectedRole);
                     });
@@ -167,8 +166,8 @@ public class adminViewController implements Initializable {
         // For User Search Bar
         userSearchBar.textProperty().addListener((observable, oldValue, newValue) -> {
             // Filter the user list based on the search input
-            ObservableList<Users> filteredUsers = FXCollections.observableArrayList();
-            for (Users user : userModel.getObservableUsers()) {
+            ObservableList<User> filteredUsers = FXCollections.observableArrayList();
+            for (User user : userModel.getObservableUsers()) {
                 if (user.getFirstName().toLowerCase().contains(newValue.toLowerCase()) ||
                         user.getLastName().toLowerCase().contains(newValue.toLowerCase())) {
                     filteredUsers.add(user);
