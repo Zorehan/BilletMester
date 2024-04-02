@@ -24,7 +24,6 @@ public class PDFGenerator {
             contentStream.close();
             doc.save(pdfFilename);
             doc.close();
-            System.out.println("PDF CREATED SUCCESSFULLY");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

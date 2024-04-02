@@ -12,8 +12,8 @@ public class MailSender {
 
     public void sendEmail(String recipientEmail, String ticketNameSubject, String body, String pdfFilePath) {
         pdfFilePath = pdfFilePath + ".pdf";
-        String senderEmail = "mesterbillet@gmail.com"; // Correct sender email
-        String senderPassword = "hftb sywp xshg vrxx"; // Correct sender password
+        String senderEmail = "mesterbillet@gmail.com";
+        String senderPassword = "hftb sywp xshg vrxx";
         String smtpHost = "smtp.gmail.com";
         int smtpPort = 465;
 
@@ -38,13 +38,9 @@ public class MailSender {
             File file = new File(pdfFilePath);
             if(file.exists())
             {
-            System.out.println("Creating MimeMessage...");
             MimeMessage message = new MimeMessage(session);
-            System.out.println("Setting From address...");
             message.setFrom(new InternetAddress(senderEmail));
-            System.out.println("Adding recipient...");
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(recipientEmail));
-            System.out.println("Setting subject...");
             message.setSubject(ticketNameSubject);
 
                 DataSource source = new FileDataSource(file.getAbsolutePath());
@@ -54,7 +50,6 @@ public class MailSender {
 
                 BodyPart messageBodyPart = new MimeBodyPart();
                 messageBodyPart.setText(body);
-                System.out.println("Preparing to send email...");
 
                 Multipart multipart = new MimeMultipart();
                 multipart.addBodyPart(messageBodyPart);
@@ -63,7 +58,6 @@ public class MailSender {
                 message.setContent(multipart);
 
                 Transport.send(message);
-                System.out.println("Email sent successfully");
             } else {
                 System.out.println("File not found: " + pdfFilePath);
             }

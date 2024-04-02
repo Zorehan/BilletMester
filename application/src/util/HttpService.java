@@ -38,7 +38,6 @@ public class HttpService {
                 FileOutputStream outputStream = new FileOutputStream(filename);
                 outputStream.write(responseBody);
                 outputStream.close();
-                System.out.println("Barcody generated sucessfully");
                 return realContent;
             }
             else {

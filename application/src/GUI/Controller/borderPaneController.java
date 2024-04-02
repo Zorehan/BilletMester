@@ -21,8 +21,6 @@ public class borderPaneController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        MailSender mailSender = new MailSender();
-        mailSender.sendEmail("kadargergo20@gmail.com", "Halløj", "Aintnoway", "ejladhaha");
         viewModel.setBorderPane(borderPane);
         initCenter();
         initBanner();
