@@ -1,6 +1,7 @@
 package GUI.Model;
 
-import BE.Users;
+import BE.Users.User;
+import BE.Users.UserEnum;
 import BLL.UserManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -10,9 +11,9 @@ public class UserModel {
 
     private UserManager userManager;
 
-    private ObservableList<Users> allUsers;
+    private ObservableList<User> allUsers;
 
-    private Users user;
+    private User user;
 
     public UserModel() {
         userManager = new UserManager();
@@ -30,7 +31,15 @@ public class UserModel {
         return instance;
     }
 
-    public ObservableList<Users> getObservableUsers()
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public ObservableList<User> getObservableUsers()
     {
         return allUsers;
     }
@@ -40,20 +49,20 @@ public class UserModel {
         allUsers.clear();
     }
 
-    public Users createUser(Users NewUser)
+    public User createUser(User NewUser)
     {
-        Users user = userManager.createUser(NewUser);
+        User user = userManager.createUser(NewUser);
         allUsers.add(user);
         return user;
     }
 
-    public void deleteUser(Users user)
+    public void deleteUser(User user)
     {
         userManager.deleteUsers(user);
         allUsers.remove(user);
     }
 
-    public void updateUser(Users user, String newRole)
+    public void updateUser(User user, UserEnum newRole)
     {
         userManager.updateUser(user, newRole);
     }

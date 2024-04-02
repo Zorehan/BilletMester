@@ -17,12 +17,6 @@
                   <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="250.0" text="Sport" />
                </children>
             </HBox>
-            <HBox prefHeight="31.0" prefWidth="1200.0">
-               <children>
-                  <Button mnemonicParsing="false" onAction="#clickEventCreator" text="SEE EVENT CREATOR" />
-                  <Button mnemonicParsing="false" onAction="#clickAdminView" text="SEE ADMIN VIEW" />
-               </children>
-            </HBox>
          </children>
       </VBox>
       <VBox fx:id="centerVBox" prefHeight="541.0" prefWidth="1200.0" />

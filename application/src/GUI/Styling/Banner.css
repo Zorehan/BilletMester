@@ -58,3 +58,14 @@
 #topPanelBox {
     -fx-padding: 10 0 0 0;
 }
+
+#userButton {
+    -fx-background-color: #212758;
+    -fx-background-radius: 10;
+    -fx-text-fill: white;
+    -fx-font-size: 16;
+}
+
+#userButton:hover {
+    -fx-background-color: #582130;
+}

@@ -1,15 +1,15 @@
-package BE;
+package BE.Users;
 
-public class Users {
+public class User {
     private int id;
-    private String userType;
+    private UserEnum userType;
     private String firstName;
     private String lastName;
     private String userName;
     private String password;
     private String userEmail;
 
-    public Users(int id, String userType, String firstName, String lastName, String userName, String password, String userEmail) {
+    public User(int id, UserEnum userType, String firstName, String lastName, String userName, String password, String userEmail) {
         this.id = id;
         this.userType = userType;
         this.firstName = firstName;
@@ -24,7 +24,7 @@ public class Users {
         return id;
     }
 
-    public String getUserType() {
+    public UserEnum getUserType() {
         return userType;
     }
 
