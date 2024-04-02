@@ -68,7 +68,7 @@ public class bannerController implements Initializable {
         {
             initEventCo();
         }
-        if(eventModel.getObservableEvents().size() != 0) {
+        if(!eventModel.getObservableEvents().isEmpty()) {
             event = eventModel.getObservableEvents().get(0);
             initEvent(event);
         }
