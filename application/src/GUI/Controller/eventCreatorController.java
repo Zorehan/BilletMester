@@ -23,6 +23,8 @@ import java.time.LocalDateTime;
 
 public class eventCreatorController {
     @FXML
+    private ComboBox categoryComboBox;
+    @FXML
     private DatePicker datePicker;
     @FXML
     private TextField ticketsAmountField, ticketsFoodAmountField, ticketsDrinkAmountField, ticketsDiscountsAmountField, ticketDrinkField, ticketDiscountField, ticketsFoodField, ticketsField;
@@ -49,6 +51,10 @@ public class eventCreatorController {
         restrictToNumericInput(ticketsFoodField, ticketsFoodAmountField);
         restrictToNumericInput(ticketDrinkField, ticketsDrinkAmountField);
         restrictToNumericInput(ticketDiscountField, ticketsDiscountsAmountField);
+
+        for (Events.Categories category : Events.Categories.values()) {
+            categoryComboBox.getItems().add(category);
+        }
     }
 
     public void createNewEvent() {
@@ -71,9 +77,11 @@ public class eventCreatorController {
         String discountTicketsText = ticketDiscountField.getText();
         Integer discountTickets = discountTicketsText.isEmpty() ? 0 : Integer.valueOf(discountTicketsText);
 
+        String eventCategory = categoryComboBox.getValue().toString();
+
 
         // Create the event - -1 is a placeholder id, the actual id gets automatically set in the DB
-        Events event = new Events(-1, title, hostName, eventStart, eventEnd, location, description, notes, bannerImage, previewImage);
+        Events event = new Events(-1, title, hostName, eventStart, eventEnd, location, description, notes, bannerImage, previewImage, eventCategory);
 
         // Create the ticket for the events
         Tickets ticket = new Tickets(-1, title, null, null, null);

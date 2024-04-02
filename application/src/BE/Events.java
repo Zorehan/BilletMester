@@ -12,8 +12,17 @@ private String eventNotes;
 private String eventGuidance;
 private String eventBanner;
 private String eventPreview;
+private String eventCategory;
 
-    public Events(int id, String eventName, String eventHost, LocalDateTime eventStart, LocalDateTime eventEnd, String eventLocation, String eventNotes, String eventGuidance, String eventBanner, String eventPreview)
+public enum Categories {
+    FREDAGSBAR,
+    FEST,
+    TEMAAFTEN,
+    MUSIK,
+    SPORT
+}
+
+    public Events(int id, String eventName, String eventHost, LocalDateTime eventStart, LocalDateTime eventEnd, String eventLocation, String eventNotes, String eventGuidance, String eventBanner, String eventPreview, String eventCategory)
     {
         this.id = id;
         this.eventName = eventName;
@@ -25,6 +34,7 @@ private String eventPreview;
         this.eventGuidance = eventGuidance;
         this.eventBanner = eventBanner;
         this.eventPreview = eventPreview;
+        this.eventCategory = eventCategory;
     }
 
     public int getId() {
@@ -105,6 +115,14 @@ private String eventPreview;
 
     public void setEventPreview(String eventPreview) {
         this.eventPreview = eventPreview;
+    }
+
+    public String getEventCategory() {
+        return eventCategory;
+    }
+
+    public void setEventCategory(String eventCategory) {
+        this.eventCategory = eventCategory;
     }
 
     @Override
