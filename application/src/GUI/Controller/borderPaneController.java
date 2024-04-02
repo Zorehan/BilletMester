@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
 import util.HttpService;
+import util.MailSender;
 import util.PDFGenerator;
 
 import java.io.IOException;
@@ -20,6 +21,8 @@ public class borderPaneController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        MailSender mailSender = new MailSender();
+        mailSender.sendEmail("kadargergo20@gmail.com", "Halløj", "Aintnoway", "ejladhaha");
         viewModel.setBorderPane(borderPane);
         initCenter();
         initBanner();
