@@ -68,8 +68,10 @@ public class bannerController implements Initializable {
         {
             initEventCo();
         }
-        event = eventModel.getObservableEvents().get(0);
-        initEvent(event);
+        if(eventModel.getObservableEvents().size() != 0) {
+            event = eventModel.getObservableEvents().get(0);
+            initEvent(event);
+        }
     }
 
     private void initEventCo() {
