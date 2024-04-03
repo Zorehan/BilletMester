@@ -48,6 +48,10 @@ public class User {
         return userEmail;
     }
 
+    public String getFullName() {
+        return firstName + " " + lastName;
+    }
+
     @Override
     public String toString() {
         return getFirstName() + " " + getLastName();
