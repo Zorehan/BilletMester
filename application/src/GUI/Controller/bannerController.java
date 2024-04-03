@@ -156,6 +156,7 @@ public class bannerController implements Initializable {
 
         btnCart.setGraphic(cartView);
         btnUser.setGraphic(userView);
+        btnUser.setOnAction(this::clickUser);
 
         cartView.setPreserveRatio(true);
         cartView.setFitWidth(30);
@@ -281,5 +282,15 @@ public class bannerController implements Initializable {
         thread.start();
     }
 
+    public void clickUser(ActionEvent actionEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/userView.fxml"));
+            Parent parent = loader.load();
+            viewModel.getBorderPane().setCenter(parent);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 
 }
