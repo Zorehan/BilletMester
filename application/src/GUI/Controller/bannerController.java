@@ -2,6 +2,8 @@ package GUI.Controller;
 
 import BE.Events;
 import BE.Users.UserEnum;
+import GUI.Controller.EventManagement.eventCreatorController;
+import GUI.Controller.EventManagement.eventManagerController;
 import GUI.Model.EventModel;
 import GUI.Model.UserModel;
 import GUI.Model.ViewModel;
@@ -13,7 +15,6 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -24,7 +25,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
-import javafx.stage.Stage;
 import javafx.util.Pair;
 
 import java.io.IOException;
@@ -66,7 +66,8 @@ public class bannerController implements Initializable {
 
         if(userModel.getUser().getUserType() == UserEnum.EVENTCOORDINATOR)
         {
-            initEventCo();
+            initEventManager();
+            initEventCreator();
         }
         if(!eventModel.getObservableEvents().isEmpty()) {
             event = eventModel.getObservableEvents().get(0);
@@ -74,15 +75,26 @@ public class bannerController implements Initializable {
         }
     }
 
-    private void initEventCo() {
+    private void initEventManager() {
         Button button = new Button("Event Manager");
         button.setId("userButton");
-        button.setOnAction(this::clickEventCreator);
-        topPanelBox.setPrefWidth(500);
-        topPanelBox.setLayoutX(WIDTH - 500);
+        button.setOnAction(this::clickEventManager);
+        topPanelBox.setPrefWidth(600);
+        topPanelBox.setLayoutX(WIDTH - 600);
         topPanelBox.setAlignment(Pos.CENTER_RIGHT);
         topPanelBox.getChildren().addFirst(button);
     }
+
+    private void initEventCreator() {
+        Button button = new Button("Event Creator");
+        button.setId("userButton");
+        button.setOnAction(this::clickEventCreator);
+        topPanelBox.setPrefWidth(600);
+        topPanelBox.setLayoutX(WIDTH - 600);
+        topPanelBox.setAlignment(Pos.CENTER_RIGHT);
+        topPanelBox.getChildren().addFirst(button);
+    }
+
 
     private void initAdmin() {
         Button button = new Button("Admin Panel");
@@ -167,24 +179,24 @@ public class bannerController implements Initializable {
         return banner;
     }
 
-    public void clickEventCreator(ActionEvent actionEvent) {
+    public void clickEventManager(ActionEvent actionEvent) {
         // Load the new scene asynchronously
-        Task<Pair<Parent, eventCreatorController>> task = new Task<>() {
+        Task<Pair<Parent, eventManagerController>> task = new Task<>() {
             @Override
-            protected Pair<Parent, eventCreatorController> call() throws IOException {
+            protected Pair<Parent, eventManagerController> call() throws IOException {
                 // Inside the call method, we define the asynchronous task to be executed
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/eventCreatorView.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/EventManagement/eventManagerView.fxml"));
                 Parent parent = loader.load();
-                eventCreatorController controller = loader.getController();
+                eventManagerController controller = loader.getController();
                 return new Pair<>(parent, controller); // Return the loaded Parent and controller as a Pair
             }
         };
 
         // Define actions to be performed when the task succeeds
         task.setOnSucceeded(event -> {
-            Pair<Parent, eventCreatorController> result = task.getValue();
+            Pair<Parent, eventManagerController> result = task.getValue();
             Parent p = result.getKey();
-            eventCreatorController eventCreatorController = result.getValue();
+            eventManagerController eventManagerController = result.getValue();
             viewModel.getBorderPane().setCenter(p); // Set the loaded Parent (scene) to the BorderPane
         });
 
@@ -233,4 +245,41 @@ public class bannerController implements Initializable {
         thread.setDaemon(true); // Set the thread as daemon to allow the application to exit if the task is not complete
         thread.start();
     }
+
+    public void clickEventCreator(ActionEvent actionEvent) {
+        // Load the new scene asynchronously
+        Task<Pair<Parent, eventCreatorController>> task = new Task<>() {
+            @Override
+            protected Pair<Parent, eventCreatorController> call() throws IOException {
+                // Inside the call method, we define the asynchronous task to be executed
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/EventManagement/eventCreatorView.fxml"));
+                Parent parent = loader.load();
+                eventCreatorController controller = loader.getController();
+                return new Pair<>(parent, controller); // Return the loaded Parent and controller as a Pair
+            }
+        };
+
+        // Define actions to be performed when the task succeeds
+        task.setOnSucceeded(event -> {
+            Pair<Parent, eventCreatorController> result = task.getValue();
+            Parent p = result.getKey();
+            eventCreatorController eventManagerController = result.getValue();
+            viewModel.getBorderPane().setCenter(p); // Set the loaded Parent (scene) to the BorderPane
+        });
+
+        // Define actions to be performed when the task fails
+        task.setOnFailed(event -> {
+            Throwable exception = task.getException();
+            if (exception != null) {
+                exception.printStackTrace(); // Print the stack trace of the exception
+            }
+        });
+
+        // Start the task in a background thread
+        Thread thread = new Thread(task);
+        thread.setDaemon(true); // Set the thread as daemon to allow the application to exit if the task is not complete
+        thread.start();
+    }
+
+
 }

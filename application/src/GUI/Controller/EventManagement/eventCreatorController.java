@@ -1,10 +1,12 @@
-package GUI.Controller;
+package GUI.Controller.EventManagement;
 
 import BE.Events;
 import BE.SpecialTickets;
 import BE.Tickets;
+import BE.Users.User;
 import GUI.Model.EventModel;
 import GUI.Model.TicketModel;
+import GUI.Model.UserModel;
 import GUI.Model.ViewModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -31,7 +33,7 @@ public class eventCreatorController {
     @FXML
     private Pane rootPane;
     @FXML
-    private TextField titleField, locationField, notesField, eventHostField, descriptionField, previewImageField, bannerImageField;
+    private TextField titleField, locationField, notesField, descriptionField, previewImageField, bannerImageField;
     @FXML
     private Button submitButton, cancelButton, chooseBannerBtn, choosePreviewBtn;
 
@@ -40,12 +42,14 @@ public class eventCreatorController {
     private Tickets tickets;
     private TicketModel ticketModel;
     private ViewModel viewModel;
+    private UserModel userModel;
     private SpecialTickets specialTickets;
 
     public void initialize() {
         eventModel = EventModel.getInstance();
         ticketModel = TicketModel.getInstance();
         viewModel = ViewModel.getInstance();
+        userModel = UserModel.getInstance();
 
         restrictToNumericInput(ticketsField, ticketsAmountField);
         restrictToNumericInput(ticketsFoodField, ticketsFoodAmountField);
@@ -58,9 +62,12 @@ public class eventCreatorController {
     }
 
     public void createNewEvent() {
+
+        User loggedInUser = userModel.getUser();
+
         // Retrieve input values from the GUI
         String title = titleField.getText();
-        String hostName = eventHostField.getText();
+        String hostName = loggedInUser.getFullName(); // Tager det fulde navn af user - dette er for eventManager
         String location = locationField.getText();
         LocalDateTime eventStart = LocalDateTime.now();
         LocalDateTime eventEnd = LocalDateTime.now();
@@ -191,12 +198,5 @@ public class eventCreatorController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/MainPage/mainView.fxml"));
         Parent mainViewParent = loader.load();
         viewModel.getBorderPane().setCenter(mainViewParent);
-
-        // Get the Stage from the ActionEvent
-        //Stage stage = (Stage) ((javafx.scene.Node) actionEvent.getSource()).getScene().getWindow();
-
-        // Set the mainView scene on the stage
-        //stage.setScene(mainViewScene);
-        //stage.show();
     }
 }
