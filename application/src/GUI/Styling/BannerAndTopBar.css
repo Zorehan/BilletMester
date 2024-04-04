@@ -12,15 +12,6 @@
     -fx-background-color: white;
 }
 
-#btnCart {
-    -fx-background-color: transparent;
-}
-
-#btnCart:hover {
-    -fx-scale-x: 110%;
-    -fx-scale-y: 110%;
-}
-
 #btnUser {
     -fx-background-color: transparent;
 }
@@ -32,7 +23,6 @@
 
 #titleBg {
     -fx-background-color: rgba(0, 0, 0, 0.3);
-
     -fx-border-radius: 0 30 0 0;
     -fx-background-radius: 0 30 0 0;
 }
@@ -55,9 +45,6 @@
     -fx-text-fill: white;
 }
 
-#topPanelBox {
-    -fx-padding: 10 0 0 0;
-}
 
 #userButton {
     -fx-background-color: #212758;
@@ -67,5 +54,23 @@
 }
 
 #userButton:hover {
+    -fx-background-color: #582130;
+}
+
+#topBar {
+    -fx-background-color: #212758;
+}
+
+#topPanel {
+    -fx-padding: 5 0 5 0;
+}
+
+#btnBack {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-text-fill: #212758;
+}
+
+#btnBack:hover {
     -fx-background-color: #582130;
 }

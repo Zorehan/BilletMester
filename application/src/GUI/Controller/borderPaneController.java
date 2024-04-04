@@ -21,9 +21,13 @@ public class borderPaneController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        viewModel.setBorderPane(borderPane);
-        initCenter();
-        initBanner();
+        try {
+            viewModel.setBorderPane(borderPane);
+            initCenter();
+            viewModel.setBanner();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void initCenter() {
@@ -34,16 +38,5 @@ public class borderPaneController implements Initializable {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    public void initBanner() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/MainPage/bannerView.fxml"));
-            Parent parent = loader.load();
-            borderPane.setTop(parent);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
     }
 }

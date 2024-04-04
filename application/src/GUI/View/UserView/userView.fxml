@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.userViewController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.UserView.userViewController">
    <children>
       <VBox prefHeight="600.0" prefWidth="1000.0">
          <children>
@@ -51,7 +51,7 @@
                      <children>
                         <ImageView fitHeight="37.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../data/icons/user.png" />
+                              <Image url="@../../../../data/icons/user.png" />
                            </image>
                         </ImageView>
                         <Label fx:id="lblFullName" text="User Full Name">
@@ -70,7 +70,7 @@
                      <children>
                         <ImageView fitHeight="37.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../data/icons/user.png" />
+                              <Image url="@../../../../data/icons/user.png" />
                            </image>
                         </ImageView>
                         <Label fx:id="lblEmail" text="Email">
@@ -89,7 +89,7 @@
                      <children>
                         <ImageView fitHeight="37.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../data/icons/user.png" />
+                              <Image url="@../../../../data/icons/user.png" />
                            </image>
                         </ImageView>
                         <Label fx:id="lblPassword" text="Password">
