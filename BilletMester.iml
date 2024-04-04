@@ -12,5 +12,6 @@
     <orderEntry type="library" name="apache.pdfbox" level="project" />
     <orderEntry type="library" name="javax.mail.api" level="project" />
     <orderEntry type="library" name="sun.mail.javax" level="project" />
+    <orderEntry type="library" name="mindrot.jbcrypt" level="project" />
   </component>
 </module>
