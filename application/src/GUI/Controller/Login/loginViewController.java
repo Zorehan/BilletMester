@@ -28,7 +28,6 @@ public class loginViewController {
     @FXML
     private PasswordField pswPassword;
 
-    private Stage stage;
 
     public void BtnPressLogin(ActionEvent actionEvent) {
         boolean loginSuccessful = false;
@@ -44,7 +43,7 @@ public class loginViewController {
                     stage.setScene(new Scene(root));
                     stage.setResizable(false);
                     stage.show();
-                    this.stage.close();
+                    viewModel.getStage().close();
 
                     viewModel.setStage(stage);
                     loginSuccessful = true;
@@ -80,9 +79,5 @@ public class loginViewController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    public void setStage(Stage stage) {
-        this.stage = stage;
     }
 }

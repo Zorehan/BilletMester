@@ -9,13 +9,13 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Main extends Application {
+    private ViewModel viewModel = ViewModel.getInstance();
     @Override
     public void start(Stage primaryStage) throws Exception{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("View/Login/loginView.fxml"));
         Parent root = loader.load();
 
-        loginViewController controller = loader.getController();
-        controller.setStage(primaryStage);
+        viewModel.setStage(primaryStage);
 
         primaryStage.setTitle("Victor Gay");
         primaryStage.setScene(new Scene(root));
