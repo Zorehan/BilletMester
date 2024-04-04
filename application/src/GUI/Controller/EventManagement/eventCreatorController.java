@@ -106,9 +106,6 @@ public class eventCreatorController {
     // -----------------------------------------------------------------------------------
     //---------------------------------------BUTTONS--------------------------------------
     //------------------------------------------------------------------------------------
-    public void clickCancel(ActionEvent actionEvent) throws IOException {
-        switchToMainView(actionEvent);
-    }
 
     public void clickSubmit(ActionEvent actionEvent) throws IOException {
         if (validateInput()) {

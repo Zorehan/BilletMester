@@ -52,12 +52,6 @@ public class eventManagerController implements Initializable {
         }
     }
 
-    public void clickBack() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/MainPage/mainView.fxml"));
-        Parent mainViewParent = loader.load();
-        viewModel.getBorderPane().setCenter(mainViewParent);
-    }
-
     public void clickEdit(ActionEvent actionEvent) {
     }
 

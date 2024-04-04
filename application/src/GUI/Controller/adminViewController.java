@@ -178,18 +178,6 @@ public class adminViewController implements Initializable {
         });
     }
 
-    public void clickBack(ActionEvent actionEvent) throws IOException {
-        switchToMainView(actionEvent);
-
-    }
-
-    private void switchToMainView(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/MainPage/mainView.fxml"));
-        Parent mainViewParent = loader.load();
-
-        viewModel.getBorderPane().setCenter(mainViewParent);
-    }
-
     private boolean showConfirmationDialog(String message) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmation");

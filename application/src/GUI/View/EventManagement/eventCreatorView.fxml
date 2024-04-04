@@ -45,11 +45,6 @@
             <Font size="17.0" />
          </font>
       </TextField>
-      <Button fx:id="cancelButton" layoutX="929.0" layoutY="392.0" mnemonicParsing="false" onAction="#clickCancel" text="Back">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Button>
       <Button fx:id="submitButton" layoutX="778.0" layoutY="392.0" mnemonicParsing="false" onAction="#clickSubmit" text="Submit">
          <font>
             <Font size="18.0" />
