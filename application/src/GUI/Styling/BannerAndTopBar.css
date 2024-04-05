@@ -1,5 +1,5 @@
 #searchBarBox {
-    -fx-background-color: white;
+    -fx-background-color: rgba(240, 240, 240, 1);
     -fx-background-radius: 30;
     -fx-padding: 0 0 0 5;
 }
@@ -9,7 +9,7 @@
 }
 
 #txtSearch {
-    -fx-background-color: white;
+    -fx-background-color: rgba(240, 240, 240, 1);
 }
 
 #btnUser {
@@ -66,7 +66,7 @@
 }
 
 #btnBack {
-    -fx-background-color: white;
+    -fx-background-color: rgba(240, 240, 240, 1);
     -fx-background-radius: 10;
     -fx-text-fill: #212758;
 }

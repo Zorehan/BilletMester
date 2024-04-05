@@ -1,0 +1,65 @@
+#vboxMain {
+    -fx-padding: 0 0 0 30;
+}
+
+#btnDeleteUser {
+    -fx-background-color: #480404;
+    -fx-background-radius: 50;
+    -fx-text-fill: white;
+}
+
+
+#btnSave {
+    -fx-background-color: #212758;
+    -fx-background-radius: 50;
+    -fx-text-fill: white;
+}
+
+#btnCancel {
+    -fx-background-color: #2d2f36;
+    -fx-background-radius: 50;
+    -fx-text-fill: white;
+}
+
+#btnEdit {
+    -fx-background-color: transparent;
+    -fx-padding: 0 0 5 0;
+}
+
+#btnEdit1 {
+    -fx-background-color: transparent;
+    -fx-padding: 0 0 5 0;
+}
+
+#btnEdit2 {
+    -fx-background-color: transparent;
+    -fx-padding: 0 0 5 0;
+}
+
+.button:hover {
+    -fx-scale-y: 110%;
+    -fx-scale-x: 110%;
+}
+
+#btnAccount {
+    -fx-background-color: #212758;
+    -fx-background-radius: 50;
+    -fx-text-fill: white;
+}
+
+#btnTickets {
+    -fx-background-color: #212758;
+    -fx-background-radius: 50;
+    -fx-text-fill: white;
+}
+
+#btnLogOut {
+    -fx-background-color: #480404;
+    -fx-background-radius: 50;
+    -fx-text-fill: white;
+}
+
+#sidePane {
+    -fx-background-color: rgba(240, 240, 240, 1);
+}
+

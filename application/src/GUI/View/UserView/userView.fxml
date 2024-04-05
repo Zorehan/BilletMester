@@ -14,15 +14,15 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.UserView.userViewController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" stylesheets="@../../Styling/UserView.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.UserView.userViewController">
    <children>
-      <VBox prefHeight="600.0" prefWidth="1000.0">
+      <VBox fx:id="vboxMain" prefHeight="600.0" prefWidth="1000.0">
          <children>
             <VBox prefHeight="121.0" prefWidth="1000.0">
                <children>
                   <HBox alignment="TOP_CENTER" prefHeight="40.0" prefWidth="1000.0">
                      <children>
-                        <Label prefHeight="53.0" prefWidth="1023.0" text="Account Settings">
+                        <Label fx:id="lblTitle" prefHeight="53.0" prefWidth="1023.0" text="Account Settings">
                            <font>
                               <Font size="36.0" />
                            </font>
@@ -31,7 +31,7 @@
                   </HBox>
                   <HBox alignment="TOP_CENTER" prefHeight="7.0" prefWidth="1000.0">
                      <children>
-                        <Label prefHeight="119.0" prefWidth="1000.0" text="Manage your account settings">
+                        <Label fx:id="lblNote" prefHeight="119.0" prefWidth="1000.0" text="Manage your account settings">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -47,9 +47,9 @@
             </Label>
             <GridPane prefHeight="261.0" prefWidth="620.0">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="495.0" minWidth="10.0" prefWidth="359.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="718.0" minWidth="10.0" prefWidth="279.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="718.0" minWidth="10.0" prefWidth="389.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="525.0" minWidth="10.0" prefWidth="498.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="718.0" minWidth="10.0" prefWidth="352.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="718.0" minWidth="10.0" prefWidth="126.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -107,31 +107,34 @@
                   <TextField fx:id="txtEmail" disable="true" prefHeight="25.0" prefWidth="634.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <PasswordField fx:id="txtPassword" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <TextField fx:id="txtFullName" disable="true" GridPane.columnIndex="1" />
-                  <HBox alignment="CENTER_LEFT" GridPane.columnIndex="2">
+                  <HBox alignment="CENTER_LEFT" prefHeight="87.0" prefWidth="380.0" GridPane.columnIndex="2">
                      <children>
-                        <Button fx:id="btnEdit" mnemonicParsing="false" onAction="#clickEditName" prefHeight="21.0" prefWidth="100.0" text="Edit" />
-                        <Button fx:id="btnSave" mnemonicParsing="false" onAction="#clickSave" prefHeight="21.0" prefWidth="100.0" text="Save" />
+                        <Button fx:id="btnEdit" mnemonicParsing="false" onAction="#clickEditName" prefHeight="21.0" prefWidth="100.0" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <children>
-                        <Button fx:id="btnEdit" mnemonicParsing="false" onAction="#clickEditPassword" prefHeight="20.0" prefWidth="100.0" text="Edit" />
-                        <Button fx:id="btnSave" mnemonicParsing="false" onAction="#clickSave" prefHeight="20.0" prefWidth="100.0" text="Save" />
+                        <Button fx:id="btnEdit1" mnemonicParsing="false" onAction="#clickEditPassword" prefHeight="20.0" prefWidth="100.0" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <children>
-                        <Button fx:id="btnEdit" mnemonicParsing="false" onAction="#clickEditEmail" prefHeight="20.0" prefWidth="100.0" text="Edit" />
-                        <Button fx:id="btnSave" mnemonicParsing="false" onAction="#clickSave" prefHeight="20.0" prefWidth="100.0" text="Save" />
+                        <Button fx:id="btnEdit2" mnemonicParsing="false" onAction="#clickEditEmail" prefHeight="20.0" prefWidth="100.0" />
                      </children>
                   </HBox>
                </children>
             </GridPane>
-            <HBox alignment="BOTTOM_CENTER" prefHeight="190.0" prefWidth="1000.0">
+            <VBox alignment="BOTTOM_CENTER" prefHeight="176.0" prefWidth="970.0" spacing="20.0">
                <children>
-                  <Button fx:id="btnDeleteUser" mnemonicParsing="false" onAction="#clickDeleteUser" prefHeight="45.0" prefWidth="258.0" text="Delete User" />
+                  <HBox alignment="CENTER" spacing="50.0">
+                     <children>
+                        <Button fx:id="btnSave" mnemonicParsing="false" onAction="#clickSave" prefHeight="45.0" prefWidth="185.0" text="Save Changes" />
+                        <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#clickCancel" prefHeight="45.0" prefWidth="185.0" text="Cancel Changes" />
+                     </children>
+                  </HBox>
+                  <Button fx:id="btnDeleteUser" mnemonicParsing="false" onAction="#clickDeleteUser" prefHeight="45.0" prefWidth="185.0" text="Delete User" />
                </children>
-            </HBox>
+            </VBox>
          </children>
       </VBox>
    </children>
