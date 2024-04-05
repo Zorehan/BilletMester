@@ -1,0 +1,36 @@
+#anchor {
+    -fx-background-color: linear-gradient(to right, #63aedc, #1a1a75);
+}
+
+#mainBox {
+    -fx-background-color: rgba(240, 240, 240, 1);
+    -fx-background-radius: 50;
+}
+
+#usernameBox, #passwordBox {
+    -fx-background-color: rgb(220, 220, 220);
+    -fx-end-margin: 10;
+}
+
+#txtUsername, #pswPassword {
+    -fx-background-color: transparent;
+}
+
+#btnLogin {
+    -fx-background-color: #1a1a75;
+    -fx-background-radius: 10;
+    -fx-text-fill: white;
+}
+
+#btnLogin:hover {
+    -fx-scale-x: 105%;
+    -fx-scale-y: 105%;
+}
+
+#btnCreateAccount {
+    -fx-background-color: transparent;
+}
+
+#btnCreateAccount:hover {
+    -fx-text-fill: #1a1a75;
+}

@@ -20,7 +20,7 @@
             </VBox>
             <VBox alignment="BOTTOM_CENTER" prefHeight="89.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="btnLogOut" mnemonicParsing="false" onAction="#clickLogout" prefHeight="85.0" prefWidth="175.0" text="Log Out" />
+                  <Button fx:id="btnLogOut" mnemonicParsing="false" onAction="#clickLogout" prefHeight="42.0" prefWidth="175.0" text="Log Out" />
                </children>
             </VBox>
          </children>

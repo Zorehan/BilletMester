@@ -6,17 +6,22 @@ import GUI.Model.ViewModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import util.Encryption;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class loginViewController {
+public class loginViewController implements Initializable {
 
     private UserModel userModel = UserModel.getInstance();
     private ViewModel viewModel = ViewModel.getInstance();
@@ -24,9 +29,10 @@ public class loginViewController {
 
     @FXML
     private TextField txtUsername;
-
     @FXML
     private PasswordField pswPassword;
+    @FXML
+    private ImageView imgUsername, imgPassword;
 
 
     public void BtnPressLogin(ActionEvent actionEvent) {
@@ -79,5 +85,19 @@ public class loginViewController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        Image userImg = new Image(getClass().getResourceAsStream("/icons/user.png"));
+        Image passImg = new Image(getClass().getResourceAsStream("/icons/key.png"));
+
+        imgUsername.setPreserveRatio(true);
+        imgUsername.setFitHeight(24);
+        imgUsername.setImage(userImg);
+
+        imgPassword.setPreserveRatio(true);
+        imgPassword.setFitHeight(24);
+        imgPassword.setImage(passImg);
     }
 }
