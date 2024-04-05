@@ -66,4 +66,8 @@ public class UserModel {
     {
         userManager.updateUser(user, newRole);
     }
+
+    public void deepUpdateUser(User user, String firstName, String lastName, String password, String email){
+        userManager.deepUpdateUser(user, firstName, lastName, password, email);
+    }
 }

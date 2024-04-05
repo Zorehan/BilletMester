@@ -34,4 +34,8 @@ public class UserManager {
     {
         userDAO.deleteUser(user);
     }
+
+    public void deepUpdateUser(User user, String firstName, String lastName, String password, String email) {
+        userDAO.deepUpdateUser(user, firstName, lastName, password, email);
+    }
 }

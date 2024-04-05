@@ -106,4 +106,20 @@ public class UserDAO {
             throw new RuntimeException(e);
         }
     }
+
+    public void deepUpdateUser(User user, String firstName, String lastName, String password, String email) {
+        String sql = "UPDATE dbo.Users SET firstName = ?, lastName = ?, password = ?, userEmail = ? WHERE id = ?;";
+        try (Connection conn = databaseConnector.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, firstName);
+            stmt.setString(2, lastName);
+            stmt.setString(3, password);
+            stmt.setString(4, email);
+            stmt.setInt(5, user.getId());
+
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

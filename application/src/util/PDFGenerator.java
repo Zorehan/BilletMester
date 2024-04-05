@@ -2,7 +2,6 @@ package util;
 
 import BE.Events;
 import BE.Users.User;
-import BE.Users.UserEnum;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
@@ -13,7 +12,6 @@ import org.apache.pdfbox.pdmodel.font.PDType1Font;
 
 
 import java.io.IOException;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
