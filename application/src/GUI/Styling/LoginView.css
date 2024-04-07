@@ -7,22 +7,22 @@
     -fx-background-radius: 50;
 }
 
-#usernameBox, #passwordBox {
+#usernameBox, #passwordBox, #inputBox1, #inputBox2, #inputBox3, #inputBox4, #inputBox5, #inputBox6 {
     -fx-background-color: rgb(220, 220, 220);
     -fx-end-margin: 10;
 }
 
-#txtUsername, #pswPassword {
+.text-field, .password-field {
     -fx-background-color: transparent;
 }
 
-#btnLogin {
+#btnLogin, #btnCreate, #btnCancel {
     -fx-background-color: #1a1a75;
     -fx-background-radius: 10;
     -fx-text-fill: white;
 }
 
-#btnLogin:hover {
+#btnLogin:hover, #btnCreate:hover, #btnCancel:hover {
     -fx-scale-x: 105%;
     -fx-scale-y: 105%;
 }

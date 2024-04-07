@@ -6,6 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -75,5 +76,17 @@ public class ViewModel {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/MainPage/bannerView.fxml"));
         Parent parent = loader.load();
         borderPane.setTop(parent);
+    }
+
+    /**
+     * Logs out of the current account.
+     */
+    public void logOut() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/Login/loginView.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        Stage stage = getStage();
+        stage.setScene(scene);
+        setStage(stage);
     }
 }

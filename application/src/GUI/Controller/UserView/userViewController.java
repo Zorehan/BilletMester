@@ -1,6 +1,7 @@
 package GUI.Controller.UserView;
 
 import GUI.Model.UserModel;
+import GUI.Model.ViewModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -9,6 +10,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import util.Encryption;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -22,6 +24,7 @@ public class userViewController implements Initializable {
     @FXML
     private Button btnEdit, btnEdit1, btnEdit2;
     private UserModel userModel = UserModel.getInstance();
+    private ViewModel viewModel = ViewModel.getInstance();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -60,17 +63,23 @@ public class userViewController implements Initializable {
 
     @FXML
     private void clickDeleteUser(ActionEvent actionEvent) {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Account Deletion");
-        alert.setHeaderText(null);
-        alert.setContentText("You are about to delete your account!\n" +
-                                "This cannot be undone, are you sure?");
-        alert.showAndWait();
+        try {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Account Deletion");
+            alert.setHeaderText(null);
+            alert.setContentText("You are about to delete your account!\n" +
+                    "This cannot be undone, are you sure?");
+            alert.showAndWait();
 
-        if(alert.getResult() == ButtonType.OK) {
-            userModel.deleteUser(userModel.getUser());
+            if (alert.getResult() == ButtonType.OK) {
+                userModel.deleteUser(userModel.getUser());
+                viewModel.logOut();
+            }
+        } catch(IOException e){
+            throw new RuntimeException(e);
         }
     }
+
 
     @FXML
     private void clickSave(ActionEvent actionEvent) {

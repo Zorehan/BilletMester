@@ -23,13 +23,7 @@ public class sideBarController {
     @FXML
     private void clickLogout(ActionEvent actionEvent) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/Login/loginView.fxml"));
-            Parent root = loader.load();
-
-            Scene scene = new Scene(root);
-            Stage stage = viewModel.getStage();
-            stage.setScene(scene);
-            viewModel.setStage(stage);
+            viewModel.logOut();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
