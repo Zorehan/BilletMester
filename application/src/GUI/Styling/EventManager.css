@@ -1,0 +1,35 @@
+.button {
+    -fx-background-color: #1a1a75;
+    -fx-background-radius: 0 0 10 10;
+    -fx-border-radius: 0 0 10 10;
+
+    -fx-text-fill: white;
+}
+
+.button:hover {
+    -fx-background-color: #0f0f46;
+}
+
+#outerBox, #outerBox1 {
+    -fx-background-color: lightgray;
+    -fx-background-radius: 40;
+}
+
+.list-cell:filled:selected:focused, .list-cell:filled:selected {
+    -fx-background-color: #1a1a75;
+    -fx-text-fill: white;
+}
+
+.list-cell:even {
+    -fx-background-color: white;
+}
+
+.list-cell:odd {
+    -fx-background-color: lightgray;
+}
+
+
+.list-cell:filled:hover {
+    -fx-background-color: #0f0f46;
+    -fx-text-fill: white;
+}
