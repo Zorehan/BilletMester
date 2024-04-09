@@ -1,5 +1,8 @@
 package util;
 
+import BE.Events;
+import BE.Users.User;
+
 import javax.net.ssl.SSLContext;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -10,6 +13,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.security.NoSuchAlgorithmException;
+import java.util.Random;
 
 
 public class HttpService {
@@ -17,11 +21,14 @@ public class HttpService {
 
 //Metoden tager den random ass string som bliver lavet ind i en barcode som content, og filename står for hvad billedet den gammer skal hedde
     //det er stærkt anbefalet at man bruger det samme string i filename som man gjorde i content, det gør det en del nemmere at finde barcodesne senere
-    public String generateBarcode(String content, String filename)
+    public String generateBarcode(Events event)
     {
         try{
-            filename ="E" + filename + ".png";
-            String realContent = "E" + content;
+            String filename ="E" + event.getEventName() + ".png";
+            Random random = new Random();
+
+            String realContent = String.valueOf(random.nextInt(10000000,99999999));
+            
             HttpClient client = HttpClient.newBuilder()
                     .sslContext(SSLContext.getDefault())
                     .build();
@@ -55,11 +62,13 @@ public class HttpService {
         }
     }
 
-    public String generateBarcodeDiscount(String content, String filename)
+    public String generateBarcodeDiscount(Events event)
     {
         try{
-            filename ="D" + filename + ".png";
-            String realContent = "D" + content;
+            String filename ="D" + event.getEventName() + ".png";
+            Random random = new Random();
+
+            String realContent = String.valueOf(random.nextInt(10000000,99999999));
             HttpClient client = HttpClient.newBuilder()
                     .sslContext(SSLContext.getDefault())
                     .build();
@@ -94,11 +103,14 @@ public class HttpService {
         }
     }
 
-    public String generateBarcodeFood(String content, String filename)
+    public String generateBarcodeFood(Events event)
     {
         try{
-            filename ="F" + filename + ".png";
-            String realContent = "F" + content;
+
+            String filename = "F" + event.getEventName() + ".png";
+            Random random = new Random();
+
+            String realContent = String.valueOf(random.nextInt(10000000,99999999));
             HttpClient client = HttpClient.newBuilder()
                     .sslContext(SSLContext.getDefault())
                     .build();
