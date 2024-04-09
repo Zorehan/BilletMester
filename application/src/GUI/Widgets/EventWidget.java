@@ -1,8 +1,14 @@
 package GUI.Widgets;
 
 import BE.Events;
+import GUI.Controller.UserView.eventInfoController;
+import GUI.Model.ViewModel;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -13,11 +19,12 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class EventWidget extends Region {
-
+    private ViewModel  viewModel = ViewModel.getInstance();
     private String IMG_URL = "/images/gun2.jpg"; //DEFAULT IMAGE URL
     private String eventName;
     private String eventNotes;
@@ -79,6 +86,7 @@ public class EventWidget extends Region {
         button.setLayoutY(HEIGHT - differential);
         button.setLayoutX(WIDTH - 90);
         button.setId("button");
+        button.setOnAction(this::handleSeeMoreButton);
 
         return button;
     }
@@ -156,5 +164,17 @@ public class EventWidget extends Region {
         box.getChildren().addAll(dateBox);
 
         return box;
+    }
+    private void handleSeeMoreButton(ActionEvent event){
+        try {
+            // indlæs fra eventInfo.fxml fil.
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/eventInfo.fxml"));
+            Parent eventInfoView = loader.load();
+
+            viewModel.getBorderPane().setCenter(eventInfoView);
+            viewModel.setTopBar();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
