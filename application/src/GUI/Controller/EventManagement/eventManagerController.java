@@ -21,6 +21,8 @@ public class eventManagerController implements Initializable {
 
     @FXML
     private ListView<Events> availableEvents;
+    @FXML
+    private ListView<User> listAvailableUsers;
 
     private ViewModel viewModel;
     private UserModel userModel;
@@ -33,6 +35,7 @@ public class eventManagerController implements Initializable {
         viewModel = ViewModel.getInstance();
 
         getAvailableEvents();
+        getAvailableUsers();
     }
 
     private void getAvailableEvents() {
@@ -52,8 +55,28 @@ public class eventManagerController implements Initializable {
         }
     }
 
+    private void getAvailableUsers() {
+        listAvailableUsers.setItems(userModel.getObservableUsers());
+    }
+
     public void clickEdit(ActionEvent actionEvent) {
     }
 
 
+    @FXML
+    private void clickCreateEvent(ActionEvent actionEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/EventManagement/eventCreatorView.fxml"));
+            Parent userView = loader.load();
+            viewModel.getBorderPane().setCenter(userView);
+            viewModel.setTopBar();
+            viewModel.disableSidePanel();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    private void clickCreateTicket(ActionEvent actionEvent) {
+    }
 }

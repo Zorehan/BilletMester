@@ -3,26 +3,60 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane prefHeight="460.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.EventManagement.eventManagerController">
+<Pane prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.EventManagement.eventManagerController">
    <children>
-      <Label layoutX="54.0" layoutY="64.0" text="Your available events:">
-         <font>
-            <Font size="22.0" />
-         </font>
-      </Label>
-      <ListView fx:id="availableEvents" layoutX="54.0" layoutY="96.0" prefHeight="241.0" prefWidth="209.0" />
       <Label layoutX="401.0" text="Event Manager">
          <font>
             <Font size="60.0" />
          </font>
       </Label>
-      <Button fx:id="editBtn" layoutX="54.0" layoutY="344.0" mnemonicParsing="false" onAction="#clickEdit" text="Edit Event">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Button>
+      <VBox layoutX="296.0" layoutY="88.0">
+         <children>
+            <Label text="Your available events:">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <ListView fx:id="availableEvents" prefHeight="352.0" prefWidth="209.0" />
+            <HBox spacing="30.0">
+               <children>
+                  <Button fx:id="editBtn" mnemonicParsing="false" onAction="#clickEdit" prefHeight="40.0" prefWidth="90.0" text="Edit">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnCreateEvent" mnemonicParsing="false" onAction="#clickCreateEvent" prefHeight="40.0" prefWidth="90.0" text="Create">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <VBox layoutX="694.0" layoutY="88.0">
+         <children>
+            <Label text="Available Users">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <ListView fx:id="listAvailableUsers" prefHeight="352.0" prefWidth="209.0" />
+            <HBox spacing="30.0">
+               <children>
+                  <Button fx:id="createTicketBtn" mnemonicParsing="false" onAction="#clickCreateTicket" prefHeight="40.0" prefWidth="210.0" text="Create Ticket">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
    </children>
 </Pane>

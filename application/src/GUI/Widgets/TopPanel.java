@@ -36,7 +36,6 @@ public class TopPanel extends HBox {
                 initAdmin();
                 break;
             case EVENTCOORDINATOR:
-                initEventCreator();
                 initEventManager();
                 break;
         }
@@ -89,13 +88,6 @@ public class TopPanel extends HBox {
         this.getChildren().addFirst(button);
     }
 
-    private void initEventCreator() {
-        Button button = new Button("Event Creator");
-        button.setId("userButton");
-        button.setOnAction(this::clickEventCreator);
-        this.getChildren().addFirst(button);
-    }
-
 
     private void initAdmin() {
         Button button = new Button("Admin Panel");
@@ -125,18 +117,6 @@ public class TopPanel extends HBox {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/adminView.fxml"));
             Parent userView = loader.load();
 
-            viewModel.getBorderPane().setCenter(userView);
-            viewModel.setTopBar();
-            viewModel.disableSidePanel();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public void clickEventCreator(ActionEvent actionEvent) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/EventManagement/eventCreatorView.fxml"));
-            Parent userView = loader.load();
             viewModel.getBorderPane().setCenter(userView);
             viewModel.setTopBar();
             viewModel.disableSidePanel();
