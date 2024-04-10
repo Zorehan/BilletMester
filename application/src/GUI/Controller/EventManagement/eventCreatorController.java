@@ -21,6 +21,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class eventCreatorController {
@@ -52,15 +53,15 @@ public class eventCreatorController {
     }
 
     public void createNewEvent() {
-
         User loggedInUser = userModel.getUser();
 
         // Retrieve input values from the GUI
         String title = titleField.getText();
-        String hostName = loggedInUser.getFullName(); // Tager det fulde navn af user - dette er for eventManager
+        String hostName = loggedInUser.getFullName();
         String location = locationField.getText();
-        LocalDateTime eventStart = LocalDateTime.now();
-        LocalDateTime eventEnd = LocalDateTime.now();
+        LocalDate eventDate = datePicker.getValue(); // Get the date from the datePicker
+        LocalDateTime eventStart = eventDate.atStartOfDay(); // Set the start time to the beginning of the selected date
+        LocalDateTime eventEnd = eventDate.atTime(23, 59, 59); // Set the end time to the end of the selected date
         String notes = notesField.getText();
         String bannerImage = bannerImageField.getText();
         String previewImage = previewImageField.getText();
@@ -81,11 +82,11 @@ public class eventCreatorController {
                 Tickets ticket = new Tickets(-1, title, null, null, null);
                 ticketModel.createTicket(ticket);
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
 
     // -----------------------------------------------------------------------------------
     //---------------------------------------BUTTONS--------------------------------------
