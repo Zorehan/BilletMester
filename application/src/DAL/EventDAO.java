@@ -42,8 +42,9 @@ public class EventDAO {
                 String eventBanner = rs.getString("eventBanner");
                 String eventPreview = rs.getString("eventPreview");
                 String eventCategory = rs.getString("eventCategory");
+                Integer eventPrice = rs.getInt("eventPrice");
 
-                Events event = new Events(id,eventName,eventHost,eventStart,eventEnd,eventLocation,eventNotes,eventGuidance,eventBanner,eventPreview, eventCategory);
+                Events event = new Events(id,eventName,eventHost,eventStart,eventEnd,eventLocation,eventNotes,eventGuidance,eventBanner,eventPreview, eventCategory, eventPrice);
                 allEvents.add(event);
             }
             return allEvents;
@@ -54,7 +55,7 @@ public class EventDAO {
 
     public Events createEvent(Events event)
     {
-        String sql = "INSERT INTO dbo.Events (eventName, eventHost, eventStart, eventEnd, eventLocation, eventNotes, eventGuidance,eventBanner,eventPreview, eventCategory) VALUES(?,?,?,?,?,?,?,?,?,?);";
+        String sql = "INSERT INTO dbo.Events (eventName, eventHost, eventStart, eventEnd, eventLocation, eventNotes, eventGuidance,eventBanner,eventPreview, eventCategory, eventPrice) VALUES(?,?,?,?,?,?,?,?,?,?,?);";
         try(Connection conn = databaseConnector.getConnection();
         PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS))
         {
@@ -68,6 +69,7 @@ public class EventDAO {
             stmt.setString(8,event.getEventBanner());
             stmt.setString(9,event.getEventPreview());
             stmt.setString(10,event.getEventCategory());
+            stmt.setInt(11, event.getEventPrice());
 
             stmt.executeUpdate();
 
@@ -79,7 +81,7 @@ public class EventDAO {
                 id = rs.getInt(1);
             }
 
-            Events createdEvent = new Events(id, event.getEventName(), event.getEventHost(), event.getEventStart(), event.getEventEnd(), event.getEventLocation(), event.getEventNotes(), event.getEventGuidance(), event.getEventBanner(), event.getEventPreview(), event.getEventCategory());
+            Events createdEvent = new Events(id, event.getEventName(), event.getEventHost(), event.getEventStart(), event.getEventEnd(), event.getEventLocation(), event.getEventNotes(), event.getEventGuidance(), event.getEventBanner(), event.getEventPreview(), event.getEventCategory(), event.getEventPrice());
             return createdEvent;
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -88,7 +90,7 @@ public class EventDAO {
 
     public void updateEvent(Events event)
     {
-        String sql = "UPDATE dbo.Events SET eventName = ? eventHost = ?, eventStart = ?, eventEnd = ?, eventLocation = ?, eventNotes = ?, eventGuidance = ?, eventBanner = ?, eventPreview = ?, eventCategory = ?, WHERE id = ?;";
+        String sql = "UPDATE dbo.Events SET eventName = ? eventHost = ?, eventStart = ?, eventEnd = ?, eventLocation = ?, eventNotes = ?, eventGuidance = ?, eventBanner = ?, eventPreview = ?, eventCategory = ?, eventPrice = ?, WHERE id = ?;";
         try(Connection conn = databaseConnector.getConnection();
         PreparedStatement stmt = conn.prepareStatement(sql))
         {
@@ -102,6 +104,7 @@ public class EventDAO {
             stmt.setString(8, event.getEventBanner());
             stmt.setString(9,event.getEventPreview());
             stmt.setString(10,event.getEventCategory());
+            stmt.setInt(11, event.getEventPrice());
 
             stmt.executeUpdate();
         } catch (SQLException e) {
