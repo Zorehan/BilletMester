@@ -55,7 +55,7 @@
             <Font size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="ticketsAmountField" alignment="CENTER" layoutX="793.0" layoutY="111.0" prefHeight="36.0" prefWidth="176.0" promptText="Amount">
+      <TextField fx:id="ticketsField" alignment="CENTER" layoutX="793.0" layoutY="111.0" prefHeight="36.0" prefWidth="176.0" promptText="Amount">
          <font>
             <Font size="17.0" />
          </font>
@@ -125,7 +125,7 @@
             <Font size="17.0" />
          </font>
       </TextField>
-      <TextField fx:id="ticketsPriceField" alignment="CENTER" layoutX="978.0" layoutY="111.0" prefHeight="36.0" prefWidth="43.0" promptText="($)">
+      <TextField fx:id="ticketsAmountField" alignment="CENTER" layoutX="978.0" layoutY="111.0" prefHeight="36.0" prefWidth="43.0" promptText="($)">
          <font>
             <Font size="17.0" />
          </font>

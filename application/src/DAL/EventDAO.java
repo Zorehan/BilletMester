@@ -90,7 +90,8 @@ public class EventDAO {
 
     public void updateEvent(Events event)
     {
-        String sql = "UPDATE dbo.Events SET eventName = ? eventHost = ?, eventStart = ?, eventEnd = ?, eventLocation = ?, eventNotes = ?, eventGuidance = ?, eventBanner = ?, eventPreview = ?, eventCategory = ?, eventPrice = ?, WHERE id = ?;";
+        String sql = "UPDATE dbo.Events SET eventName = ?, eventHost = ?, eventStart = ?, eventEnd = ?, eventLocation = ?, eventNotes = ?, eventGuidance = ?, eventBanner = ?, eventPreview = ?, eventCategory = ?, eventPrice = ? WHERE id = ?;";
+
         try(Connection conn = databaseConnector.getConnection();
         PreparedStatement stmt = conn.prepareStatement(sql))
         {
@@ -105,6 +106,8 @@ public class EventDAO {
             stmt.setString(9,event.getEventPreview());
             stmt.setString(10,event.getEventCategory());
             stmt.setInt(11, event.getEventPrice());
+
+            stmt.setInt(12, event.getId());
 
             stmt.executeUpdate();
         } catch (SQLException e) {
