@@ -46,19 +46,9 @@ public class eventCreatorController {
     private SpecialTickets specialTickets;
 
     public void initialize() {
-        eventModel = EventModel.getInstance();
-        ticketModel = TicketModel.getInstance();
-        viewModel = ViewModel.getInstance();
-        userModel = UserModel.getInstance();
-
-        restrictToNumericInput(ticketsField, ticketsAmountField);
-        restrictToNumericInput(ticketsFoodField, ticketsFoodAmountField);
-        restrictToNumericInput(ticketDrinkField, ticketsDrinkAmountField);
-        restrictToNumericInput(ticketDiscountField, ticketsDiscountsAmountField);
-
-        for (Events.Categories category : Events.Categories.values()) {
-            categoryComboBox.getItems().add(category);
-        }
+        initModels();
+        initInput();
+        initCategories();
     }
 
     public void createNewEvent() {
@@ -196,4 +186,25 @@ public class eventCreatorController {
         Parent mainViewParent = loader.load();
         viewModel.getBorderPane().setCenter(mainViewParent);
     }
+
+    private void initInput() {
+        restrictToNumericInput(ticketsField, ticketsAmountField);
+        restrictToNumericInput(ticketsFoodField, ticketsFoodAmountField);
+        restrictToNumericInput(ticketDrinkField, ticketsDrinkAmountField);
+        restrictToNumericInput(ticketDiscountField, ticketsDiscountsAmountField);
+    }
+
+    private void initCategories() {
+        for (Events.Categories category : Events.Categories.values()) {
+            categoryComboBox.getItems().add(category);
+        }
+    }
+
+    private void initModels() {
+        eventModel = EventModel.getInstance();
+        ticketModel = TicketModel.getInstance();
+        viewModel = ViewModel.getInstance();
+        userModel = UserModel.getInstance();
+    }
+
 }
