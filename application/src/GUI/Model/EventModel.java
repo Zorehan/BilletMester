@@ -55,6 +55,14 @@ public class EventModel {
         allEvents.remove(event);
     }
 
+    public void setEvent(Events event) {
+        this.event = event;
+    }
+
+    public Events getEvent() {
+        return event;
+    }
+
     public void updateEvent(Events event)
     {
         eventManager.updateEvent(event);

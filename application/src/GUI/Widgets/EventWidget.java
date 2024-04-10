@@ -1,8 +1,13 @@
 package GUI.Widgets;
 
 import BE.Events;
+import GUI.Model.EventModel;
+import GUI.Model.ViewModel;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -13,6 +18,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -27,6 +33,9 @@ public class EventWidget extends Region {
     private final double WIDTH = 290;
     private final double INFO_HEIGHT = 80;
     private double LOCATION_WIDTH;
+    private EventModel eventModel = EventModel.getInstance();
+    private ViewModel viewModel = ViewModel.getInstance();
+    private Events event;
 
     /*
         Ærligt, ikke tænk for meget over denne klasse,
@@ -66,6 +75,7 @@ public class EventWidget extends Region {
         Button button = constructButton();
 
         this.getChildren().addAll(img, button, titlePane, infoPane);
+        this.event = event;
     }
 
     private Button constructButton() {
@@ -79,6 +89,7 @@ public class EventWidget extends Region {
         button.setLayoutY(HEIGHT - differential);
         button.setLayoutX(WIDTH - 90);
         button.setId("button");
+        button.setOnAction(this::clickSeeMore);
 
         return button;
     }
@@ -156,5 +167,18 @@ public class EventWidget extends Region {
         box.getChildren().addAll(dateBox);
 
         return box;
+    }
+
+    public void clickSeeMore(ActionEvent actionEvent) {
+
+        try {
+            eventModel.setEvent(this.event);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/seeMoreView.fxml"));
+            Parent parent = loader.load();
+            viewModel.getBorderPane().setCenter(parent);
+            viewModel.setBanner();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

@@ -3,6 +3,7 @@ package GUI.Widgets;
 import GUI.Controller.EventManagement.eventCreatorController;
 import GUI.Controller.EventManagement.eventManagerController;
 import GUI.Controller.adminViewController;
+import GUI.Model.EventModel;
 import GUI.Model.UserModel;
 import GUI.Model.ViewModel;
 import javafx.concurrent.Task;
@@ -26,6 +27,7 @@ import java.io.IOException;
 public class TopPanel extends HBox {
     private ViewModel viewModel = ViewModel.getInstance();
     private UserModel userModel = UserModel.getInstance();
+    private EventModel eventModel = EventModel.getInstance();
     public TopPanel() {
         this.setId("topPanel");
         this.getStylesheets().add("/GUI/Styling/BannerAndTopBar.css");
@@ -39,6 +41,9 @@ public class TopPanel extends HBox {
                 initEventManager();
                 break;
         }
+
+        if(eventModel.getEvent() != null)
+            initButton();
     }
 
     public void initTopPanel() {
@@ -131,6 +136,26 @@ public class TopPanel extends HBox {
             Parent userView = loader.load();
             viewModel.getBorderPane().setCenter(userView);
             viewModel.setTopBar();
+            viewModel.disableSidePanel();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void initButton() {
+        Button button = new Button("Back");
+        button.setOnAction(this::clickBack);
+        this.getChildren().addFirst(button);
+    }
+
+    private void clickBack(ActionEvent actionEvent) {
+        try {
+            eventModel.setEvent(null);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/MainPage/mainView.fxml"));
+            Parent userView = loader.load();
+
+            viewModel.getBorderPane().setCenter(userView);
+            viewModel.setBanner();
             viewModel.disableSidePanel();
         } catch (IOException e) {
             throw new RuntimeException(e);

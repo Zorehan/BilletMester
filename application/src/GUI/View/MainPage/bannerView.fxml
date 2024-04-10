@@ -5,6 +5,6 @@
 
 <StackPane fx:id="stackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="1200.0" stylesheets="@../../Styling/BannerAndTopBar.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.bannerController">
    <children>
-      <Pane fx:id="mainPane" prefHeight="300.0" prefWidth="1200.0" style="-fx-background-color: blue;" />
+      <Pane fx:id="mainPane" prefHeight="300.0" prefWidth="1200.0" style="-fx-background-color: transparent;" />
    </children>
 </StackPane>

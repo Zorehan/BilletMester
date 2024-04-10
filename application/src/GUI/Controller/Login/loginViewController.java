@@ -1,6 +1,7 @@
 package GUI.Controller.Login;
 
 import BE.Users.User;
+import GUI.Model.EventModel;
 import GUI.Model.UserModel;
 import GUI.Model.ViewModel;
 import javafx.event.ActionEvent;

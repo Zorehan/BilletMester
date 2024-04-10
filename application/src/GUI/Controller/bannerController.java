@@ -7,6 +7,7 @@ import GUI.Controller.EventManagement.eventManagerController;
 import GUI.Model.EventModel;
 import GUI.Model.UserModel;
 import GUI.Model.ViewModel;
+import GUI.Widgets.BannerWidget;
 import GUI.Widgets.TopPanel;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
@@ -52,55 +53,16 @@ public class bannerController implements Initializable {
         Rectangle clipRect = new Rectangle(WIDTH, HEIGHT);
         stackPane.setClip(clipRect);
 
-        if(!eventModel.getObservableEvents().isEmpty()) {
-            event = eventModel.getObservableEvents().get(0); //Tager første event til at blive banner.
-            initEvent(event);
+        Pane banner;
+        if(eventModel.getEvent() != null) {
+            banner = new BannerWidget(eventModel.getEvent());
         }
+        else {
+            banner = new BannerWidget();
+        }
+        mainPane.getChildren().add(banner);
 
         HBox topPanel = new TopPanel();
-        mainPane.getChildren().addLast(topPanel);
-    }
-
-    public void initEvent(Events event) {
-        //Lang snippet, im sorry
-        int VBOX_HEIGHT = 80;
-        VBox vbox = new VBox(-20);
-        HBox top = new HBox();
-        HBox bottom = new HBox();
-        Label genre = new Label("Concert");
-        Label date = new Label(event.getEventStart().format(DateTimeFormatter.ofPattern("dd. MMMM")));
-        Label title = new Label(event.getEventName());
-
-
-        vbox.setPadding(new Insets(0, 10, 0, 0));
-
-        top.getChildren().addAll(genre, date);
-        top.setAlignment(Pos.BOTTOM_LEFT);
-        date.setPrefHeight(80);
-        genre.setPrefHeight(80);
-
-        bottom.getChildren().add(title);
-        bottom.setAlignment(Pos.TOP_LEFT);
-        top.setAlignment(Pos.BOTTOM_LEFT);
-
-        vbox.getChildren().addAll(top, bottom);
-
-        vbox.setId("titleBg");
-        genre.setId("lblGenre");
-        date.setId("lblDate");
-        title.setId("lblTitle");
-
-        vbox.setLayoutY(HEIGHT - VBOX_HEIGHT);
-        vbox.setPrefHeight(VBOX_HEIGHT);
-
-        mainPane.getChildren().addFirst(vbox);
-        mainPane.getChildren().addFirst(initBannerImage(event));
-    }
-
-    public ImageView initBannerImage(Events event){
-        Image imgBanner = new Image(getClass().getResourceAsStream("/images/banner.jpg"));
-        ImageView banner = new ImageView(imgBanner);
-
-        return banner;
+        mainPane.getChildren().add(topPanel);
     }
 }

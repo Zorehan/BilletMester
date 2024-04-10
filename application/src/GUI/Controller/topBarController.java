@@ -16,7 +16,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class topBarController implements Initializable {
-    ViewModel viewModel = ViewModel.getInstance();
+    private ViewModel viewModel = ViewModel.getInstance();
+    private EventModel eventModel = EventModel.getInstance();
 
     @FXML
     private HBox topBar;
@@ -33,6 +34,7 @@ public class topBarController implements Initializable {
             Parent userView = loader.load();
 
             viewModel.getBorderPane().setCenter(userView);
+            eventModel.setEvent(null);
             viewModel.setBanner();
             viewModel.disableSidePanel();
         } catch (IOException e) {

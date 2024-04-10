@@ -2,6 +2,7 @@ package GUI.Model;
 
 import BE.Events;
 import BLL.EventManager;
+import GUI.Widgets.BannerWidget;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
