@@ -29,7 +29,7 @@ public class eventCreatorController {
     @FXML
     private DatePicker datePicker;
     @FXML
-    private TextField ticketsAmountField, ticketsFoodAmountField, ticketsDrinkAmountField, ticketsDiscountsAmountField, ticketDrinkField, ticketDiscountField, ticketsFoodField, ticketsField;
+    private TextField ticketsPriceField, ticketsFoodAmountField, ticketsDrinkAmountField, ticketsDiscountsAmountField, ticketDrinkField, ticketDiscountField, ticketsFoodField, ticketsAmountField;
     @FXML
     private Pane rootPane;
     @FXML
@@ -65,28 +65,22 @@ public class eventCreatorController {
         String bannerImage = bannerImageField.getText();
         String previewImage = previewImageField.getText();
         String description = descriptionField.getText();
-        String foodTicketsText = ticketsFoodField.getText();
-        Integer foodTickets = foodTicketsText.isEmpty() ? 0 : Integer.valueOf(foodTicketsText);
-
-        String drinkTicketsText = ticketDrinkField.getText();
-        Integer drinkTickets = drinkTicketsText.isEmpty() ? 0 : Integer.valueOf(drinkTicketsText);
-
-        String discountTicketsText = ticketDiscountField.getText();
-        Integer discountTickets = discountTicketsText.isEmpty() ? 0 : Integer.valueOf(discountTicketsText);
-
         String eventCategory = categoryComboBox.getValue().toString();
-
+        Integer eventPrice = Integer.valueOf(ticketsPriceField.getText());
+        Integer ticketsField = Integer.valueOf(ticketsAmountField.getText());
 
         // Create the event - -1 is a placeholder id, the actual id gets automatically set in the DB
-        Events event = new Events(-1, title, hostName, eventStart, eventEnd, location, description, notes, bannerImage, previewImage, eventCategory);
-
-        // Create the ticket for the events
-        Tickets ticket = new Tickets(-1, title, null, null, null);
+        Events event = new Events(-1, title, hostName, eventStart, eventEnd, location, description, notes, bannerImage, previewImage, eventCategory, eventPrice);
 
         try {
             // Create the event in the database
             eventModel.createEvent(event);
-            ticketModel.createTicket(ticket);
+
+            // Create tickets for the event
+            for (int i = 0; i < ticketsField; i++) {
+                Tickets ticket = new Tickets(-1, title, null, null, null);
+                ticketModel.createTicket(ticket);
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -146,7 +140,7 @@ public class eventCreatorController {
     // Validates input, so data only gets send when this is true.
     private boolean validateInput() {
         if (titleField.getText().isEmpty() || locationField.getText().isEmpty() ||
-                datePicker.getValue() == null || notesField.getText().isEmpty() || ticketsField.getText().isEmpty()){
+                datePicker.getValue() == null || notesField.getText().isEmpty() || ticketsAmountField.getText().isEmpty()){
             showAlert("All fields marked with * are required.");
             return false;
         }
@@ -188,7 +182,7 @@ public class eventCreatorController {
     }
 
     private void initInput() {
-        restrictToNumericInput(ticketsField, ticketsAmountField);
+        restrictToNumericInput(ticketsAmountField, ticketsPriceField);
         restrictToNumericInput(ticketsFoodField, ticketsFoodAmountField);
         restrictToNumericInput(ticketDrinkField, ticketsDrinkAmountField);
         restrictToNumericInput(ticketDiscountField, ticketsDiscountsAmountField);
