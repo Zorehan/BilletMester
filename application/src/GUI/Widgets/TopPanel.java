@@ -54,7 +54,7 @@ public class TopPanel extends HBox {
         this.setAlignment(Pos.CENTER_RIGHT);
 
         //Setup images for buttons
-        Image user = new Image(getClass().getResourceAsStream("/icons/user.png"));
+        Image user = new Image(getClass().getResourceAsStream("/icons/userWhite.png"));
         ImageView userView = new ImageView(user);
         Button btnUser = new Button();
 

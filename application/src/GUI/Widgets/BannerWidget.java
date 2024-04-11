@@ -56,7 +56,7 @@ public class BannerWidget extends Pane{
         Label title = new Label(event.getEventName());
 
 
-        vbox.setPadding(new Insets(0, 10, 0, 0));
+        vbox.setPadding(new Insets(0, 10, 0, 15));
 
         top.getChildren().addAll(genre, date);
         top.setAlignment(Pos.BOTTOM_LEFT);
