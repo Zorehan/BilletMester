@@ -140,9 +140,6 @@ public class eventEditController implements Initializable {
         }
     }
 
-
-
-
     public void clickPreviewBtn() {
         previewImageField.setText(btnChoose());
     }

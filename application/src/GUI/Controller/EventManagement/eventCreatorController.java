@@ -30,7 +30,7 @@ public class eventCreatorController {
     @FXML
     private DatePicker datePicker;
     @FXML
-    private TextField ticketsPriceField, ticketsFoodAmountField, ticketsDrinkAmountField, ticketsDiscountsAmountField, ticketDrinkField, ticketDiscountField, ticketsFoodField, ticketsAmountField;
+    private TextField ticketsField, ticketsFoodAmountField, ticketsDrinkAmountField, ticketsDiscountsAmountField, ticketDrinkField, ticketDiscountField, ticketsFoodField, ticketsAmountField;
     @FXML
     private Pane rootPane;
     @FXML
@@ -48,9 +48,12 @@ public class eventCreatorController {
 
     public void initialize() {
         initModels();
-        initInput();
         initCategories();
     }
+
+
+    // TODO: Refactor + Lav nyt input validation
+
 
     public void createNewEvent() {
         User loggedInUser = userModel.getUser();
@@ -67,8 +70,7 @@ public class eventCreatorController {
         String previewImage = previewImageField.getText();
         String description = descriptionField.getText();
         String eventCategory = categoryComboBox.getValue().toString();
-        Integer eventPrice = Integer.valueOf(ticketsPriceField.getText());
-        Integer ticketsField = Integer.valueOf(ticketsAmountField.getText());
+        Integer eventPrice = Integer.valueOf(ticketsAmountField.getText());
 
         // Create the event - -1 is a placeholder id, the actual id gets automatically set in the DB
         Events event = new Events(-1, title, hostName, eventStart, eventEnd, location, description, notes, bannerImage, previewImage, eventCategory, eventPrice);
@@ -77,11 +79,6 @@ public class eventCreatorController {
             // Create the event in the database
             eventModel.createEvent(event);
 
-            // Create tickets for the event
-            for (int i = 0; i < ticketsField; i++) {
-                Tickets ticket = new Tickets(-1, title, null, null, null);
-                ticketModel.createTicket(ticket);
-            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -157,36 +154,10 @@ public class eventCreatorController {
         alert.showAndWait();
     }
 
-    // Restricts label input to number 0-9 and backspace
-    private void restrictToNumericInput(TextField mainField, TextField amountField) {
-        amountField.disableProperty().bind(mainField.textProperty().isEmpty());
-
-        mainField.addEventFilter(javafx.scene.input.KeyEvent.KEY_TYPED, event -> {
-            if (!event.getCharacter().matches("[0-9\b]")) {
-                showAlert("Only numeric inputs are allowed!");
-                event.consume();
-            }
-        });
-
-        amountField.addEventFilter(javafx.scene.input.KeyEvent.KEY_TYPED, event -> {
-            if (!event.getCharacter().matches("[0-9\b]")) {
-                showAlert("Only numeric inputs are allowed!");
-                event.consume();
-            }
-        });
-    }
-
     private void switchToMainView(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/MainPage/mainView.fxml"));
         Parent mainViewParent = loader.load();
         viewModel.getBorderPane().setCenter(mainViewParent);
-    }
-
-    private void initInput() {
-        restrictToNumericInput(ticketsAmountField, ticketsPriceField);
-        restrictToNumericInput(ticketsFoodField, ticketsFoodAmountField);
-        restrictToNumericInput(ticketDrinkField, ticketsDrinkAmountField);
-        restrictToNumericInput(ticketDiscountField, ticketsDiscountsAmountField);
     }
 
     private void initCategories() {
