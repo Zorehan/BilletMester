@@ -5,6 +5,9 @@ import BLL.EventManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class EventModel {
 
     private static EventModel instance;
@@ -66,5 +69,11 @@ public class EventModel {
     public void updateEvent(Events event)
     {
         eventManager.updateEvent(event);
+    }
+
+    public List<Events> getEventsByCategory(String category) {
+        return allEvents.stream()
+                .filter(event -> event.getEventCategory().equalsIgnoreCase(category))
+                .collect(Collectors.toList());
     }
 }

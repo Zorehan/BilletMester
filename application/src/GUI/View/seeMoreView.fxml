@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.seeMoreController">
-   <children>
+<?import javafx.scene.control.Button?>
+<BorderPane xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.seeMoreController">
+   <top>
+   </top>
+   <center>
       <VBox layoutX="14.0" layoutY="14.0" prefHeight="348.0" prefWidth="244.0">
          <children>
             <Label fx:id="lblLocation" prefHeight="33.0" prefWidth="244.0" text="Location, Venue, Time">
@@ -22,6 +25,8 @@
             </Label>
          </children>
       </VBox>
+   </center>
+   <right>
       <VBox layoutX="830.0" layoutY="16.0" prefHeight="295.0" prefWidth="344.0" spacing="15.0">
          <children>
             <Label prefHeight="33.0" prefWidth="244.0" text="Ticket Information">
@@ -50,5 +55,5 @@
             </Label>
          </children>
       </VBox>
-   </children>
-</Pane>
+   </right>
+</BorderPane>

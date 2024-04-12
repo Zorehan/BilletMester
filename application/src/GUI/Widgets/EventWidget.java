@@ -1,6 +1,7 @@
 package GUI.Widgets;
 
 import BE.Events;
+import GUI.Controller.seeMoreController;
 import GUI.Model.EventModel;
 import GUI.Model.ViewModel;
 import javafx.event.ActionEvent;
@@ -170,7 +171,6 @@ public class EventWidget extends Region {
     }
 
     public void clickSeeMore(ActionEvent actionEvent) {
-
         try {
             eventModel.setEvent(this.event);
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/seeMoreView.fxml"));
