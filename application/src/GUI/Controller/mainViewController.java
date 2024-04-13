@@ -5,43 +5,47 @@ import GUI.Model.EventModel;
 import GUI.Model.ViewModel;
 import GUI.Widgets.EventWidget;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
 public class mainViewController implements Initializable {
+    public VBox eventsContainer; // Container for visning af event widgets
     @FXML
     private VBox centerVBox; // Container for displaying event widgets
 
-    private EventModel eventModel; // Assuming this model provides access to event data
-    private ViewModel viewModel; // Assuming this is used for shared application state, not directly relevant here
+    private EventModel eventModel; // dette model giver adgang til event data
+    private ViewModel viewModel;
+    List<Events> eventsList = new ArrayList<>();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // Initialize your model and view model here (details omitted for brevity)
         eventModel = EventModel.getInstance();
-        viewModel = ViewModel.getInstance();
-
-        // Fetch and display all events upon initialization
-        List<Events> allEvents = eventModel.getObservableEvents(); // Replace with your method to get all events
-        populateEvents(allEvents);
+        // Henter og viser alle events ved initialisering
+        displayEvents(eventModel.getObservableEvents());
     }
 
     /**
      * Updates the display with a list of events.
      * @param events The events to display.
      */
-    private void populateEvents(List<Events> events) {
-        centerVBox.getChildren().clear(); // Clear existing content
-        for (Events event : events) {
-            EventWidget widget = new EventWidget(event); // Assuming EventWidget takes an Events object
-            centerVBox.getChildren().add(widget);
+    public HBox createEvents() {
+        HBox hBox = new HBox(100);
+        hBox.setAlignment(Pos.CENTER);
+        for(Events event : eventsList) {
+            EventWidget widget = new EventWidget(event);
+            hBox.getChildren().add(widget);
         }
+        return hBox;
     }
 
     /**
@@ -52,12 +56,8 @@ public class mainViewController implements Initializable {
     private void filterByCategory(ActionEvent event) {
         Button btn = (Button) event.getSource();
         String category = btn.getText();
-
-        // Implement your logic to filter events by category
-        // This is a placeholder; replace with actual logic
-        List<Events> filteredEvents = eventModel.getEventsByCategory(category); // Your method to get events by category
-
-        populateEvents(filteredEvents);
+        List<Events> filteredEvents = eventModel.getEventsByCategory(category); // dette er din metode til at hente events efter kategori
+        displayEvents(filteredEvents);
     }
 
     /**
@@ -66,7 +66,23 @@ public class mainViewController implements Initializable {
      */
     @FXML
     public void showAllEvents(ActionEvent event) {
-        List<Events> allEvents = eventModel.getObservableEvents(); // Replace with your method to get all events
-        populateEvents(allEvents);
+        displayEvents(eventModel.getObservableEvents());
+    }
+
+    private void displayEvents(List<Events> events) {
+        eventsContainer.getChildren().clear(); // Ryd tidligere indhold
+        HBox currentHBox = null;
+
+        for (int i = 0; i < events.size(); i++) {
+            if (i % 3 == 0) { // Hver 3. event, start en ny HBox
+                currentHBox = new HBox(10);
+                currentHBox.setAlignment(Pos.CENTER);
+                eventsContainer.getChildren().add(currentHBox);
+            }
+            if (currentHBox != null) {
+                EventWidget widget = new EventWidget(events.get(i));
+                currentHBox.getChildren().add(widget);
+            }
+        }
     }
 }
