@@ -10,7 +10,7 @@
       <!-- Filterknapper forbliver i toppen af VBox -->
       <HBox prefHeight="52.0" prefWidth="1200.0" spacing="5.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#filterByCategory" prefHeight="25.0" prefWidth="250.0" text="FridayBar">
+            <Button mnemonicParsing="false" onAction="#filterByCategory" prefHeight="25.0" prefWidth="250.0" text="Friday Bar">
                <font>
                   <Font size="14.0" />
                </font>

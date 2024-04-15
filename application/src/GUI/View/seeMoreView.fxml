@@ -1,71 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
-<BorderPane stylesheets="@../Styling/SeeMoreView.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.seeMoreController">
-   <top>
-   </top>
-   <center>
-      <VBox layoutX="14.0" layoutY="14.0" prefHeight="348.0" prefWidth="244.0">
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox layoutX="850.0" prefHeight="450.0" prefWidth="350.0">
          <children>
-            <Pane prefHeight="271.0" prefWidth="251.0">
-               <children>
-                  <Label fx:id="lblLocation" layoutX="8.0" layoutY="6.0" prefHeight="33.0" prefWidth="244.0" text="Location, Venue, Time">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="lblDescription" layoutX="8.0" layoutY="32.0" prefHeight="33.0" prefWidth="244.0" text="General information:">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="8.0" layoutY="57.0" prefHeight="45.0" prefWidth="327.0" text="Only for people above the age of 18,">
-                     <font>
-                        <Font size="18.0" />
-                     </font></Label>
-                  <Label layoutX="9.0" layoutY="85.0" prefHeight="27.0" prefWidth="412.0" text="alcoholic beverages may be consumed.">
-                     <font>
-                        <Font size="18.0" />
-                     </font></Label>
-               </children>
-            </Pane>
+            <Label text="Price per ticket" />
+            <Label text="Price per food tickets" />
+            <Label text="Price per drink tickets" />
+            <Label text="Tickets are to be purchased at the venue location" />
          </children>
       </VBox>
-   </center>
-   <right>
-      <VBox layoutX="830.0" layoutY="16.0" prefHeight="295.0" prefWidth="344.0" spacing="15.0">
-         <children>
-            <Label prefHeight="33.0" prefWidth="244.0" text="Ticket Information">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <HBox>
-               <children>
-                  <Label prefHeight="33.0" prefWidth="244.0" text="Price Per Ticket (DKK):">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="lblPrice" prefHeight="33.0" prefWidth="145.0" text="Price:">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-               </children>
-            </HBox>
-            <Label prefHeight="178.0" prefWidth="344.0" text="Tickets are purchased at the venue, at the time of the event." textAlignment="CENTER" wrapText="true">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-         </children>
-      </VBox>
-   </right>
-</BorderPane>
+      <Label layoutX="14.0" layoutY="14.0" prefHeight="17.0" prefWidth="121.0" text="Location, Venue, Time:" />
+      <Label layoutX="14.0" layoutY="42.0" text="Includes:" />
+      <Label layoutX="14.0" layoutY="67.0" text="Lorem ipsum" />
+      <Label layoutX="14.0" layoutY="84.0" text="Lorem ipsum" />
+      <Label layoutX="14.0" layoutY="101.0" text="Lorem ipsum" />
+      <Label layoutX="14.0" layoutY="141.0" text="General information:" />
+      <Label layoutX="14.0" layoutY="169.0" text="Only for people above the age" />
+      <Label layoutX="13.0" layoutY="186.0" text="of 18, alcoholic bevarages may" />
+      <Label layoutX="11.0" layoutY="203.0" text="be consumed." />
+   </children>
+</Pane>
