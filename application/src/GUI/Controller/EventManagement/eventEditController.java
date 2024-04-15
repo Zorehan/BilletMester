@@ -29,7 +29,7 @@ import java.util.ResourceBundle;
 public class eventEditController implements Initializable {
 
     @FXML
-    private ComboBox categoryComboBox;
+    private ComboBox<Events.Categories> categoryComboBox;
     @FXML
     private DatePicker datePicker;
     @FXML
@@ -121,7 +121,7 @@ public class eventEditController implements Initializable {
             selectedEvent.setEventGuidance(descriptionField.getText());
             selectedEvent.setEventPreview(previewImageField.getText());
             selectedEvent.setEventBanner(bannerImageField.getText());
-            selectedEvent.setEventCategory(categoryComboBox.getValue().toString());
+            selectedEvent.setEventCategory(categoryComboBox.getValue());
             selectedEvent.setEventStart(datePicker.getValue().atStartOfDay());
             selectedEvent.setEventPrice(Integer.parseInt(ticketsAmountField.getText()));
 

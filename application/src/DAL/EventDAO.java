@@ -41,7 +41,7 @@ public class EventDAO {
                 String eventGuidance = rs.getString("eventGuidance");
                 String eventBanner = rs.getString("eventBanner");
                 String eventPreview = rs.getString("eventPreview");
-                String eventCategory = rs.getString("eventCategory");
+                Events.Categories eventCategory = Events.Categories.valueOf(rs.getString("eventCategory"));
                 Integer eventPrice = rs.getInt("eventPrice");
 
                 Events event = new Events(id,eventName,eventHost,eventStart,eventEnd,eventLocation,eventNotes,eventGuidance,eventBanner,eventPreview, eventCategory, eventPrice);
@@ -68,7 +68,7 @@ public class EventDAO {
             stmt.setString(7, event.getEventGuidance());
             stmt.setString(8,event.getEventBanner());
             stmt.setString(9,event.getEventPreview());
-            stmt.setString(10,event.getEventCategory());
+            stmt.setString(10,event.getEventCategory().toString());
             stmt.setInt(11, event.getEventPrice());
 
             stmt.executeUpdate();
@@ -104,7 +104,7 @@ public class EventDAO {
             stmt.setString(7, event.getEventGuidance());
             stmt.setString(8, event.getEventBanner());
             stmt.setString(9,event.getEventPreview());
-            stmt.setString(10,event.getEventCategory());
+            stmt.setString(10,event.getEventCategory().toString());
             stmt.setInt(11, event.getEventPrice());
 
             stmt.setInt(12, event.getId());

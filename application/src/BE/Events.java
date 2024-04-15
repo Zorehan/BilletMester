@@ -12,18 +12,18 @@ private String eventNotes;
 private String eventGuidance;
 private String eventBanner;
 private String eventPreview;
-private String eventCategory;
+private Categories eventCategory;
 private int eventPrice;
 
 public enum Categories {
     FRIDAYBAR,
     PARTY,
-    THEMACTICEVENING,
+    THEMATICEVENING,
     MUSIC,
     SPORT
 }
 
-    public Events(int id, String eventName, String eventHost, LocalDateTime eventStart, LocalDateTime eventEnd, String eventLocation, String eventNotes, String eventGuidance, String eventBanner, String eventPreview, String eventCategory, Integer eventPrice)
+    public Events(int id, String eventName, String eventHost, LocalDateTime eventStart, LocalDateTime eventEnd, String eventLocation, String eventNotes, String eventGuidance, String eventBanner, String eventPreview, Categories eventCategory, Integer eventPrice)
     {
         this.id = id;
         this.eventName = eventName;
@@ -119,11 +119,11 @@ public enum Categories {
         this.eventPreview = eventPreview;
     }
 
-    public String getEventCategory() {
+    public Categories getEventCategory() {
         return eventCategory;
     }
 
-    public void setEventCategory(String eventCategory) {
+    public void setEventCategory(Categories eventCategory) {
         this.eventCategory = eventCategory;
     }
 

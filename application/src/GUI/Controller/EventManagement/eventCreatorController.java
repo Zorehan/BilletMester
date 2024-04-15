@@ -26,7 +26,7 @@ import java.time.LocalDateTime;
 
 public class eventCreatorController {
     @FXML
-    private ComboBox categoryComboBox;
+    private ComboBox<Events.Categories>categoryComboBox;
     @FXML
     private DatePicker datePicker;
     @FXML
@@ -69,7 +69,7 @@ public class eventCreatorController {
         String bannerImage = bannerImageField.getText();
         String previewImage = previewImageField.getText();
         String description = descriptionField.getText();
-        String eventCategory = categoryComboBox.getValue().toString();
+        Events.Categories eventCategory = categoryComboBox.getValue();
         Integer eventPrice = Integer.valueOf(ticketsAmountField.getText());
 
         // Create the event - -1 is a placeholder id, the actual id gets automatically set in the DB

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="600.0" prefWidth="1200.0" spacing="10.0" stylesheets="@../../Styling/mainView.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.mainViewController">
+<VBox prefHeight="600.0" prefWidth="1200.0" spacing="10.0" stylesheets="@../../Styling/mainView.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.mainViewController">
    <children>
       <!-- Filterknapper forbliver i toppen af VBox -->
       <HBox prefHeight="52.0" prefWidth="1200.0" spacing="5.0">
@@ -20,7 +21,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#filterByCategory" prefHeight="54.0" prefWidth="232.0" text="Thematic Evening">
+            <Button mnemonicParsing="false" onAction="#filterByCategory" prefHeight="25.0" prefWidth="250.0" text="Thematic Evening">
                <font>
                   <Font size="14.0" />
                </font>
@@ -39,10 +40,10 @@
          </children>
       </HBox>
       <!-- ScrollPane for event-widgets -->
-      <ScrollPane fitToWidth="true" prefHeight="541.0" prefWidth="1200.0">
+      <ScrollPane fx:id="scrollPane" fitToWidth="true" prefHeight="596.0" prefWidth="1200.0">
          <content>
             <!-- VBox som container for HBox'es med event-widgets -->
-            <VBox fx:id="eventsContainer" spacing="10" prefWidth="1180.0">
+            <VBox fx:id="eventsContainer" prefWidth="1180.0" spacing="30.0">
                <!-- Dynamisk tilføjede HBox'es med op til 3 event-widgets i hver kommer her -->
             </VBox>
          </content>
