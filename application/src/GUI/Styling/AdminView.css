@@ -55,6 +55,10 @@
 
 /* Button styling, if you have buttons in your ListView cells */
 .button {
-    -fx-background-color: #eb4d4b;
+    -fx-background-color: #ff0000;
     -fx-text-fill: white;
+}
+#outerBox, #outerBox1 {
+    -fx-background-color: lightgray;
+    -fx-background-radius: 40;
 }

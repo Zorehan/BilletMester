@@ -17,7 +17,7 @@ public class Main extends Application {
 
         viewModel.setStage(primaryStage);
 
-        primaryStage.setTitle("Nicklas Gay");
+        primaryStage.setTitle("Billet Mester");
         primaryStage.setScene(new Scene(root));
         primaryStage.setResizable(false);
         primaryStage.show();
