@@ -22,7 +22,7 @@
       <Label layoutX="14.0" layoutY="101.0" text="Lorem ipsum" />
       <Label layoutX="14.0" layoutY="141.0" text="General information:" />
       <Label layoutX="14.0" layoutY="169.0" text="Only for people above the age" />
-      <Label layoutX="13.0" layoutY="186.0" text="of 18, alcoholic bevarages may" />
+      <Label layoutX="13.0" layoutY="186.0" text="of 18, alcoholic beverages may" />
       <Label layoutX="11.0" layoutY="203.0" text="be consumed." />
    </children>
 </Pane>

@@ -20,7 +20,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#filterByCategory" prefHeight="54.0" prefWidth="232.0" text="Thematic evening">
+            <Button mnemonicParsing="false" onAction="#filterByCategory" prefHeight="54.0" prefWidth="232.0" text="Thematic Evening">
                <font>
                   <Font size="14.0" />
                </font>

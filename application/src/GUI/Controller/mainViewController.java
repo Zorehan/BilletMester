@@ -55,7 +55,18 @@ public class mainViewController implements Initializable {
     @FXML
     private void filterByCategory(ActionEvent event) {
         Button btn = (Button) event.getSource();
-        String category = btn.getText();
+        String category = null;
+        //Fordi der ikke kan være spaces i ENUM, skal vi gøre dette hardcoded.
+        switch (btn.getText()) {
+            case "Friday Bar":
+                category = "FridayBar";
+                break;
+            case "Thematic Evening":
+                category = "ThematicEvening";
+                break;
+            default:
+                category = btn.getText();
+        }
         List<Events> filteredEvents = eventModel.getEventsByCategory(category); // dette er din metode til at hente events efter kategori
         displayEvents(filteredEvents);
     }

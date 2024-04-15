@@ -16,10 +16,10 @@ private String eventCategory;
 private int eventPrice;
 
 public enum Categories {
-    FREDAGSBAR,
-    FEST,
-    TEMAAFTEN,
-    MUSIK,
+    FRIDAYBAR,
+    PARTY,
+    THEMACTICEVENING,
+    MUSIC,
     SPORT
 }
 
