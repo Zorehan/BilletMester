@@ -135,6 +135,7 @@ public enum Categories {
         this.eventPrice = eventPrice;
     }
 
+
     @Override
     public String toString() {
         return eventName;

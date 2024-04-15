@@ -1,0 +1,64 @@
+/* General Pane styling */
+.pane {
+    -fx-background-color: #f4f4f4;
+}
+
+/* Header Label Styling */
+.label-header {
+    -fx-font-size: 60px;
+    -fx-text-fill: #333;
+    -fx-font-family: "Arial";
+    -fx-alignment: center;
+}
+
+/* Section Header Labels */
+.label-section-header {
+    -fx-font-size: 24px;
+    -fx-text-fill: #333;
+    -fx-font-family: "Arial";
+    -fx-background-color: #ececec;
+    -fx-padding: 10px;
+    -fx-alignment: center-left;
+}
+
+/* Search Text Field Styling */
+.text-field {
+    -fx-background-color: #ffffff;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-border-color: #ccd6dd;
+    -fx-border-radius: 0;
+    -fx-border-width: 1;
+    -fx-prompt-text-fill: #95a5a6;
+}
+
+/* ListView Styling */
+.list-view {
+    -fx-background-color: #ffffff;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+    -fx-border-color: #ccd6dd;
+    -fx-border-width: 1;
+}
+
+/* ListView cell styling */
+.list-cell {
+    -fx-padding: 10px;
+    -fx-border-color: transparent;
+}
+
+/* Focused and hover styles for TextFields */
+.text-field:focused, .text-field:hover {
+    -fx-border-color: #ccd6dd;
+}
+
+/* Button styling, if you have buttons in your ListView cells */
+.button {
+    -fx-background-color: #ff0000;
+    -fx-text-fill: white;
+}
+#outerBox, #outerBox1 {
+    -fx-background-color: lightgray;
+    -fx-background-radius: 40;
+}
