@@ -43,7 +43,7 @@ public class mainViewController implements Initializable {
 
         eventsList = eventModel.getObservableEvents();
 
-        centerVBox.getChildren().addAll(createEvents(), createEvents());
+        centerVBox.getChildren().addAll(createEvents());
         centerVBox.setSpacing(30);
     }
 

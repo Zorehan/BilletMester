@@ -73,7 +73,7 @@ public class eventCreatorController {
         Integer eventPrice = Integer.valueOf(ticketsAmountField.getText());
 
         // Create the event - -1 is a placeholder id, the actual id gets automatically set in the DB
-        Events event = new Events(-1, title, hostName, eventStart, eventEnd, location, description, notes, bannerImage, previewImage, eventCategory, eventPrice);
+        Events event = new Events(-1, title, hostName, eventStart, eventEnd, location, notes, description, bannerImage, previewImage, eventCategory, eventPrice);
 
         try {
             // Create the event in the database
