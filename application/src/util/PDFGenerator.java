@@ -52,7 +52,6 @@ public class PDFGenerator {
             float startYEventDesc = 600;
             drawWrappedText(contentStream, eventDescription, startXEventDesc, startYEventDesc, 12, page.getMediaBox().getWidth() - 100);
 
-            // Add User Name
             contentStream.beginText();
             contentStream.setFont(new PDType1Font(Standard14Fonts.FontName.HELVETICA), 12);
             float userNameX = page.getMediaBox().getWidth() - 100 - new PDType1Font(Standard14Fonts.FontName.HELVETICA).getStringWidth(userName) / 1000 * 12;
@@ -61,7 +60,6 @@ public class PDFGenerator {
             contentStream.showText("Ticket for: " + userName);
             contentStream.endText();
 
-            // Add Event Location
             contentStream.beginText();
             contentStream.setFont(new PDType1Font(Standard14Fonts.FontName.HELVETICA), 12);
             float eventLocationX = page.getMediaBox().getWidth() - 100 - new PDType1Font(Standard14Fonts.FontName.HELVETICA).getStringWidth(eventLocation) / 1000 * 12;
@@ -129,35 +127,5 @@ public class PDFGenerator {
         }
 
     }
-
-    //DET HER ER TESTKODE SÅ JEG IKKE SKAL FINDE PÅ NOGETHVER GANG JEG GENERERER EN PDF
-    /*
-        public static void main(String args[])
-    {
-        Events event = new Events(
-                1,
-                "Summer Music Festival",
-                "Music Society",
-                LocalDateTime.of(2024, 6, 21, 18, 0),
-                LocalDateTime.of(2024, 6, 23, 23, 59),
-                "City Park",
-                "Join us for the biggest music festival of the year! This three-day event will feature performances by top artists from around the world. Enjoy live music, delicious food, and great company in the beautiful surroundings of City Park. Don't miss out on the fun!",
-                "Please follow the signs to locate different stages and facilities.",
-                "summer_music_banner.jpg",
-                "summer_music_preview.jpg",
-                "Music"
-        );
-
-        User user = new User(
-                1,
-                UserEnum.USER,
-                "John",
-                "Doe",
-                "john_doe",
-                "password123",
-                "john.doe@example.com"
-        );
-        generateBarcodePDF("EstorStorhaha", "Baaaanger", event, user);
-    }
-     */
+    
 }
