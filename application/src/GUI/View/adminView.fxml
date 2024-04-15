@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.adminViewController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="1200.0" stylesheets="@../Styling/AdminView.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.adminViewController">
    <children>
       <Label layoutX="405.0" text="Administration">
          <font>
@@ -23,9 +23,9 @@
             <Font size="40.0" />
          </font>
       </Label>
-      <TextField fx:id="userSearchBar" layoutX="204.0" layoutY="133.0" prefHeight="25.0" prefWidth="213.0" promptText="Search" />
-      <TextField fx:id="eventSearchBar" layoutX="790.0" layoutY="133.0" prefHeight="25.0" prefWidth="213.0" promptText="Search" />
-      <ListView fx:id="userListView" layoutX="187.0" layoutY="158.0" prefHeight="254.0" prefWidth="251.0" />
-      <ListView fx:id="eventListView" layoutX="762.0" layoutY="158.0" prefHeight="254.0" prefWidth="268.0" />
+      <TextField fx:id="userSearchBar" layoutX="204.0" layoutY="133.0" prefHeight="25.0" prefWidth="213.0" promptText="Search" styleClass="text-field" />
+      <TextField fx:id="eventSearchBar" layoutX="790.0" layoutY="133.0" promptText="Search" styleClass="text-field" />
+      <ListView fx:id="userListView" layoutX="187.0" layoutY="158.0" styleClass="list-view" />
+      <ListView fx:id="eventListView" layoutX="762.0" layoutY="158.0" styleClass="list-view" />
    </children>
 </Pane>

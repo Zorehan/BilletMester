@@ -3,26 +3,38 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<?import javafx.scene.control.Button?>
-<BorderPane xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.seeMoreController">
+<BorderPane stylesheets="@../Styling/SeeMoreView.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.seeMoreController">
    <top>
    </top>
    <center>
       <VBox layoutX="14.0" layoutY="14.0" prefHeight="348.0" prefWidth="244.0">
          <children>
-            <Label fx:id="lblLocation" prefHeight="33.0" prefWidth="244.0" text="Location, Venue, Time">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label fx:id="lblDescription" prefHeight="33.0" prefWidth="244.0" text="Event Description">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
+            <Pane prefHeight="271.0" prefWidth="251.0">
+               <children>
+                  <Label fx:id="lblLocation" layoutX="8.0" layoutY="6.0" prefHeight="33.0" prefWidth="244.0" text="Location, Venue, Time">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblDescription" layoutX="8.0" layoutY="32.0" prefHeight="33.0" prefWidth="244.0" text="General information:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="8.0" layoutY="57.0" prefHeight="45.0" prefWidth="327.0" text="Only for people above the age of 18,">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
+                  <Label layoutX="9.0" layoutY="85.0" prefHeight="27.0" prefWidth="412.0" text="alcoholic beverages may be consumed.">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
+               </children>
+            </Pane>
          </children>
       </VBox>
    </center>
@@ -36,12 +48,12 @@
             </Label>
             <HBox>
                <children>
-                  <Label prefHeight="33.0" prefWidth="244.0" text="Price Per Ticket ($):">
+                  <Label prefHeight="33.0" prefWidth="244.0" text="Price Per Ticket (DKK):">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblPrice" prefHeight="33.0" prefWidth="244.0" text="Price">
+                  <Label fx:id="lblPrice" prefHeight="33.0" prefWidth="145.0" text="Price:">
                      <font>
                         <Font size="18.0" />
                      </font>
