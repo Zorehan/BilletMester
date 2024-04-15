@@ -1,61 +1,60 @@
 /* General styling for the entire border pane */
 .border-pane {
-    -fx-background-color: #FFFFFF; /* Adjust the color to match your design */
+    -fx-background-color: #FFFFFF;
 }
 
 /* Styling for labels that act as headers */
 .label-header {
     -fx-font-size: 18px;
     -fx-font-weight: bold;
-    -fx-text-fill: #000000; /* Adjust the color to match your design */
+    -fx-text-fill: #000000;
     -fx-padding: 5px;
 }
 
 /* Styling for general information labels */
 .label-general-info {
     -fx-font-size: 14px;
-    -fx-text-fill: #333333; /* Adjust the color to match your design */
+    -fx-text-fill: #333333;
     -fx-padding: 5px;
 }
 
 /* Styling for the VBox containing the ticket information */
 .vbox-ticket-info {
     -fx-padding: 20px;
-    -fx-spacing: 10px; /* Space between children */
+    -fx-spacing: 10px;
     -fx-alignment: top-right;
 }
 
 /* Styling for HBox that contains ticket price and value */
 .hbox-ticket-price {
-    -fx-spacing: 5px; /* Space between children */
+    -fx-spacing: 5px;
     -fx-alignment: center-left;
 }
 
 /* Styling for the labels within the ticket information HBox */
 .label-ticket-info {
     -fx-font-size: 16px;
-    -fx-text-fill: #000000; /* Adjust the color to match your design */
+    -fx-text-fill: #000000;
 }
 
 /* Additional styling to make it closer to the example image, if needed */
 .vbox-center-pane {
-    -fx-border-color: #000000; /* Border color for the VBox */
+    -fx-border-color: #000000;
     -fx-border-width: 2px;
-    -fx-background-color: #F0F0F0; /* Background color of the VBox */
+    -fx-background-color: #F0F0F0;
     -fx-padding: 10px;
 }
 
 .vbox-right-pane {
-    -fx-border-color: #000000; /* Border color for the VBox */
+    -fx-border-color: #000000;
     -fx-border-width: 2px;
-    -fx-background-color: #F0F0F0; /* Background color of the VBox */
+    -fx-background-color: #F0F0F0;
     -fx-padding: 10px;
 }
 
 /* Apply the styles to specific elements */
 #lblLocation, #lblDescription, .label-ticket-info {
-    -fx-font-family: "Arial"; /* Specify the font family if needed */
-    -fx-text-fill: #000000; /* Color of the text */
+    -fx-font-family: "Arial";
+    -fx-text-fill: #000000;
 }
 
-/* Since you're not using style classes, you might need to apply some of these styles directly in FXML or apply the classes via controller code */
