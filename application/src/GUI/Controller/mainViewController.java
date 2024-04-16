@@ -36,10 +36,6 @@ public class mainViewController implements Initializable {
         displayEvents(eventModel.getObservableEvents());
     }
 
-    /**
-     * Updates the display with a list of events.
-     * @param events The events to display.
-     */
     public HBox createEvents() {
         HBox hBox = new HBox(100);
         hBox.setAlignment(Pos.CENTER);
@@ -88,7 +84,7 @@ public class mainViewController implements Initializable {
 
         for (int i = 0; i < events.size(); i++) {
             if (i % 3 == 0) { // Hver 3. event, start en ny HBox
-                currentHBox = new HBox(10);
+                currentHBox = new HBox(100);
                 currentHBox.setAlignment(Pos.CENTER);
                 eventsContainer.getChildren().add(currentHBox);
             }

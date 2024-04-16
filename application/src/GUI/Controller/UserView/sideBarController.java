@@ -14,10 +14,24 @@ public class sideBarController {
     private ViewModel viewModel = ViewModel.getInstance();
     @FXML
     private void clickAccount(ActionEvent actionEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/UserView/userView.fxml"));
+            Parent userView = loader.load();
+            viewModel.getBorderPane().setCenter(userView);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML
     private void clickTickets(ActionEvent actionEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/UserView/ticketView.fxml"));
+            Parent ticketView = loader.load();
+            viewModel.getBorderPane().setCenter(ticketView);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML

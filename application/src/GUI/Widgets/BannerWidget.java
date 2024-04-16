@@ -24,6 +24,7 @@ import java.time.format.DateTimeFormatter;
 public class BannerWidget extends Pane{
     private final int HEIGHT = 200;
     private final int WIDTH = 1200;
+    private String IMG_URL;
     private Events event;
     private EventModel eventModel = EventModel.getInstance();
     private ViewModel viewModel = ViewModel.getInstance();
@@ -37,6 +38,7 @@ public class BannerWidget extends Pane{
     }
 
     public BannerWidget(Events event) {
+        this.event = event;
         StackPane stackPane = new StackPane();
         stackPane.setPrefHeight(HEIGHT);
         Rectangle clipRect = new Rectangle(WIDTH, HEIGHT);
@@ -82,9 +84,33 @@ public class BannerWidget extends Pane{
     }
 
     public ImageView initBannerImage(Events event){
-        Image imgBanner = new Image(getClass().getResourceAsStream("/images/banner.jpg"));
+        setEventPicture();
+        Image imgBanner = new Image(getClass().getResourceAsStream(IMG_URL));
         ImageView banner = new ImageView(imgBanner);
 
         return banner;
+    }
+
+    public void setEventPicture() {
+        switch(event.getEventCategory()) {
+            case FRIDAYBAR:
+                IMG_URL = "/generic/banner/fridaybar.jpg";
+                break;
+            case PARTY:
+                IMG_URL = "/generic/banner/party.jpg";
+                break;
+            case THEMATICEVENING:
+                IMG_URL = "/generic/banner/themenight.jpg";
+                break;
+            case MUSIC:
+                IMG_URL = "/generic/banner/livemusic.jpg";
+                break;
+            case SPORT:
+                IMG_URL = "/generic/banner/sports.png";
+                break;
+            default:
+                IMG_URL = "/generic/banner/fridaybar.png";
+                break;
+        }
     }
 }

@@ -4,20 +4,20 @@
 
 #btnDeleteUser {
     -fx-background-color: #480404;
-    -fx-background-radius: 50;
+    -fx-background-radius: 10;
     -fx-text-fill: white;
 }
 
 
 #btnSave {
     -fx-background-color: #212758;
-    -fx-background-radius: 50;
+    -fx-background-radius: 10;
     -fx-text-fill: white;
 }
 
 #btnCancel {
     -fx-background-color: #2d2f36;
-    -fx-background-radius: 50;
+    -fx-background-radius: 10;
     -fx-text-fill: white;
 }
 
@@ -43,19 +43,19 @@
 
 #btnAccount {
     -fx-background-color: #212758;
-    -fx-background-radius: 50;
+    -fx-background-radius: 10;
     -fx-text-fill: white;
 }
 
 #btnTickets {
     -fx-background-color: #212758;
-    -fx-background-radius: 50;
+    -fx-background-radius: 10;
     -fx-text-fill: white;
 }
 
 #btnLogOut {
     -fx-background-color: #480404;
-    -fx-background-radius: 50;
+    -fx-background-radius: 10;
     -fx-text-fill: white;
 }
 

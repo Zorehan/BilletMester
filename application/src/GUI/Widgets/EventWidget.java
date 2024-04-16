@@ -47,7 +47,9 @@ public class EventWidget extends Region {
      */
 
     public EventWidget(Events event) {
+        this.event = event;
         this.getStylesheets().add("GUI/Styling/EventWidget.css");
+        setEventPicture();
 
         eventName = event.getEventName();
         eventNotes = event.getEventNotes();
@@ -76,7 +78,6 @@ public class EventWidget extends Region {
         Button button = constructButton();
 
         this.getChildren().addAll(img, button, titlePane, infoPane);
-        this.event = event;
     }
 
     private Button constructButton() {
@@ -179,6 +180,29 @@ public class EventWidget extends Region {
             viewModel.setBanner();
         } catch (IOException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    public void setEventPicture() {
+        switch(event.getEventCategory()) {
+            case FRIDAYBAR:
+                IMG_URL = "/generic/preview/barsmall.png";
+                break;
+            case PARTY:
+                IMG_URL = "/generic/preview/partysmall.png";
+                break;
+            case THEMATICEVENING:
+                IMG_URL = "/generic/preview/themesmall.png";
+                break;
+            case MUSIC:
+                IMG_URL = "/generic/preview/musicsmall.png";
+                break;
+            case SPORT:
+                IMG_URL = "/generic/preview/sportssmall.png";
+                break;
+            default:
+                IMG_URL = "/generic/preview/barsmall.png";
+                break;
         }
     }
 }

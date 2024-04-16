@@ -9,6 +9,8 @@
 .button:hover {
     -fx-background-color: #491717;
 }
-#scrollPane{
+
+#scrollPane {
     -fx-background-color: transparent;
 }
+

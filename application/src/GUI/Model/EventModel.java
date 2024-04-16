@@ -73,7 +73,7 @@ public class EventModel {
 
     public List<Events> getEventsByCategory(String category) {
         return allEvents.stream()
-                .filter(event -> event.getEventCategory().equalsIgnoreCase(category))
+                .filter(event -> event.getEventCategory().toString().equalsIgnoreCase(category))
                 .collect(Collectors.toList());
     }
 }

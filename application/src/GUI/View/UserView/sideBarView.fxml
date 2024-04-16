@@ -11,8 +11,8 @@
          <children>
             <VBox alignment="TOP_CENTER" prefHeight="616.0" prefWidth="200.0" spacing="20.0">
                <children>
-                  <Button fx:id="btnAccount" mnemonicParsing="false" onAction="#clickAccount" prefHeight="85.0" prefWidth="175.0" text="Account" />
-                  <Button fx:id="btnTickets" mnemonicParsing="false" onAction="#clickTickets" prefHeight="85.0" prefWidth="175.0" text="Tickets" />
+                  <Button fx:id="btnAccount" mnemonicParsing="false" onAction="#clickAccount" prefHeight="50.0" prefWidth="175.0" text="Account Settings" />
+                  <Button fx:id="btnTickets" mnemonicParsing="false" onAction="#clickTickets" prefHeight="50.0" prefWidth="175.0" text="My Tickets" />
                </children>
                <VBox.margin>
                   <Insets top="20.0" />
@@ -20,7 +20,7 @@
             </VBox>
             <VBox alignment="BOTTOM_CENTER" prefHeight="89.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="btnLogOut" mnemonicParsing="false" onAction="#clickLogout" prefHeight="42.0" prefWidth="175.0" text="Log Out" />
+                  <Button fx:id="btnLogOut" mnemonicParsing="false" onAction="#clickLogout" prefHeight="50.0" prefWidth="175.0" text="Log Out" />
                </children>
             </VBox>
          </children>

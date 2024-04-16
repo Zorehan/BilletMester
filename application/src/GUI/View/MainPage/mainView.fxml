@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.HBox?>
@@ -21,7 +20,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#filterByCategory" prefHeight="54.0" prefWidth="232.0" text="Thematic Evening">
+            <Button mnemonicParsing="false" onAction="#filterByCategory" prefHeight="25.0" prefWidth="250.0" text="Thematic Evening">
                <font>
                   <Font size="14.0" />
                </font>
@@ -43,7 +42,7 @@
       <ScrollPane fx:id="scrollPane" fitToWidth="true" prefHeight="600.0" prefWidth="1200.0">
          <content>
             <!-- VBox som container for HBox'es med event-widgets -->
-            <VBox fx:id="eventsContainer" prefWidth="1180.0" spacing="10">
+            <VBox fx:id="eventsContainer" prefWidth="1180.0" spacing="30.0">
                <!-- Dynamisk tilføjede HBox'es med op til 3 event-widgets i hver kommer her -->
             </VBox>
          </content>
