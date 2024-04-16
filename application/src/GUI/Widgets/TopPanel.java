@@ -9,6 +9,7 @@ import GUI.Model.ViewModel;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
@@ -31,9 +32,12 @@ public class TopPanel extends HBox {
     public TopPanel() {
         this.setId("topPanel");
         this.getStylesheets().add("/GUI/Styling/BannerAndTopBar.css");
+        this.setWidth(1200);
+        this.setAlignment(Pos.CENTER_RIGHT);
 
         HBox rightBox = initTopPanel();
         HBox leftBox = new HBox();
+        leftBox.setPrefWidth(600);
 
         switch(userModel.getUser().getUserType()) {
             case ADMIN:
@@ -44,7 +48,7 @@ public class TopPanel extends HBox {
                 break;
         }
 
-        if(eventModel.getEvent() != null)
+        if(!viewModel.isMainWindow())
             initBackButton(leftBox);
 
         this.getChildren().addAll(leftBox, rightBox);
@@ -52,10 +56,7 @@ public class TopPanel extends HBox {
 
     public HBox initTopPanel() {
         HBox box = new HBox(5);
-
-        box.setMaxWidth(1200);
-        box.setMinWidth(600);
-        box.setPrefWidth(1200);
+        box.setPrefWidth(600);
         box.setAlignment(Pos.CENTER_RIGHT);
 
         //Setup images for buttons
@@ -113,6 +114,7 @@ public class TopPanel extends HBox {
             Parent userView = loader.load();
             FXMLLoader loader1 = new FXMLLoader(getClass().getResource("/GUI/View/UserView/sideBarView.fxml"));
             Parent sideBarView = loader1.load();
+            viewModel.unsetMainWindow();
 
             viewModel.getBorderPane().setCenter(userView);
             viewModel.getBorderPane().setLeft(sideBarView);
@@ -127,6 +129,7 @@ public class TopPanel extends HBox {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/adminView.fxml"));
             Parent userView = loader.load();
+            viewModel.unsetMainWindow();
 
             viewModel.getBorderPane().setCenter(userView);
             viewModel.setTopBar();
@@ -140,6 +143,8 @@ public class TopPanel extends HBox {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/EventManagement/eventManagerView.fxml"));
             Parent userView = loader.load();
+            viewModel.unsetMainWindow();
+
             viewModel.getBorderPane().setCenter(userView);
             viewModel.setTopBar();
             viewModel.disableSidePanel();
@@ -149,19 +154,20 @@ public class TopPanel extends HBox {
     }
 
     public void initBackButton(HBox box) {
+        box.setAlignment(Pos.CENTER_LEFT);
         Button button = new Button("Back");
+        button.setId("btnBack");
+        button.setPrefWidth(70);
         button.setOnAction(this::clickBack);
+        box.setPadding(new Insets(0, 0, 0, 10));
         box.getChildren().addFirst(button);
     }
 
     private void clickBack(ActionEvent actionEvent) {
         try {
             eventModel.setEvent(null);
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/MainPage/mainView.fxml"));
-            Parent userView = loader.load();
+            viewModel.setMainWindow();
 
-            viewModel.getBorderPane().setCenter(userView);
-            viewModel.setBanner();
             viewModel.disableSidePanel();
         } catch (IOException e) {
             throw new RuntimeException(e);
