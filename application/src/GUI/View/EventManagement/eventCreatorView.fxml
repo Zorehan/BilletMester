@@ -45,7 +45,7 @@
             <Font size="17.0" />
          </font>
       </TextField>
-      <Button fx:id="submitButton" layoutX="799.0" layoutY="306.0" mnemonicParsing="false" onAction="#clickSubmit" text="Submit">
+      <Button fx:id="submitButton" layoutX="778.0" layoutY="483.0" mnemonicParsing="false" onAction="#clickSubmit" text="Submit">
          <font>
             <Font size="18.0" />
          </font>
@@ -90,7 +90,7 @@
             <Font size="17.0" />
          </font>
       </TextField>
-      <TextField fx:id="ticketsAmountField" alignment="CENTER" layoutX="983.0" layoutY="221.0" prefHeight="38.0" prefWidth="73.0" promptText="(DKK)">
+      <TextField fx:id="ticketsAmountField" alignment="CENTER" layoutX="937.0" layoutY="222.0" prefHeight="38.0" prefWidth="73.0" promptText="(DKK)">
          <font>
             <Font size="17.0" />
          </font>
@@ -106,8 +106,8 @@
          </font>
       </Button>
       <DatePicker fx:id="datePicker" layoutX="122.0" layoutY="307.0" prefHeight="36.0" prefWidth="258.0" promptText="Pick Date and Time" />
-      <ComboBox fx:id="categoryComboBox" layoutX="983.0" layoutY="118.0" prefWidth="150.0" promptText="Category" />
-      <Label layoutX="799.0" layoutY="114.0" text="Select category:">
+      <ComboBox fx:id="categoryComboBox" layoutX="799.0" layoutY="116.0" prefWidth="150.0" promptText="Category" />
+      <Label layoutX="803.0" layoutY="79.0" text="Select category:">
          <font>
             <Font size="22.0" />
          </font>
