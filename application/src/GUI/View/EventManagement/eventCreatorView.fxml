@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="rootPane" prefHeight="460.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.EventManagement.eventCreatorController">
+<Pane fx:id="rootPane" prefHeight="460.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.EventManagement.eventCreatorController">
    <children>
       <Label layoutX="421.0" text="Event Creator">
          <font>
@@ -125,22 +125,22 @@
             <Font size="17.0" />
          </font>
       </TextField>
-      <TextField fx:id="ticketsAmountField" alignment="CENTER" layoutX="978.0" layoutY="111.0" prefHeight="36.0" prefWidth="43.0" promptText="($)">
+      <TextField fx:id="ticketsAmountField" alignment="CENTER" layoutX="978.0" layoutY="111.0" prefHeight="38.0" prefWidth="73.0" promptText="(DKK)">
          <font>
             <Font size="17.0" />
          </font>
       </TextField>
-      <TextField fx:id="ticketsFoodAmountField" alignment="CENTER" layoutX="978.0" layoutY="183.0" prefHeight="36.0" prefWidth="43.0" promptText="($)">
+      <TextField fx:id="ticketsFoodAmountField" alignment="CENTER" layoutX="978.0" layoutY="183.0" prefHeight="38.0" prefWidth="73.0" promptText="(DKK)">
          <font>
             <Font size="17.0" />
          </font>
       </TextField>
-      <TextField fx:id="ticketsDrinkAmountField" alignment="CENTER" layoutX="978.0" layoutY="262.0" prefHeight="36.0" prefWidth="43.0" promptText="($)">
+      <TextField fx:id="ticketsDrinkAmountField" alignment="CENTER" layoutX="978.0" layoutY="262.0" prefHeight="38.0" prefWidth="73.0" promptText="(DKK)">
          <font>
             <Font size="17.0" />
          </font>
       </TextField>
-      <TextField fx:id="ticketsDiscountsAmountField" alignment="CENTER" layoutX="978.0" layoutY="341.0" prefHeight="36.0" prefWidth="43.0" promptText="($)">
+      <TextField fx:id="ticketsDiscountsAmountField" alignment="CENTER" layoutX="978.0" layoutY="341.0" prefHeight="38.0" prefWidth="73.0" promptText="(DKK)">
          <font>
             <Font size="17.0" />
          </font>
