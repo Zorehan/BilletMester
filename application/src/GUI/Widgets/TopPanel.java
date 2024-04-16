@@ -31,27 +31,32 @@ public class TopPanel extends HBox {
     public TopPanel() {
         this.setId("topPanel");
         this.getStylesheets().add("/GUI/Styling/BannerAndTopBar.css");
-        initTopPanel();
+
+        HBox rightBox = initTopPanel();
+        HBox leftBox = new HBox();
 
         switch(userModel.getUser().getUserType()) {
             case ADMIN:
-                initAdmin();
+                initAdmin(rightBox);
                 break;
             case EVENTCOORDINATOR:
-                initEventManager();
+                initEventManager(rightBox);
                 break;
         }
 
         if(eventModel.getEvent() != null)
-            initButton();
+            initBackButton(leftBox);
+
+        this.getChildren().addAll(leftBox, rightBox);
     }
 
-    public void initTopPanel() {
-        this.setSpacing(5);
-        this.setMaxWidth(1200);
-        this.setMinWidth(800);
-        this.setPrefWidth(1200);
-        this.setAlignment(Pos.CENTER_RIGHT);
+    public HBox initTopPanel() {
+        HBox box = new HBox(5);
+
+        box.setMaxWidth(1200);
+        box.setMinWidth(600);
+        box.setPrefWidth(1200);
+        box.setAlignment(Pos.CENTER_RIGHT);
 
         //Setup images for buttons
         Image user = new Image(getClass().getResourceAsStream("/icons/userWhite.png"));
@@ -83,22 +88,23 @@ public class TopPanel extends HBox {
         imgSearch.setFitWidth(20);
         searchBarBox.getChildren().addAll(imgSearch, searchBar);
 
-        this.getChildren().addAll(searchBarBox, btnUser);
+        box.getChildren().addAll(searchBarBox, btnUser);
+        return box;
     }
 
-    private void initEventManager() {
+    private void initEventManager(HBox box) {
         Button button = new Button("Event Manager");
         button.setId("userButton");
         button.setOnAction(this::clickEventManager);
-        this.getChildren().addFirst(button);
+        box.getChildren().addFirst(button);
     }
 
 
-    private void initAdmin() {
+    private void initAdmin(HBox box) {
         Button button = new Button("Admin Panel");
         button.setId("userButton");
         button.setOnAction(this::clickAdminView);
-        this.getChildren().addFirst(button);
+        box.getChildren().addFirst(button);
     }
 
     public void clickUser(ActionEvent actionEvent) {
@@ -142,10 +148,10 @@ public class TopPanel extends HBox {
         }
     }
 
-    public void initButton() {
+    public void initBackButton(HBox box) {
         Button button = new Button("Back");
         button.setOnAction(this::clickBack);
-        this.getChildren().addFirst(button);
+        box.getChildren().addFirst(button);
     }
 
     private void clickBack(ActionEvent actionEvent) {
