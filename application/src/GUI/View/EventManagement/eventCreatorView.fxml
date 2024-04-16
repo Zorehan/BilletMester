@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="rootPane" prefHeight="460.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.EventManagement.eventCreatorController">
+<Pane fx:id="rootPane" prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.EventManagement.eventCreatorController">
    <children>
       <Label layoutX="421.0" text="Event Creator">
          <font>
@@ -25,71 +25,36 @@
             <Font size="17.0" />
          </font>
       </TextField>
-      <Label layoutX="463.0" layoutY="153.0" text="Preview Image ">
+      <Label layoutX="465.0" layoutY="186.0" text="Preview Image ">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="previewImageField" layoutX="464.0" layoutY="185.0" prefHeight="38.0" prefWidth="195.0" promptText="Choose File">
+      <TextField fx:id="previewImageField" layoutX="465.0" layoutY="221.0" prefHeight="38.0" prefWidth="195.0" promptText="Choose File">
          <font>
             <Font size="17.0" />
          </font>
       </TextField>
-      <Label layoutX="464.0" layoutY="232.0" text="Description">
+      <Label layoutX="458.0" layoutY="309.0" text="Description">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="descriptionField" alignment="TOP_LEFT" layoutX="464.0" layoutY="264.0" prefHeight="181.0" prefWidth="258.0" promptText="Add text here">
+      <TextField fx:id="descriptionField" alignment="TOP_LEFT" layoutX="458.0" layoutY="341.0" prefHeight="181.0" prefWidth="258.0" promptText="Add text here">
          <font>
             <Font size="17.0" />
          </font>
       </TextField>
-      <Button fx:id="submitButton" layoutX="795.0" layoutY="392.0" mnemonicParsing="false" onAction="#clickSubmit" text="Submit">
+      <Button fx:id="submitButton" layoutX="799.0" layoutY="306.0" mnemonicParsing="false" onAction="#clickSubmit" text="Submit">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Label layoutX="791.0" layoutY="79.0" text="Add Tickets *">
+      <Label layoutX="799.0" layoutY="225.0" text="Tickets Price:">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="ticketsField" alignment="CENTER" layoutX="793.0" layoutY="111.0" prefHeight="36.0" prefWidth="176.0" promptText="Amount">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </TextField>
-      <Label layoutX="792.0" layoutY="151.0" text="Add Food Tickets">
-         <font>
-            <Font size="22.0" />
-         </font>
-      </Label>
-      <TextField fx:id="ticketsFoodField" alignment="CENTER" layoutX="794.0" layoutY="183.0" prefHeight="36.0" prefWidth="176.0" promptText="Amount">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </TextField>
-      <Label layoutX="792.0" layoutY="230.0" text="Add Drink Ticket">
-         <font>
-            <Font size="22.0" />
-         </font>
-      </Label>
-      <TextField fx:id="ticketDrinkField" alignment="CENTER" layoutX="794.0" layoutY="262.0" prefHeight="36.0" prefWidth="176.0" promptText="Amount">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </TextField>
-      <Label layoutX="793.0" layoutY="309.0" text="Add Discount Ticket">
-         <font>
-            <Font size="22.0" />
-         </font>
-      </Label>
-      <TextField fx:id="ticketDiscountField" alignment="CENTER" layoutX="795.0" layoutY="341.0" prefHeight="36.0" prefWidth="176.0" promptText="Amount">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </TextField>
       <Label layoutX="120.0" layoutY="77.0" text="Title *">
          <font>
             <Font size="22.0" />
@@ -100,52 +65,37 @@
             <Font size="17.0" />
          </font>
       </TextField>
-      <Label layoutX="121.0" layoutY="151.0" text="Location *">
+      <Label layoutX="127.0" layoutY="186.0" text="Location *">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="locationField" layoutX="123.0" layoutY="183.0" prefHeight="36.0" prefWidth="258.0" promptText="Enter Location">
+      <TextField fx:id="locationField" layoutX="122.0" layoutY="221.0" prefHeight="36.0" prefWidth="258.0" promptText="Enter Location">
          <font>
             <Font size="17.0" />
          </font>
       </TextField>
-      <Label layoutX="121.0" layoutY="230.0" text="Date and Time *">
+      <Label layoutX="123.0" layoutY="275.0" text="Date and Time *">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label layoutX="120.0" layoutY="307.0" text="Notes *">
+      <Label layoutX="121.0" layoutY="380.0" text="Notes *">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="notesField" alignment="TOP_LEFT" layoutX="122.0" layoutY="339.0" prefHeight="106.0" prefWidth="258.0" promptText="Add text here">
+      <TextField fx:id="notesField" alignment="TOP_LEFT" layoutX="122.0" layoutY="412.0" prefHeight="106.0" prefWidth="258.0" promptText="Add text here">
          <font>
             <Font size="17.0" />
          </font>
       </TextField>
-      <TextField fx:id="ticketsAmountField" alignment="CENTER" layoutX="978.0" layoutY="111.0" prefHeight="38.0" prefWidth="73.0" promptText="(DKK)">
+      <TextField fx:id="ticketsAmountField" alignment="CENTER" layoutX="983.0" layoutY="221.0" prefHeight="38.0" prefWidth="73.0" promptText="(DKK)">
          <font>
             <Font size="17.0" />
          </font>
       </TextField>
-      <TextField fx:id="ticketsFoodAmountField" alignment="CENTER" layoutX="978.0" layoutY="183.0" prefHeight="38.0" prefWidth="73.0" promptText="(DKK)">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="ticketsDrinkAmountField" alignment="CENTER" layoutX="978.0" layoutY="262.0" prefHeight="38.0" prefWidth="73.0" promptText="(DKK)">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="ticketsDiscountsAmountField" alignment="CENTER" layoutX="978.0" layoutY="341.0" prefHeight="38.0" prefWidth="73.0" promptText="(DKK)">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </TextField>
-      <Button fx:id="choosePreviewBtn" layoutX="671.0" layoutY="185.0" mnemonicParsing="false" onAction="#clickPreviewBtn" prefHeight="39.0" prefWidth="89.0" text="Choose">
+      <Button fx:id="choosePreviewBtn" layoutX="671.0" layoutY="221.0" mnemonicParsing="false" onAction="#clickPreviewBtn" prefHeight="39.0" prefWidth="89.0" text="Choose">
          <font>
             <Font size="18.0" />
          </font>
@@ -155,9 +105,9 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <DatePicker fx:id="datePicker" layoutX="120.0" layoutY="269.0" prefHeight="36.0" prefWidth="258.0" promptText="Pick Date and Time" />
-      <ComboBox fx:id="categoryComboBox" layoutX="988.0" layoutY="32.0" prefWidth="150.0" promptText="Category" />
-      <Label layoutX="825.0" layoutY="28.0" text="Select category:">
+      <DatePicker fx:id="datePicker" layoutX="122.0" layoutY="307.0" prefHeight="36.0" prefWidth="258.0" promptText="Pick Date and Time" />
+      <ComboBox fx:id="categoryComboBox" layoutX="983.0" layoutY="118.0" prefWidth="150.0" promptText="Category" />
+      <Label layoutX="799.0" layoutY="114.0" text="Select category:">
          <font>
             <Font size="22.0" />
          </font>
