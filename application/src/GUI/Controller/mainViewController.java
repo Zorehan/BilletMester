@@ -26,25 +26,17 @@ public class mainViewController implements Initializable {
     private VBox centerVBox; // Container for displaying event widgets
 
     private EventModel eventModel; // dette model giver adgang til event data
-    private ViewModel viewModel;
+    private ViewModel viewModel = ViewModel.getInstance();
     List<Events> eventsList = new ArrayList<>();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         eventModel = EventModel.getInstance();
         // Henter og viser alle events ved initialisering
         displayEvents(eventModel.getObservableEvents());
     }
 
-    public HBox createEvents() {
-        HBox hBox = new HBox(100);
-        hBox.setAlignment(Pos.CENTER);
-        for(Events event : eventsList) {
-            EventWidget widget = new EventWidget(event);
-            hBox.getChildren().add(widget);
-        }
-        return hBox;
-    }
 
     /**
      * Handles action events for category buttons to filter events.

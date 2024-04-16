@@ -173,6 +173,7 @@ public class EventWidget extends Region {
 
     public void clickSeeMore(ActionEvent actionEvent) {
         try {
+            viewModel.unsetMainWindow();
             eventModel.setEvent(this.event);
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/seeMoreView.fxml"));
             Parent parent = loader.load();

@@ -17,6 +17,7 @@ public class ViewModel {
     private static ViewModel instance;
     private BorderPane borderPane;
     private Stage stage;
+    private boolean isMainWindow = true;
 
     public ViewModel() {}
 
@@ -55,6 +56,22 @@ public class ViewModel {
         borderPane.setLeft(null);
     }
 
+    public boolean isMainWindow() {
+        return isMainWindow;
+    }
+
+    //Lowkey retarderet måde at gøre det på så ik tænk på det bror
+    public void unsetMainWindow() {
+        isMainWindow = false;
+    }
+
+    public void setMainWindow() throws IOException {
+        isMainWindow = true;
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/MainPage/mainView.fxml"));
+        Parent parent = loader.load();
+        borderPane.setCenter(parent);
+        setBanner();
+    }
     /**
      * Sets the top bar, the default one that is not supposed to be
      * shown on the main page but every other page.
