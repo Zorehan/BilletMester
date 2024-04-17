@@ -186,4 +186,46 @@ public class HttpService {
             throw new RuntimeException(e);
         }
     }
+
+    public String generateBarcodeCustom(Events event)
+    {
+        try{
+
+            String filename = "C" + event.getEventName() + ".png";
+            Random random = new Random();
+
+            String realContent = String.valueOf(random.nextInt(1000000,9999999));
+            HttpClient client = HttpClient.newBuilder()
+                    .sslContext(SSLContext.getDefault())
+                    .build();
+
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create("https://barcodeapi.org/api/" + realContent))
+                    .build();
+
+            HttpResponse<byte[]> response = client.send(request, HttpResponse.BodyHandlers.ofByteArray());
+
+            if(response.statusCode() == 200)
+            {
+                byte[] responseBody = response.body();
+                FileOutputStream outputStream = new FileOutputStream(filename);
+                outputStream.write(responseBody);
+                outputStream.close();
+                System.out.println("Barcody generated sucessfully");
+                return realContent;
+            }
+            else {
+                System.out.println("failed to generate barcode, respone code:" + response.statusCode());
+                return null;
+            }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

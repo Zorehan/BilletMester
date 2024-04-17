@@ -216,7 +216,7 @@ public class eventManagerController implements Initializable {
         String body = "Here is your discount ticket for a half off drink at the bar, at the event:" + currentEvent.getEventName();
 
         String ticketBarcode = httpService.generateBarcodeDrink(currentEvent);
-        Tickets ticket = new Tickets(-1, ticketBarcode, "Drink", ticketBarcode, "");
+        Tickets ticket = new Tickets(-1, ticketBarcode, "Discount", ticketBarcode, "");
         ticketModel.createTicket(ticket);
         Tickets currentTicket = ticketModel.getAllObservableTickets().getLast();
 
@@ -230,6 +230,33 @@ public class eventManagerController implements Initializable {
 
         PDFGenerator pdfGenerator = new PDFGenerator();
         pdfGenerator.generateBarcodePDF("T" + ticket.getTicketQR(), ticket.getTicketQR(), currentEvent, currentUser);
+
+        MailSender mailSender = new MailSender();
+        mailSender.sendEmail(currentUser.getUserEmail(), currentEvent.getEventName() + "Ticket",body, ticket.getTicketQR());
+    }
+
+    public void createTicketCustom(String ticketDescription) throws SQLException {
+        HttpService httpService = new HttpService();
+        Events currentEvent = availableEvents.getSelectionModel().getSelectedItem();
+        User currentUser = listAvailableUsers.getSelectionModel().getSelectedItem();
+
+        String body = ticketDescription;
+
+        String ticketBarcode = httpService.generateBarcodeDrink(currentEvent);
+        Tickets ticket = new Tickets(-1, ticketBarcode, "Custom", ticketBarcode, "");
+        ticketModel.createTicket(ticket);
+        Tickets currentTicket = ticketModel.getAllObservableTickets().getLast();
+
+        UserTickets userTicket = new UserTickets(currentTicket.getId(), currentUser.getId());
+        ticketModel.createUserTickets(userTicket);
+
+        EventTickets eventTickets = new EventTickets(currentTicket.getId(), currentEvent.getId());
+        eventModel.createEventTicket(eventTickets);
+
+        System.out.println(ticket.getTicketQR());
+
+        PDFGenerator pdfGenerator = new PDFGenerator();
+        pdfGenerator.generateBarcodePDF("C" + ticket.getTicketQR(), ticket.getTicketQR(), currentEvent, currentUser);
 
         MailSender mailSender = new MailSender();
         mailSender.sendEmail(currentUser.getUserEmail(), currentEvent.getEventName() + "Ticket",body, ticket.getTicketQR());
