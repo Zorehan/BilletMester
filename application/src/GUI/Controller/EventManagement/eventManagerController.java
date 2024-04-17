@@ -112,30 +112,6 @@ public class eventManagerController implements Initializable {
     @FXML
     private void clickCreateTicket(ActionEvent actionEvent) throws SQLException {
 
-        HttpService httpService = new HttpService();
-        Events currentEvent = availableEvents.getSelectionModel().getSelectedItem();
-        User currentUser = listAvailableUsers.getSelectionModel().getSelectedItem();
-
-        String body = "Here is your entry ticket to the event:" + currentEvent.getEventName();
-
-        String ticketBarcode = httpService.generateBarcode(currentEvent);
-        Tickets ticket = new Tickets(-1, ticketBarcode, "Entry", ticketBarcode, "");
-        ticketModel.createTicket(ticket);
-        Tickets currentTicket = ticketModel.getAllObservableTickets().getLast();
-
-        UserTickets userTicket = new UserTickets(currentTicket.getId(), currentUser.getId());
-        ticketModel.createUserTickets(userTicket);
-
-        EventTickets eventTickets = new EventTickets(currentTicket.getId(), currentEvent.getId());
-        eventModel.createEventTicket(eventTickets);
-
-        System.out.println(ticket.getTicketQR());
-
-        PDFGenerator pdfGenerator = new PDFGenerator();
-        pdfGenerator.generateBarcodePDF("E" + ticket.getTicketQR(), ticket.getTicketQR(), currentEvent, currentUser);
-
-        MailSender mailSender = new MailSender();
-        mailSender.sendEmail(currentUser.getUserEmail(), currentEvent.getEventName() + "Ticket",body, ticket.getTicketQR());
     }
 
     private void initModels() {
@@ -257,6 +233,33 @@ public class eventManagerController implements Initializable {
 
         PDFGenerator pdfGenerator = new PDFGenerator();
         pdfGenerator.generateBarcodePDF("C" + ticket.getTicketQR(), ticket.getTicketQR(), currentEvent, currentUser);
+
+        MailSender mailSender = new MailSender();
+        mailSender.sendEmail(currentUser.getUserEmail(), currentEvent.getEventName() + "Ticket",body, ticket.getTicketQR());
+    }
+
+    private void createEntryTicket() throws SQLException {
+        HttpService httpService = new HttpService();
+        Events currentEvent = availableEvents.getSelectionModel().getSelectedItem();
+        User currentUser = listAvailableUsers.getSelectionModel().getSelectedItem();
+
+        String body = "Here is your entry ticket to the event:" + currentEvent.getEventName();
+
+        String ticketBarcode = httpService.generateBarcode(currentEvent);
+        Tickets ticket = new Tickets(-1, ticketBarcode, "Entry", ticketBarcode, "");
+        ticketModel.createTicket(ticket);
+        Tickets currentTicket = ticketModel.getAllObservableTickets().getLast();
+
+        UserTickets userTicket = new UserTickets(currentTicket.getId(), currentUser.getId());
+        ticketModel.createUserTickets(userTicket);
+
+        EventTickets eventTickets = new EventTickets(currentTicket.getId(), currentEvent.getId());
+        eventModel.createEventTicket(eventTickets);
+
+        System.out.println(ticket.getTicketQR());
+
+        PDFGenerator pdfGenerator = new PDFGenerator();
+        pdfGenerator.generateBarcodePDF("E" + ticket.getTicketQR(), ticket.getTicketQR(), currentEvent, currentUser);
 
         MailSender mailSender = new MailSender();
         mailSender.sendEmail(currentUser.getUserEmail(), currentEvent.getEventName() + "Ticket",body, ticket.getTicketQR());
