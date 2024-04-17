@@ -16,6 +16,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ListView;
 import util.HttpService;
@@ -35,6 +36,9 @@ public class eventManagerController implements Initializable {
     private ListView<User> listAvailableUsers;
 
     @FXML
+    private Button createTicketBtn;
+
+    @FXML
     private CheckBox checkEntry, checkFood, checkDiscount, checkDrink;
 
     private ViewModel viewModel;
@@ -50,6 +54,30 @@ public class eventManagerController implements Initializable {
         getAvailableEvents();
         getAvailableUsers();
         ticketModel = TicketModel.getInstance();
+        createTicketBtn.setDisable(true);
+        checkDiscount.selectedProperty().addListener((observable, oldValue, newValue) -> {
+            updateButtonState(createTicketBtn, checkDiscount, checkEntry, checkDrink, checkFood);
+        });
+        checkEntry.selectedProperty().addListener((observable, oldValue, newValue) -> {
+            updateButtonState(createTicketBtn, checkDiscount, checkEntry, checkDrink, checkFood);
+        });
+        checkDrink.selectedProperty().addListener((observable, oldValue, newValue) -> {
+            updateButtonState(createTicketBtn, checkDiscount, checkEntry, checkDrink, checkFood);
+        });
+        checkFood.selectedProperty().addListener((observable, oldValue, newValue) -> {
+            updateButtonState(createTicketBtn, checkDiscount, checkEntry, checkDrink, checkFood);
+        });
+    }
+
+    private void updateButtonState(Button button, CheckBox... checkBoxes) {
+        boolean disableButton = true;
+        for (CheckBox checkBox : checkBoxes) {
+            if (checkBox.isSelected()) {
+                disableButton = false;
+                break;
+            }
+        }
+        button.setDisable(disableButton);
     }
 
     private void getAvailableEvents() {
@@ -213,7 +241,7 @@ public class eventManagerController implements Initializable {
 
         String body = "Here is your discount ticket for a half off drink at the bar, at the event:" + currentEvent.getEventName();
 
-        String ticketBarcode = httpService.generateBarcodeDrink(currentEvent);
+        String ticketBarcode = httpService.generateBarcodeDiscount(currentEvent);
         Tickets ticket = new Tickets(-1, ticketBarcode, "Discount", ticketBarcode, "");
         ticketModel.createTicket(ticket);
         Tickets currentTicket = ticketModel.getAllObservableTickets().getLast();
