@@ -17,6 +17,7 @@ public class EventModel {
     private EventManager eventManager;
 
     private ObservableList<Events> allEvents;
+    private ObservableList<Events> allUserEvents;
 
     private Events event;
 
@@ -26,6 +27,8 @@ public class EventModel {
 
         allEvents = FXCollections.observableArrayList();
         allEvents.addAll(eventManager.getAllEvents());
+
+        allUserEvents = FXCollections.observableArrayList();
     }
 
     public static EventModel getInstance()
@@ -45,6 +48,12 @@ public class EventModel {
     public void clearObservableEvents()
     {
         allEvents.clear();
+    }
+
+    public ObservableList<Events> getObservableUserEvents(String userId)
+    {
+        allUserEvents.addAll(eventManager.getAllUserEvents(userId));
+        return allUserEvents;
     }
 
     public Events createEvent(Events newEvent)

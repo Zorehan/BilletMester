@@ -54,6 +54,41 @@ public class EventDAO {
         }
     }
 
+    public List<Events> getAllUserEvents(String userId) {
+        ArrayList<Events> allEvents = new ArrayList<>();
+
+        try(Connection conn = databaseConnector.getConnection();
+            Statement stmt = conn.createStatement())
+        {
+            String sql = "SELECT e.* FROM dbo.Events e JOIN dbo.EventTicket et ON e.Id = et.EventId JOIN dbo.Tickets t ON et.TicketId = t.Id JOIN dbo.UserTickets ut ON t.Id = ut.TicketId WHERE ut.UserId = " + userId + ";";
+            ResultSet rs = stmt.executeQuery(sql);
+
+            while(rs.next())
+            {
+                int id = rs.getInt("id");
+                String eventName = rs.getString("eventName");
+                String eventHost = rs.getString("eventHost");
+                Date startSqlDate = rs.getDate("eventStart");
+                Date endSqlDate = rs.getDate("eventEnd");
+                LocalDateTime eventStart = startSqlDate.toLocalDate().atStartOfDay();
+                LocalDateTime eventEnd = endSqlDate.toLocalDate().atStartOfDay();
+                String eventLocation = rs.getString("eventLocation");
+                String eventNotes = rs.getString("eventNotes");
+                String eventGuidance = rs.getString("eventGuidance");
+                String eventBanner = rs.getString("eventBanner");
+                String eventPreview = rs.getString("eventPreview");
+                Events.Categories eventCategory = Events.Categories.valueOf(rs.getString("eventCategory"));
+                Integer eventPrice = rs.getInt("eventPrice");
+
+                Events event = new Events(id,eventName,eventHost,eventStart,eventEnd,eventLocation,eventNotes,eventGuidance,eventBanner,eventPreview, eventCategory, eventPrice);
+                allEvents.add(event);
+            }
+            return allEvents;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public Events createEvent(Events event)
     {
         String sql = "INSERT INTO dbo.Events (eventName, eventHost, eventStart, eventEnd, eventLocation, eventNotes, eventGuidance,eventBanner,eventPreview, eventCategory, eventPrice) VALUES(?,?,?,?,?,?,?,?,?,?,?);";

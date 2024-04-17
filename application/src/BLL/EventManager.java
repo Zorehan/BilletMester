@@ -20,6 +20,11 @@ public class EventManager {
         return eventDAO.getAllEvents();
     }
 
+    public List<Events> getAllUserEvents(String userId)
+    {
+        return eventDAO.getAllUserEvents(userId);
+    }
+
     public Events createEvent(Events event)
     {
         return eventDAO.createEvent(event);
