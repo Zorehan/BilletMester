@@ -1,7 +1,9 @@
 package BLL;
+import BE.EventTickets;
 import BE.Events;
 import DAL.EventDAO;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class EventManager {
@@ -33,4 +35,7 @@ public class EventManager {
         eventDAO.deleteEvent(event);
     }
 
+    public EventTickets createEventTicket(EventTickets eventTickets) throws SQLException {
+        return eventDAO.createEventTicket(eventTickets);
+    }
 }

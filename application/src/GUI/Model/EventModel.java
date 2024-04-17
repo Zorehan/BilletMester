@@ -1,10 +1,12 @@
 package GUI.Model;
 
+import BE.EventTickets;
 import BE.Events;
 import BLL.EventManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -75,5 +77,9 @@ public class EventModel {
         return allEvents.stream()
                 .filter(event -> event.getEventCategory().toString().equalsIgnoreCase(category))
                 .collect(Collectors.toList());
+    }
+
+    public EventTickets createEventTicket(EventTickets eventTickets) throws SQLException {
+        return eventManager.createEventTicket(eventTickets);
     }
 }

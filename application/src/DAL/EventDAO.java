@@ -1,5 +1,6 @@
 package DAL;
 
+import BE.EventTickets;
 import BE.Events;
 
 import javax.xml.transform.Result;
@@ -128,4 +129,21 @@ public class EventDAO {
             throw new RuntimeException(e);
         }
     }
+
+    public EventTickets createEventTicket(EventTickets eventTicket) throws SQLException {
+        String sql = "INSERT INTO dbo.EventTicket (ticketID, eventID) VALUES(?,?);";
+        try(Connection conn = databaseConnector.getConnection();
+        PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS))
+        {
+            stmt.setInt(1, eventTicket.getTicketID());
+            stmt.setInt(2, eventTicket.getEventID());
+
+            stmt.executeUpdate();
+
+            EventTickets newEventTicket = new EventTickets(eventTicket.getTicketID(), eventTicket.getEventID());
+
+            return newEventTicket;
+        }
+    }
+
 }

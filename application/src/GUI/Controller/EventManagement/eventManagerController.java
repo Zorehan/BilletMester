@@ -1,5 +1,6 @@
 package GUI.Controller.EventManagement;
 
+import BE.EventTickets;
 import BE.Events;
 import BE.Tickets;
 import BE.UserTickets;
@@ -110,7 +111,7 @@ public class eventManagerController implements Initializable {
 
     @FXML
     private void clickCreateTicket(ActionEvent actionEvent) throws SQLException {
-
+        
         HttpService httpService = new HttpService();
         Events currentEvent = availableEvents.getSelectionModel().getSelectedItem();
         User currentUser = listAvailableUsers.getSelectionModel().getSelectedItem();
@@ -118,8 +119,13 @@ public class eventManagerController implements Initializable {
         String ticketBarcode = httpService.generateBarcode(currentEvent);
         Tickets ticket = new Tickets(-1, ticketBarcode, "Entry", ticketBarcode, "");
         ticketModel.createTicket(ticket);
-        UserTickets userTicket = new UserTickets(ticket.getId(), currentUser.getId());
+        Tickets currentTicket = ticketModel.getAllObservableTickets().getLast();
+
+        UserTickets userTicket = new UserTickets(currentTicket.getId(), currentUser.getId());
         ticketModel.createUserTickets(userTicket);
+
+        EventTickets eventTickets = new EventTickets(currentTicket.getId(), currentEvent.getId());
+        eventModel.createEventTicket(eventTickets);
 
         System.out.println(ticket.getTicketQR());
 
