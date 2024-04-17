@@ -168,14 +168,17 @@ public class adminViewController implements Initializable {
             // Filter the user list based on the search input
             ObservableList<User> filteredUsers = FXCollections.observableArrayList();
             for (User user : userModel.getObservableUsers()) {
+                // Check if the user's first name, last name, or role matches the search input
                 if (user.getFirstName().toLowerCase().contains(newValue.toLowerCase()) ||
-                        user.getLastName().toLowerCase().contains(newValue.toLowerCase())) {
+                        user.getLastName().toLowerCase().contains(newValue.toLowerCase()) ||
+                        user.getUserType().toString().toLowerCase().equals(newValue.toLowerCase())) {
                     filteredUsers.add(user);
                 }
             }
             // Update the user list view with the filtered list
             userListView.setItems(filteredUsers);
         });
+
     }
 
     private boolean showConfirmationDialog(String message) {
