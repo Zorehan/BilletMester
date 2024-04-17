@@ -111,10 +111,12 @@ public class eventManagerController implements Initializable {
 
     @FXML
     private void clickCreateTicket(ActionEvent actionEvent) throws SQLException {
-        
+
         HttpService httpService = new HttpService();
         Events currentEvent = availableEvents.getSelectionModel().getSelectedItem();
         User currentUser = listAvailableUsers.getSelectionModel().getSelectedItem();
+
+        String body = "Here is your entry ticket to the event:" + currentEvent.getEventName();
 
         String ticketBarcode = httpService.generateBarcode(currentEvent);
         Tickets ticket = new Tickets(-1, ticketBarcode, "Entry", ticketBarcode, "");
@@ -133,7 +135,7 @@ public class eventManagerController implements Initializable {
         pdfGenerator.generateBarcodePDF("E" + ticket.getTicketQR(), ticket.getTicketQR(), currentEvent, currentUser);
 
         MailSender mailSender = new MailSender();
-        mailSender.sendEmail(currentUser.getUserEmail(), currentEvent.getEventName() + "Ticket", ticket.getTicketQR());
+        mailSender.sendEmail(currentUser.getUserEmail(), currentEvent.getEventName() + "Ticket",body, ticket.getTicketQR());
     }
 
     private void initModels() {
@@ -151,4 +153,85 @@ public class eventManagerController implements Initializable {
         alert.showAndWait();
     }
 
+
+    private void createFoodTicket() throws SQLException {
+        HttpService httpService = new HttpService();
+        Events currentEvent = availableEvents.getSelectionModel().getSelectedItem();
+        User currentUser = listAvailableUsers.getSelectionModel().getSelectedItem();
+
+        String body = "Here is your food Ticket to the event:" + currentEvent.getEventName();
+
+        String ticketBarcode = httpService.generateBarcodeFood(currentEvent);
+        Tickets ticket = new Tickets(-1, ticketBarcode, "Food", ticketBarcode, "");
+        ticketModel.createTicket(ticket);
+        Tickets currentTicket = ticketModel.getAllObservableTickets().getLast();
+
+        UserTickets userTicket = new UserTickets(currentTicket.getId(), currentUser.getId());
+        ticketModel.createUserTickets(userTicket);
+
+        EventTickets eventTickets = new EventTickets(currentTicket.getId(), currentEvent.getId());
+        eventModel.createEventTicket(eventTickets);
+
+        System.out.println(ticket.getTicketQR());
+
+        PDFGenerator pdfGenerator = new PDFGenerator();
+        pdfGenerator.generateBarcodePDF("F" + ticket.getTicketQR(), ticket.getTicketQR(), currentEvent, currentUser);
+
+        MailSender mailSender = new MailSender();
+        mailSender.sendEmail(currentUser.getUserEmail(), currentEvent.getEventName() + "Ticket",body, ticket.getTicketQR());
+    }
+
+    private void createDrinkBillet() throws SQLException {
+        HttpService httpService = new HttpService();
+        Events currentEvent = availableEvents.getSelectionModel().getSelectedItem();
+        User currentUser = listAvailableUsers.getSelectionModel().getSelectedItem();
+
+        String body = "Here is your Ticket for a free beer at the event:" + currentEvent.getEventName();
+
+        String ticketBarcode = httpService.generateBarcodeDrink(currentEvent);
+        Tickets ticket = new Tickets(-1, ticketBarcode, "Drink", ticketBarcode, "");
+        ticketModel.createTicket(ticket);
+        Tickets currentTicket = ticketModel.getAllObservableTickets().getLast();
+
+        UserTickets userTicket = new UserTickets(currentTicket.getId(), currentUser.getId());
+        ticketModel.createUserTickets(userTicket);
+
+        EventTickets eventTickets = new EventTickets(currentTicket.getId(), currentEvent.getId());
+        eventModel.createEventTicket(eventTickets);
+
+        System.out.println(ticket.getTicketQR());
+
+        PDFGenerator pdfGenerator = new PDFGenerator();
+        pdfGenerator.generateBarcodePDF("D" + ticket.getTicketQR(), ticket.getTicketQR(), currentEvent, currentUser);
+
+        MailSender mailSender = new MailSender();
+        mailSender.sendEmail(currentUser.getUserEmail(), currentEvent.getEventName() + "Ticket",body, ticket.getTicketQR());
+    }
+
+    private void createTicketDiscount() throws SQLException {
+        HttpService httpService = new HttpService();
+        Events currentEvent = availableEvents.getSelectionModel().getSelectedItem();
+        User currentUser = listAvailableUsers.getSelectionModel().getSelectedItem();
+
+        String body = "Here is your discount ticket for a half off drink at the bar, at the event:" + currentEvent.getEventName();
+
+        String ticketBarcode = httpService.generateBarcodeDrink(currentEvent);
+        Tickets ticket = new Tickets(-1, ticketBarcode, "Drink", ticketBarcode, "");
+        ticketModel.createTicket(ticket);
+        Tickets currentTicket = ticketModel.getAllObservableTickets().getLast();
+
+        UserTickets userTicket = new UserTickets(currentTicket.getId(), currentUser.getId());
+        ticketModel.createUserTickets(userTicket);
+
+        EventTickets eventTickets = new EventTickets(currentTicket.getId(), currentEvent.getId());
+        eventModel.createEventTicket(eventTickets);
+
+        System.out.println(ticket.getTicketQR());
+
+        PDFGenerator pdfGenerator = new PDFGenerator();
+        pdfGenerator.generateBarcodePDF("T" + ticket.getTicketQR(), ticket.getTicketQR(), currentEvent, currentUser);
+
+        MailSender mailSender = new MailSender();
+        mailSender.sendEmail(currentUser.getUserEmail(), currentEvent.getEventName() + "Ticket",body, ticket.getTicketQR());
+    }
 }
