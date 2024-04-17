@@ -65,10 +65,10 @@ public class HttpService {
     public String generateBarcodeDiscount(Events event)
     {
         try{
-            String filename ="T" + event.getEventName() + ".png";
             Random random = new Random();
 
             String realContent = String.valueOf(random.nextInt(1000000,9999999));
+            String filename ="T" + realContent + ".png";
             HttpClient client = HttpClient.newBuilder()
                     .sslContext(SSLContext.getDefault())
                     .build();
@@ -107,10 +107,10 @@ public class HttpService {
     {
         try{
 
-            String filename = "F" + event.getEventName() + ".png";
             Random random = new Random();
 
             String realContent = String.valueOf(random.nextInt(1000000,9999999));
+            String filename ="F" + realContent + ".png";
             HttpClient client = HttpClient.newBuilder()
                     .sslContext(SSLContext.getDefault())
                     .build();
@@ -149,10 +149,10 @@ public class HttpService {
     {
         try{
 
-            String filename = "D" + event.getEventName() + ".png";
             Random random = new Random();
 
             String realContent = String.valueOf(random.nextInt(1000000,9999999));
+            String filename ="D" + realContent + ".png";
             HttpClient client = HttpClient.newBuilder()
                     .sslContext(SSLContext.getDefault())
                     .build();
@@ -191,10 +191,10 @@ public class HttpService {
     {
         try{
 
-            String filename = "C" + event.getEventName() + ".png";
             Random random = new Random();
 
             String realContent = String.valueOf(random.nextInt(1000000,9999999));
+            String filename ="C" + realContent + ".png";
             HttpClient client = HttpClient.newBuilder()
                     .sslContext(SSLContext.getDefault())
                     .build();

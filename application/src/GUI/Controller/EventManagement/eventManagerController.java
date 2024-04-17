@@ -16,6 +16,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ListView;
 import util.HttpService;
 import util.MailSender;
@@ -32,6 +33,9 @@ public class eventManagerController implements Initializable {
     private ListView<Events> availableEvents;
     @FXML
     private ListView<User> listAvailableUsers;
+
+    @FXML
+    private CheckBox checkEntry, checkFood, checkDiscount, checkDrink;
 
     private ViewModel viewModel;
     private UserModel userModel;
@@ -112,6 +116,24 @@ public class eventManagerController implements Initializable {
     @FXML
     private void clickCreateTicket(ActionEvent actionEvent) throws SQLException {
 
+        if(checkFood.isSelected())
+        {
+            createFoodTicket();
+        }
+        if(checkDiscount.isSelected())
+        {
+            createTicketDiscount();
+        }
+
+        if(checkDrink.isSelected())
+        {
+            createDrinkBillet();
+        }
+
+        if(checkEntry.isSelected())
+        {
+            createEntryTicket();
+        }
     }
 
     private void initModels() {
@@ -263,5 +285,8 @@ public class eventManagerController implements Initializable {
 
         MailSender mailSender = new MailSender();
         mailSender.sendEmail(currentUser.getUserEmail(), currentEvent.getEventName() + "Ticket",body, ticket.getTicketQR());
+    }
+
+    public void clickCreateCustomTicket(ActionEvent actionEvent) {
     }
 }

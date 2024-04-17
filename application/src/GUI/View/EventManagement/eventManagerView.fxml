@@ -61,7 +61,7 @@
                   <ListView fx:id="listAvailableUsers" prefHeight="352.0" prefWidth="209.0" />
                   <HBox spacing="30.0">
                      <children>
-                        <Button fx:id="createTicketBtn" disable="true" mnemonicParsing="false" onAction="#clickCreateTicket" prefHeight="20.0" prefWidth="210.0" text="Create Ticket">
+                        <Button fx:id="createTicketBtn" mnemonicParsing="false" onAction="#clickCreateTicket" prefHeight="20.0" prefWidth="210.0" text="Create Ticket">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -115,7 +115,7 @@
                </font>
             </Label>
             <TextField promptText="Enter a Description" />
-            <Button fx:id="btnCustomTicket" disable="true" mnemonicParsing="false" onAction="#clickCreateCustomTicket" prefHeight="25.0" prefWidth="171.0" text="Create Custom Ticket" />
+            <Button fx:id="btnCustomTicket" mnemonicParsing="false" onAction="#clickCreateCustomTicket" prefHeight="25.0" prefWidth="171.0" text="Create Custom Ticket" />
          </children>
          <padding>
             <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
