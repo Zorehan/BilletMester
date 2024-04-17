@@ -24,11 +24,11 @@ public class HttpService {
     public String generateBarcode(Events event)
     {
         try{
-            String filename ="E" + event.getEventName() + ".png";
+
             Random random = new Random();
 
-            String realContent = String.valueOf(random.nextInt(10000000,99999999));
-            
+            String realContent = String.valueOf(random.nextInt(1000000,9999999));
+            String filename ="E" + realContent + ".png";
             HttpClient client = HttpClient.newBuilder()
                     .sslContext(SSLContext.getDefault())
                     .build();

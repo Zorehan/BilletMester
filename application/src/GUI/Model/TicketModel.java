@@ -1,9 +1,12 @@
 package GUI.Model;
 
 import BE.Tickets;
+import BE.UserTickets;
 import BLL.TicketManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+
+import java.sql.SQLException;
 
 public class TicketModel {
 
@@ -40,6 +43,10 @@ public class TicketModel {
             instance = new TicketModel();
         }
         return instance;
+    }
+
+    public UserTickets createUserTickets(UserTickets userTickets) throws SQLException {
+        return ticketManager.createUserTickets(userTickets);
     }
 
     public ObservableList<Tickets> getAllObservableTickets()

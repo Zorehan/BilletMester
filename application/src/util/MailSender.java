@@ -10,7 +10,9 @@ import java.util.Properties;
 
 public class MailSender {
 
-    public void sendEmail(String recipientEmail, String ticketNameSubject, String body, String pdfFilePath) {
+    public void sendEmail(String recipientEmail, String ticketNameSubject, String pdfFilePath) {
+
+        String body = "Thank you for purchasing your ticket from BilletMester!";
         pdfFilePath = pdfFilePath + ".pdf";
         String senderEmail = "mesterbillet@gmail.com";
         String senderPassword = "hftb sywp xshg vrxx";

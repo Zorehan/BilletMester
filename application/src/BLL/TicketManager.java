@@ -1,6 +1,7 @@
 package BLL;
 
 import BE.Tickets;
+import BE.UserTickets;
 import DAL.TicketDAO;
 
 import java.sql.SQLException;
@@ -21,7 +22,11 @@ public class TicketManager {
             throw new RuntimeException(e);
         }
     }
+    public UserTickets createUserTickets(UserTickets userTickets) throws SQLException {
 
+        return ticketDAO.createUserTicket(userTickets);
+
+    }
     public Tickets createTicket(Tickets ticket) {
         return ticketDAO.createTicket(ticket);
     }

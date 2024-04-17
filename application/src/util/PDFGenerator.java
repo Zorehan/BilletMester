@@ -25,6 +25,9 @@ public class PDFGenerator {
             String userName = user.getFullName();
             String eventLocation = event.getEventLocation();
             String realFileName = filename + ".png";
+
+            System.out.println(realFileName);
+
             pdfFilename = pdfFilename + ".pdf";
             PDDocument doc = new PDDocument();
             PDPage page = new PDPage(PDRectangle.A4);
