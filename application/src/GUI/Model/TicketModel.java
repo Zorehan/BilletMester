@@ -49,6 +49,10 @@ public class TicketModel {
         return ticketManager.createUserTickets(userTickets);
     }
 
+    public Tickets getTicketBySpec(int userId, String eventName, String ticketType){
+        return ticketManager.getTicketBySpec(userId, eventName, ticketType);
+    }
+
     public ObservableList<Tickets> getAllObservableTickets()
     {
         return allTickets;

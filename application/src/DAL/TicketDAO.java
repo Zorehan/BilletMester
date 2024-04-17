@@ -68,6 +68,34 @@ public class TicketDAO {
         }
     }
 
+    public Tickets getTicketBySpecs(int userId, String eventName, String ticketType) {
+        String sql = "SELECT t.* FROM dbo.Tickets t JOIN dbo.EventTicket et ON t.Id = et.TicketId JOIN dbo.Events e ON et.EventId = e.Id JOIN dbo.UserTickets ut ON t.Id = ut.TicketId JOIN dbo.Users u ON ut.UserId = u.ID WHERE e.eventName = ? AND u.ID = ? AND t.ticketType = ?;";
+        try(Connection conn = databaseConnector.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql))
+        {
+            stmt.setString(1, eventName);
+            stmt.setInt(2, userId);
+            stmt.setString(3, ticketType);
+
+            try(ResultSet rs = stmt.executeQuery())
+            {
+                if (rs.next()) {
+                    int id = rs.getInt("id");
+                    String ticketTitle = rs.getString("ticketTitle");
+                    String tickType = rs.getString("ticketType");
+                    String ticketQR = rs.getString("ticketQR");
+                    String ticketInformation = rs.getString("ticketInformation");
+
+                    return new Tickets(id, ticketTitle, tickType, ticketQR, ticketInformation);
+                } else {
+                    return null;
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public List<Tickets> getTicketsByUserId(int userId)
     {
         List<Tickets> tickets = new ArrayList<>();

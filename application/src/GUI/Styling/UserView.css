@@ -37,8 +37,8 @@
 }
 
 .button:hover {
-    -fx-scale-y: 110%;
-    -fx-scale-x: 110%;
+    -fx-scale-y: 102%;
+    -fx-scale-x: 102%;
 }
 
 #btnAccount {
@@ -61,5 +61,38 @@
 
 #sidePane {
     -fx-background-color: rgba(240, 240, 240, 1);
+}
+
+#outerBox {
+    -fx-background-color: lightgray;
+    -fx-background-radius: 20;
+}
+
+#btnDownload{
+    -fx-background-color: #212758;
+    -fx-background-radius: 10;
+    -fx-text-fill: white;
+}
+
+#btnDownload:hover {
+    -fx-background-color: #131533;
+}
+
+.list-cell:filled:selected:focused, .list-cell:filled:selected {
+    -fx-background-color: #1a1a75;
+    -fx-text-fill: white;
+}
+
+.list-cell:even {
+    -fx-background-color: white;
+}
+
+.list-cell:odd {
+    -fx-background-color: lightgray;
+}
+
+.list-cell:filled:hover {
+    -fx-background-color: #0f0f46;
+    -fx-text-fill: white;
 }
 

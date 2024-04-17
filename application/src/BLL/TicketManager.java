@@ -27,6 +27,10 @@ public class TicketManager {
         return ticketDAO.createUserTicket(userTickets);
 
     }
+
+    public Tickets getTicketBySpec(int userId, String eventName, String ticketType) {
+        return ticketDAO.getTicketBySpecs(userId, eventName, ticketType);
+    }
     public Tickets createTicket(Tickets ticket) {
         return ticketDAO.createTicket(ticket);
     }
