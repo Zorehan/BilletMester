@@ -13,12 +13,10 @@ import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 public class seeMoreController implements Initializable {
-    public Label lblPrice;
     public VBox vboxTicketInfo;
-    public Label lblInformation;
 
     @FXML
-    private Label lblLocation, lblDescription, lblGeneralInformation;
+    private Label lblLocation, lblDescription, lblInformation, lblPrice;
     @FXML
     private BorderPane borderPane;
     private Events event;
@@ -28,14 +26,14 @@ public class seeMoreController implements Initializable {
         if (event != null) {
             int eventPrice = event.getEventPrice();
             if (eventPrice > 0) {
-                lblPrice.setText("Price per ticket: DKK" + eventPrice);
+                lblPrice.setText("Price per ticket (DKK): " + eventPrice);
                 lblPrice.setVisible(true);
             } else {
                 lblPrice.setVisible(false);
             }
             lblLocation.setText("Location: " + event.getEventLocation());
             lblDescription.setText("Description: " + event.getEventNotes());
-            lblGeneralInformation.setText("General Information: " + event.getEventGuidance());
+            lblInformation.setText(event.getEventGuidance());
         }
     }
 

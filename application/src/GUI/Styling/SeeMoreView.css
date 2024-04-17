@@ -1,51 +1,13 @@
-.root {
-    -fx-font-family: 'Arial';
-    -fx-base: #ffffff;
+#vboxTicketInfo {
+    -fx-background-color: #b2b2b2;
+    -fx-background-radius: 0 0 0 50;
+    -fx-border-radius: 0 0 0 50;
 }
 
-.border-pane {
-    -fx-background-color: #FFFFFF;
-}
-
-.label, .label-header, .label-general-info, .label-ticket-info {
-    -fx-font-family: 'Arial';
-    -fx-font-size: 14px;
-    -fx-text-fill: #000000;
-}
-
-.vbox-ticket-info {
-    -fx-padding: 20px;
-    -fx-spacing: 10px;
-    -fx-alignment: top-right;
-}
-
-.hbox-ticket-price {
-    -fx-spacing: 5px;
-    -fx-alignment: center-left;
-}
-
-.vbox-center-pane {
-    -fx-border-color: #000000;
-    -fx-border-width: 2px;
-    -fx-background-color: #F0F0F0;
-    -fx-padding: 10px;
-}
-
-.vbox-right-pane {
-    -fx-border-color: #000000;
-    -fx-border-width: 2px;
-    -fx-background-color: #F0F0F0;
-    -fx-padding: 10px;
+#infoBox .label {
+    -fx-font-size: 18;
 }
 
 #lblLocation, #lblDescription, .label-ticket-info {
     -fx-text-fill: #000000;
-}
-
-.vbox-ticket-background {
-    -fx-background-color: #9b9b9b;
-    -fx-padding: 20px;
-    -fx-border-color: #9b9b9b;
-    -fx-border-width: 1px;
-    -fx-spacing: 10px;
 }

@@ -4,22 +4,32 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" stylesheets="@../Styling/SeeMoreView.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.seeMoreController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" stylesheets="@../Styling/SeeMoreView.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.seeMoreController">
    <children>
-      <VBox fx:id="vboxTicketInfo" layoutX="838.0" prefHeight="600.0" prefWidth="362.0" spacing="10" styleClass="vbox-ticket-background">
+      <VBox fx:id="vboxTicketInfo" layoutX="879.0" prefHeight="193.0" prefWidth="321.0" spacing="10" styleClass="vbox-ticket-background">
          <children>
-            <Label fx:id="lblPrice" text="Price per ticket" visible="false">
+            <Label fx:id="lblPrice" text="Price per Ticke" visible="false" wrapText="true">
                <VBox.margin>
-                  <Insets top="15.0" />
+                  <Insets left="10.0" top="15.0" />
                </VBox.margin>
+               <font>
+                  <Font size="18.0" />
+               </font>
             </Label>
-            <Label prefHeight="53.0" prefWidth="327.0" text="Tickets are to be purchased at the venue location." />
+            <Label prefHeight="134.0" prefWidth="311.0" text="Tickets are to be purchased at the venue location." wrapText="true">
+               <VBox.margin>
+                  <Insets left="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
          </children>
       </VBox>
-      <VBox layoutX="3.0" layoutY="1.0" prefHeight="600.0" prefWidth="500.0">
+      <VBox fx:id="infoBox" layoutX="3.0" layoutY="1.0" prefHeight="600.0" prefWidth="500.0">
          <children>
-            <Label fx:id="lblLocation" prefHeight="17.0" prefWidth="178.0" text="Location, Venue, Time:" wrapText="true">
+            <Label fx:id="lblLocation" prefHeight="36.0" prefWidth="496.0" text="Location, Venue, Time:" wrapText="true">
                <VBox.margin>
                   <Insets />
                </VBox.margin></Label>
@@ -27,16 +37,19 @@
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin></Label>
-            <Label fx:id="lblGeneralInformation" wrapText="true">
+            <Label fx:id="lblGeneralInformation" text="General Information:" wrapText="true">
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
             </Label>
-            <Label fx:id="lblInformation" wrapText="true">
+            <Label fx:id="lblInformation" text="Filler information yay" wrapText="true">
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin></Label>
          </children>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
       </VBox>
    </children>
    <VBox.margin>
