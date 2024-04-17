@@ -114,7 +114,7 @@
                   <Font size="19.0" />
                </font>
             </Label>
-            <TextField promptText="Enter a Description" />
+            <TextField fx:id="txtCustomTicketDescription" promptText="Enter a Description" />
             <Button fx:id="btnCustomTicket" mnemonicParsing="false" onAction="#clickCreateCustomTicket" prefHeight="25.0" prefWidth="171.0" text="Create Custom Ticket" />
          </children>
          <padding>

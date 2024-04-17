@@ -15,10 +15,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ListView;
+import javafx.scene.control.*;
 import util.HttpService;
 import util.MailSender;
 import util.PDFGenerator;
@@ -40,6 +37,9 @@ public class eventManagerController implements Initializable {
 
     @FXML
     private CheckBox checkEntry, checkFood, checkDiscount, checkDrink;
+
+    @FXML
+    private TextField txtCustomTicketDescription;
 
     private ViewModel viewModel;
     private UserModel userModel;
@@ -268,7 +268,7 @@ public class eventManagerController implements Initializable {
 
         String body = ticketDescription;
 
-        String ticketBarcode = httpService.generateBarcodeDrink(currentEvent);
+        String ticketBarcode = httpService.generateBarcodeCustom(currentEvent);
         Tickets ticket = new Tickets(-1, ticketBarcode, "Custom", ticketBarcode, "");
         ticketModel.createTicket(ticket);
         Tickets currentTicket = ticketModel.getAllObservableTickets().getLast();
@@ -315,6 +315,8 @@ public class eventManagerController implements Initializable {
         mailSender.sendEmail(currentUser.getUserEmail(), currentEvent.getEventName() + "Ticket",body, ticket.getTicketQR());
     }
 
-    public void clickCreateCustomTicket(ActionEvent actionEvent) {
+    public void clickCreateCustomTicket(ActionEvent actionEvent) throws SQLException {
+        String customTicketDescription = txtCustomTicketDescription.getText();
+        createTicketCustom(customTicketDescription);
     }
 }
