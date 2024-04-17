@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" stylesheets="@../Styling/AdminView.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.adminViewController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" stylesheets="@../Styling/AdminView.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.adminViewController">
    <children>
       <Label layoutX="405.0" layoutY="-44.0" text="Administration">
          <font>
@@ -42,7 +42,7 @@
          <children>
             <VBox prefHeight="456.0" prefWidth="298.0">
                <children>
-                  <TextField fx:id="userSearchBar" prefHeight="25.0" prefWidth="213.0" promptText="Search" styleClass="text-field" />
+                  <TextField fx:id="userSearchBar" prefHeight="27.0" prefWidth="200.0" promptText="Search" styleClass="text-field" />
                   <ListView fx:id="userListView" prefHeight="435.0" prefWidth="298.0" styleClass="list-view" />
                </children>
             </VBox>
