@@ -1,27 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" stylesheets="@../Styling/SeeMoreView.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.seeMoreController">
    <children>
-      <VBox layoutX="850.0" prefHeight="450.0" prefWidth="350.0">
+      <VBox fx:id="vboxTicketInfo" layoutX="838.0" prefHeight="600.0" prefWidth="362.0" spacing="10" styleClass="vbox-ticket-background">
          <children>
-            <Label text="Price per ticket" />
-            <Label text="Price per food tickets" />
-            <Label text="Price per drink tickets" />
-            <Label text="Tickets are to be purchased at the venue location" />
+            <Label fx:id="lblPrice" text="Price per ticket" visible="false">
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </Label>
+            <Label prefHeight="53.0" prefWidth="327.0" text="Tickets are to be purchased at the venue location." />
          </children>
       </VBox>
-      <Label layoutX="14.0" layoutY="14.0" prefHeight="17.0" prefWidth="121.0" text="Location, Venue, Time:" />
-      <Label layoutX="14.0" layoutY="42.0" text="Includes:" />
-      <Label layoutX="14.0" layoutY="67.0" text="Lorem ipsum" />
-      <Label layoutX="14.0" layoutY="84.0" text="Lorem ipsum" />
-      <Label layoutX="14.0" layoutY="101.0" text="Lorem ipsum" />
-      <Label layoutX="14.0" layoutY="141.0" text="General information:" />
-      <Label layoutX="14.0" layoutY="169.0" text="Only for people above the age" />
-      <Label layoutX="13.0" layoutY="186.0" text="of 18, alcoholic beverages may" />
-      <Label layoutX="11.0" layoutY="203.0" text="be consumed." />
+      <VBox layoutX="3.0" layoutY="1.0" prefHeight="600.0" prefWidth="500.0">
+         <children>
+            <Label fx:id="lblLocation" prefHeight="17.0" prefWidth="178.0" text="Location, Venue, Time:" wrapText="true">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin></Label>
+            <Label fx:id="lblDescription" text="Includes:" wrapText="true">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin></Label>
+            <Label fx:id="lblGeneralInformation" wrapText="true">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="lblInformation" wrapText="true">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin></Label>
+         </children>
+      </VBox>
    </children>
+   <VBox.margin>
+      <Insets bottom="20" left="20" right="20" top="20" />
+   </VBox.margin>
 </Pane>

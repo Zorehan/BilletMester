@@ -15,7 +15,7 @@ private String eventPreview;
 private Categories eventCategory;
 private int eventPrice;
 
-public enum Categories {
+    public enum Categories {
     FRIDAYBAR,
     PARTY,
     THEMATICEVENING,

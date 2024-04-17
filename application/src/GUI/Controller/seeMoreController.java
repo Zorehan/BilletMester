@@ -1,37 +1,47 @@
 package GUI.Controller;
 
 import BE.Events;
-import javafx.event.ActionEvent;
+import GUI.Model.EventModel;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 
-import java.io.IOException;
+import java.net.URL;
 import java.time.format.DateTimeFormatter;
+import java.util.ResourceBundle;
 
-public class seeMoreController {
+public class seeMoreController implements Initializable {
+    public Label lblPrice;
+    public VBox vboxTicketInfo;
+    public Label lblInformation;
+
     @FXML
-    private Label lblLocation, lblDescription, lblPrice;
+    private Label lblLocation, lblDescription, lblGeneralInformation;
     @FXML
     private BorderPane borderPane;
     private Events event;
+    private EventModel eventModel = EventModel.getInstance();
 
-    // Method to set the event and update the UI accordingly
-    public void setEvent(Events event) {
-        lblLocation.setText(event.getEventLocation() + " " + event.getEventStart().format(DateTimeFormatter.ofPattern("dd. MMMM")));
-        lblDescription.setText(event.getEventNotes());
-        lblPrice.setText(String.valueOf(event.getEventPrice())); // Formater prisen som en streng
-        // Opdater yderligere UI-komponenter efter behov
-    }
-
-    // Update UI elements based on the current event
     private void updateEvent() {
         if (event != null) {
-            lblLocation.setText(event.getEventLocation() + " " + event.getEventStart().format(DateTimeFormatter.ofPattern("dd. MMMM")));
-            lblDescription.setText(event.getEventNotes());
-            lblPrice.setText(String.valueOf(event.getEventPrice())); // Assuming getEventPrice() returns a String
+            int eventPrice = event.getEventPrice();
+            if (eventPrice > 0) {
+                lblPrice.setText("Price per ticket: DKK" + eventPrice);
+                lblPrice.setVisible(true);
+            } else {
+                lblPrice.setVisible(false);
+            }
+            lblLocation.setText("Location: " + event.getEventLocation());
+            lblDescription.setText("Description: " + event.getEventNotes());
+            lblGeneralInformation.setText("General Information: " + event.getEventGuidance());
         }
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        event = eventModel.getEvent();
+        updateEvent();
     }
 }
