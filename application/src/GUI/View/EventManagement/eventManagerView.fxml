@@ -2,8 +2,10 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
@@ -16,7 +18,7 @@
             <Font size="60.0" />
          </font>
       </Label>
-      <VBox fx:id="outerBox" alignment="CENTER" layoutX="276.0" layoutY="112.0">
+      <VBox fx:id="outerBox" alignment="CENTER" layoutX="151.0" layoutY="106.0">
          <children>
             <VBox>
                <children>
@@ -47,7 +49,7 @@
             <Insets bottom="20.0" left="20.0" right="20.0" />
          </padding>
       </VBox>
-      <VBox fx:id="outerBox1" alignment="CENTER" layoutX="674.0" layoutY="112.0">
+      <VBox fx:id="outerBox1" alignment="CENTER" layoutX="475.0" layoutY="106.0">
          <children>
             <VBox alignment="CENTER">
                <children>
@@ -59,7 +61,7 @@
                   <ListView fx:id="listAvailableUsers" prefHeight="352.0" prefWidth="209.0" />
                   <HBox spacing="30.0">
                      <children>
-                        <Button fx:id="createTicketBtn" mnemonicParsing="false" onAction="#clickCreateTicket" prefHeight="20.0" prefWidth="210.0" text="Create Ticket">
+                        <Button fx:id="createTicketBtn" disable="true" mnemonicParsing="false" onAction="#clickCreateTicket" prefHeight="20.0" prefWidth="210.0" text="Create Ticket">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -71,6 +73,52 @@
          </children>
          <padding>
             <Insets bottom="20.0" left="20.0" right="20.0" />
+         </padding>
+      </VBox>
+      <VBox fx:id="outerBox2" alignment="CENTER" layoutX="771.0" layoutY="106.0" prefHeight="162.0" prefWidth="210.0" spacing="10.0">
+         <children>
+            <Label text="Ticket Types">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <CheckBox fx:id="checkEntry" mnemonicParsing="false" prefHeight="32.0" prefWidth="159.0" text="Entry Ticket">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="checkFood" mnemonicParsing="false" prefHeight="32.0" prefWidth="159.0" text="Food Ticket">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="checkDrink" mnemonicParsing="false" prefHeight="27.0" prefWidth="159.0" text="Drinks Ticket">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="checkDiscount" mnemonicParsing="false" prefHeight="32.0" prefWidth="159.0" text="Discount Ticket">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </CheckBox>
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+         </padding>
+      </VBox>
+      <VBox fx:id="outerBox3" alignment="CENTER" layoutX="771.0" layoutY="422.0" prefHeight="118.0" prefWidth="210.0" spacing="5.0">
+         <children>
+            <Label text="Custom Ticket">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <TextField promptText="Enter a Description" />
+            <Button fx:id="btnCustomTicket" disable="true" mnemonicParsing="false" onAction="#clickCreateCustomTicket" prefHeight="25.0" prefWidth="171.0" text="Create Custom Ticket" />
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
          </padding>
       </VBox>
    </children>

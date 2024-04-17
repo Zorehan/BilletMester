@@ -151,4 +151,7 @@ public class eventManagerController implements Initializable {
         alert.showAndWait();
     }
 
+    @FXML
+    private void clickCreateCustomTicket(ActionEvent actionEvent) {
+    }
 }

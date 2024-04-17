@@ -10,9 +10,15 @@
     -fx-background-color: #0f0f46;
 }
 
-#outerBox, #outerBox1 {
+#btnCustomTicket {
+    -fx-background-color: #1a1a75;
+    -fx-background-radius:10;
+    -fx-text-fill: white;
+}
+
+#outerBox, #outerBox1, #outerBox2, #outerBox3 {
     -fx-background-color: lightgray;
-    -fx-background-radius: 40;
+    -fx-background-radius: 20;
 }
 
 .list-cell:filled:selected:focused, .list-cell:filled:selected {
@@ -28,8 +34,20 @@
     -fx-background-color: lightgray;
 }
 
-
 .list-cell:filled:hover {
     -fx-background-color: #0f0f46;
     -fx-text-fill: white;
+}
+
+.check-box .box {
+    -fx-background-color: white;
+}
+
+
+.check-box:selected .mark {
+    -fx-background-color: white;
+}
+
+.check-box:selected .box {
+    -fx-background-color: #1a1a75;
 }
