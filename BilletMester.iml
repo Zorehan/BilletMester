@@ -13,5 +13,6 @@
     <orderEntry type="library" name="javax.mail.api" level="project" />
     <orderEntry type="library" name="sun.mail.javax" level="project" />
     <orderEntry type="library" name="mindrot.jbcrypt" level="project" />
+    <orderEntry type="library" name="junit.jupiter" level="project" />
   </component>
 </module>
